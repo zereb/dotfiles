@@ -1,0 +1,30 @@
+general {
+	output_format = "i3bar"
+	colors = true
+}
+
+order += "volume master"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "wireless wlp3s0"
+order += "time"
+
+cpu_usage {
+	separator = false
+	format = "CPU %usage"
+}
+
+volume master {
+	format = "Volume: %volume"
+}
+
+wireless wlp3s0{
+        format_up = "Wi-Fi: (%quality at %essid) %ip"
+        format_down = "Wi-Fi: down"
+}
+time{
+	format = "%d-%m-%Y %H:%M"
+}
+cpu_temperature 0 {
+        format = "%degrees°C"
+}
