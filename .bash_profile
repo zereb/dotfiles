@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-export PATH=${PATH}:$HOME/.scripts
+export PATH=${PATH}:$HOME/.config/scripts
 export EDITOR="vim"
 export TERMINAL="termite"
 export BROWSER="chromium"
