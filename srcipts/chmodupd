@@ -1,2 +1,0 @@
-#!/bin/bash
-chmod -R -v 755 ~/.scripts/

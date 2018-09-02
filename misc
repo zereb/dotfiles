@@ -1,0 +1,6 @@
+#STAM#
+to instal steam enable multilib:
+    in /etc/pacman.conf uncoment
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
+    
