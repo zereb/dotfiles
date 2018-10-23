@@ -1,5 +1,6 @@
+# vim:filetype=i3
 # i3 config file (v4)
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for Alt
 
 font pango:hack 8
 set $mod Mod4
@@ -10,8 +11,8 @@ set $up k
 set $right l
 
 ## prefferes stuff##
-floating_minimum_size 1200 x 700
-floating_maximum_size 1200 x 700
+#floating_minimum_size 1200 x 700
+#floating_maximum_size 1200 x 700
 
 set $term termite
 set $menu dmenu_run
@@ -33,7 +34,7 @@ exec --no-startup-id feh --bg-fil ~/Wallpapers/wall.jpg
 
     bindsym $mod+Delete reload
     bindsym $mod+Shift+Delete exit
-    bindsym $mod+x exec swaylock -i ~/Wallpapers/lock.jpeg --scaling=fill
+    bindsym $mod+x exec i3lock -i ~/Wallpapers/lock.jpeg 
 
 #wolume controll
     bindsym XF86AudioMute exec termite -e alsamixer
