@@ -34,10 +34,15 @@ gzip
 i3-wm
 i3lock
 i3status
+icedtea-web
 imagemagick
 inetutils
+intellij-idea-community-edition
 iproute2
 iputils
+java-openjfx
+java-openjfx-doc
+java-openjfx-src
 jfsutils
 less
 libcaca
@@ -55,10 +60,11 @@ mdadm
 mupdf
 nano
 neofetch
-netbeans
 netctl
 networkmanager
 noto-fonts
+openjdk8-doc
+openjdk8-src
 package-query
 pacman
 patch
@@ -70,10 +76,10 @@ pkgconf
 poppler
 procps-ng
 psmisc
-pycharm-community-edition
 python-virtualenv
 ranger
 reiserfsprogs
+rp-pppoe
 s-nail
 sed
 shadow
@@ -144,4 +150,5 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yay
+youtube-dl
 youtube-viewer
