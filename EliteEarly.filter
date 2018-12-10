@@ -9,44 +9,6 @@
 # Section: League
 # Bestiary
 
-# Delve
-
-Show
-    BaseType "Timeworn Reliquary Key"
-    SetTextColor 255 0 0
-    SetBackgroundColor 255 255 255
-    SetBorderColor 255 0 0
-    SetFontSize 45
-    PlayAlertSound 2 300
-    MinimapIcon 0 Red Star
-
-Show
-    Class "Currency"
-    BaseType "Aberrant Fossil" "Aetheric Fossil" "Bound Fossil" "Corroded Fossil" "Dense Fossil" "Enchanted Fossil" "Encrusted Fossil" "Fossilised Spirit Shield" "Frigid Fossil" "Gilded Fossil" "Jagged Fossil" "Lucent Fossil" "Metallic Fossil" "Perfect Fossil" "Prismatic Fossil" "Pristine Fossil" "Sanctified Fossil" "Scorched Fossil" "Serrated Fossil"
-    SetTextColor 0 0 0
-    SetBackgroundColor 213 159 0
-    SetBorderColor 0 0 0
-    SetFontSize 45
-    PlayAlertSound 1 300
-
-Show
-    Class "Currency"
-    BaseType "Prime Alchemical Resonator" "Prime Chaotic Resonator"
-    SetTextColor 255 0 0
-    SetBackgroundColor 255 255 255
-    SetBorderColor 255 0 0
-    SetFontSize 45
-    PlayAlertSound 2 300
-
-Show
-    Class "Currency"
-    BaseType "Potent Alchemical Resonator" "Potent Chaotic Resonator" "Powerful Alchemical Resonator" "Powerful Chaotic Resonator" "Primitive Alchemical Resonator" "Primitive Chaotic Resonator"
-    SetTextColor 0 0 0
-    SetBackgroundColor 213 159 0
-    SetBorderColor 0 0 0
-    SetFontSize 45
-    PlayAlertSound 1 300
-
 # bestiary
 
 Show
@@ -146,8 +108,6 @@ Show
     SetBorderColor 255 0 0
     SetFontSize 45
     PlayAlertSound 2 300
-    MinimapIcon 0 Red Diamond
-    PlayEffect Red
 
 Show
     LinkedSockets = 5
@@ -310,7 +270,7 @@ Show
     SetTextColor 170 158 130
     SetFontSize 40
 
-Hide
+Show
     BaseType "Scroll of Wisdom" "Portal Scroll"
     SetTextColor 170 158 130
 
@@ -393,7 +353,7 @@ Show
     SetBackgroundColor 255 255 255
     SetBorderColor 184 218 242
     SetFontSize 45
-    PlayAlertSound 15 200
+    PlayAlertSound 2 200
 
 Show
     Class "Divination Card"
@@ -401,128 +361,7 @@ Show
     SetBackgroundColor 184 218 242
     SetBorderColor 136 136 255
     SetFontSize 41
-    PlayAlertSound 14 300
-
-#===============================================================================================================
-# [[0300]] SHAPER ITEMS
-#===============================================================================================================
-
-Show # $Rare->Shaper->T1 $x->ShaperElder
-    ShaperItem True
-    ItemLevel >= 85
-    Rarity <= Rare
-    BaseType "Sorcerer Gloves" "Lion Pelt" "Hubris Circlet" "Royal Burgonet" "Eternal Burgonet" "Vaal Regalia" "Astral Plate" "Colossal Tower Shield" "Pinnacle Tower Shield" "Mirrored Spiked Shield" "Archon Kite Shield" "Crusader Buckler" "Eclipse Staff" "Harbinger Bow" "Vaal Axe" "Runic Hatchet" "Jewelled Foil" "Spiraled Foil" "Exquisite Blade" "Titan Greaves" "Assassin's Garb" "Harmonic Spirit Shield" "Titanium Spirit Shield"
-    SetTextColor 136 136 255 # TEXTCOLOR: ShaperElder
-    SetBackgroundColor 255 255 255 # BACKGROUND: T0 Drop
-    SetBorderColor 0 129 255 # BORDERCOLOR: Shaper T1
-    SetFontSize 45
-    PlayAlertSound 6 300
-
-Show # $Rare->Shaper->T1 $x->ShaperElder
-    ShaperItem True
-    ItemLevel >= 82
-    Rarity <= Rare
-    Class "Amulets"
-    SetTextColor 136 136 255 # TEXTCOLOR: ShaperElder
-    SetBackgroundColor 255 255 255 # BACKGROUND: T0 Drop
-    SetBorderColor 0 129 255 # BORDERCOLOR: Shaper T1
-    SetFontSize 45
-    PlayAlertSound 6 300
-
-Show # $Rare->Shaper->T1 $x->ShaperElder
-    ShaperItem True
-    ItemLevel >= 85
-    Rarity <= Rare
-    Class "Quivers" "Rings" "Belts"
-    SetTextColor 136 136 255 # TEXTCOLOR: ShaperElder
-    SetBackgroundColor 255 255 255 # BACKGROUND: T0 Drop
-    SetBorderColor 0 129 255 # BORDERCOLOR: Shaper T1
-    SetFontSize 45
-    PlayAlertSound 6 300
-
-Show # $Rare->Shaper->T1 $x->ShaperElder
-    ShaperItem True
-    ItemLevel >= 82
-    Rarity <= Rare
-    BaseType "Bone Helmet" "Two-Stone Ring" "Diamond Ring" "Two-Toned Boots" "Kris" "Void Sceptre" "Opal Sceptre" "Sambar Sceptre" "Gripped Gloves" "Fingerless Silk Gloves" "Spiked Gloves"
-    SetTextColor 136 136 255 # TEXTCOLOR: ShaperElder
-    SetBackgroundColor 255 255 255 # BACKGROUND: T0 Drop
-    SetBorderColor 0 129 255 # BORDERCOLOR: Shaper T1
-    SetFontSize 45
-    PlayAlertSound 6 300
-
-Show # $Rare->Shaper->T1 $x->ShaperElder
-    ShaperItem True
-    BaseType "Opal Ring" "Steel Ring" "Stygian Vise" "Crystal Belt" "Vanguard Belt" "Blue Pearl Amulet" "Marble Amulet"
-    SetTextColor 184 218 242 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 0 0 0 # BACKGROUND: ShaperElder T2
-    SetBorderColor 0 129 255 # BORDERCOLOR: T1 highlight
-    SetFontSize 45
-    PlayAlertSound 3 300
-    MinimapIcon 0 Blue Circle
-
-Show # $Rare->Shaper->T3 $x->ShaperElder
-    ShaperItem True
-    Rarity <= Rare
-    SetTextColor 184 218 242 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 0 0 0 # BACKGROUND: ShaperElder T2
-    SetBorderColor 0 129 255 # BORDERCOLOR: T1 highlight
-    SetFontSize 40
-
-#===============================================================================================================
-# [[0400]] ELDER ITEMS
-#===============================================================================================================
-
-Show # $Rare->Elder->T1 $x->ShaperElder
-    ElderItem True
-    Rarity <= Rare
-    BaseType "Opal Ring" "Steel Ring" "Stygian Vise" "Crystal Belt" "Vanguard Belt" "Blue Pearl Amulet" "Marble Amulet"
-    SetTextColor 163 141 109 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 255 255 255
-    SetBorderColor 200 200 200 # BORDERCOLOR: T1 highlight
-    SetFontSize 45
-    PlayAlertSound 3 300
-
-Show # $Rare->Elder->T1 $x->ShaperElder
-    ElderItem True
-    ItemLevel >= 85
-    Rarity <= Rare
-    Class "Belts" "Rings" "Amulets"
-    SetTextColor 163 141 109 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 255 255 255
-    SetBorderColor 200 200 200 # BORDERCOLOR: T1 highlight
-    SetFontSize 45
-    PlayAlertSound 3 300
-
-Show # $Rare->Elder->T1 $x->ShaperElder
-    ElderItem True
-    ItemLevel >= 82
-    Rarity <= Rare
-    BaseType "Bone Helmet" "Two-Stone Ring" "Diamond Ring" "Two-Toned Boots" "Gripped Gloves" "Fingerless Silk Gloves" "Spiked Gloves"
-    SetTextColor 163 141 109 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 255 255 255
-    SetBorderColor 200 200 200 # BORDERCOLOR: T1 highlight
-    SetFontSize 45
-    PlayAlertSound 3 300
-
-Show # $Rare->Elder->T1 $x->ShaperElder
-    ElderItem True
-    ItemLevel >= 85
-    Rarity <= Rare
-    BaseType "Glorious Plate" "Colossal Tower Shield" "Pinnacle Tower Shield" "Crusader Buckler" "Eclipse Staff" "Vaal Axe" "Jewelled Foil" "Assassin's Garb" "Coronal Maul" "Ambusher" "Lion Pelt" "Hubris Circlet" "Royal Burgonet" "Eternal Burgonet" "Astral Plate" "Titan Gauntlets" "Sorcerer Gloves" "Slink Gloves" "Harmonic Spirit Shield" "Titanium Spirit Shield"
-    SetTextColor 163 141 109 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 255 255 255
-    SetBorderColor 200 200 200 # BORDERCOLOR: T1 highlight
-    SetFontSize 45
-    PlayAlertSound 3 300
-
-Show # $Rare->Elder->T3 $x->ShaperElder
-    ElderItem True
-    Rarity <= Rare
-    SetTextColor 163 141 109 # TEXTCOLOR: Cosmetic White
-    SetBackgroundColor 0 0 0 # BACKGROUND: ShaperElder T2
-    SetBorderColor 200 200 200 # BORDERCOLOR: T1 highlight
-    SetFontSize 40
+    PlayAlertSound 1 300
 
 # Section: Rares
 
@@ -571,7 +410,6 @@ Show
 # Section: New bases
 
 Show
-    ItemLevel >= 75
     BaseType "Opal Ring" "Crystal Belt" "Spiked Gloves" "Gripped Gloves" "Fingerless Silk Gloves" "Vanguard Belt" "Bone Helmet" "Blue Pearl Amulet" "Marble Amulet" "Steel Ring"
     SetBackgroundColor 0 0 0
     SetBorderColor 30 144 255
@@ -588,7 +426,7 @@ Show
 
 # Section: Chance
 
-Hide
+Show
     Rarity = Normal
     BaseType "Sorcerer Boots"
     SetTextColor 255 0 255
@@ -598,13 +436,13 @@ Hide
 
 # Section: Tryash
 
-Hide
+Show
     Class "Utility Flasks"
     SetBackgroundColor 128 128 128
     SetBorderColor 200 200 200
     SetFontSize 40
 
-Hide
+Show
     Quality >= 15
     Class "Life Flasks" "Hybrid Flasks" "Critical Utility Flasks" "Mana Flasks"
     SetBackgroundColor 128 128 128
