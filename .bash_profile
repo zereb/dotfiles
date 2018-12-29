@@ -3,9 +3,9 @@
 #
 
 export PATH=${PATH}:$HOME/.config/scripts
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="termite"
-export BROWSER="chromium"
+export BROWSER="vivaldi-stable"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 #export _JAVA_OPTIONS='-Dsun.java2d.opengl=true'
 #export _JAVA_AWT_WM_NONREPARENTING=1

@@ -2,6 +2,8 @@
 # i3 config file (v4)
 # Logo key. Use Mod1 for Alt
 
+for_window [class="^.*"] border pixel 1
+
 font pango:hack 8
 set $mod Mod4
 # Home row direction keys, like vim
@@ -11,12 +13,10 @@ set $up k
 set $right l
 
 ## prefferes stuff##
-#floating_minimum_size 1200 x 700
-#floating_maximum_size 1200 x 700
 
 set $term termite
-set $menu dmenu_run
-set $browser chromium
+set $menu rofi -show 
+set $browser vivaldi-stable
 set $fm termite -e ranger
 
 ### wallpaper
@@ -26,10 +26,14 @@ exec --no-startup-id feh --bg-fil ~/Wallpapers/wall.jpg
 
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $menu run
+    bindsym $mod+s exec $menu drun
     bindsym $mod+b exec $browser
     bindsym $mod+r exec $fm
-   
+    bindsym $mod+p exec polybar_launch
+    bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
+    bindsym $mod+i exec fontawesome-menu -f /home/oleg/.config/scripts/fa5-icon-list.txt -o '-i -columns 4'
+
 ### key bindings
 
     bindsym $mod+Delete reload
@@ -99,20 +103,12 @@ exec --no-startup-id feh --bg-fil ~/Wallpapers/wall.jpg
     bindsym $mod+g splith
     bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+space floating toggle
 
-    # move focus to the parent container
-    bindsym $mod+a focus parent
-#
 # Scratchpad:
 #
     # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -151,17 +147,18 @@ bindsym $mod+shift+r mode "resize"
 
 #autostart
 #    exec nm-applet
+     exec_always --no-startup-id polybar_launch
      exec transmission-daemon
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    status_command i3status 
-    position top
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#bar {
+# status_command i3status 
+#    position top
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
