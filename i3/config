@@ -20,7 +20,7 @@ set $browser vivaldi-stable
 set $fm termite -e ranger
 
 ### wallpaper
-exec --no-startup-id feh --bg-fil ~/Wallpapers/wall.jpg
+exec ~/.fehbg &
 
 ### executions
 
@@ -39,6 +39,7 @@ exec --no-startup-id feh --bg-fil ~/Wallpapers/wall.jpg
     bindsym $mod+Delete reload
     bindsym $mod+Shift+Delete exit
     bindsym $mod+x exec i3lock -i ~/Wallpapers/lock.jpeg 
+
 
 #wolume controll
     bindsym XF86AudioMute exec termite -e alsamixer
