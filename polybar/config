@@ -52,7 +52,7 @@ font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;3
 
 
 modules-left = i3
-modules-center =  
+modules-center = mpd 
 modules-right = alsa pulseaudio xkeyboard memory cpu temperature wlan eth battery date 
 
 tray-position = right
@@ -148,8 +148,11 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+host = 127.0.0.1
+port = 6600
+interval = 2
 
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 icon-prev = 
 icon-stop =  
 icon-play =  
@@ -158,7 +161,6 @@ icon-next = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true
-
 [module/cpu]
 type = internal/cpu
 interval = 2

@@ -150,6 +150,7 @@ bindsym $mod+shift+r mode "resize"
 #    exec nm-applet
      exec_always --no-startup-id polybar_launch
      exec transmission-daemon
+     exec --no-startup-id mpd
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
