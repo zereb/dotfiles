@@ -14,7 +14,7 @@ set $right l
 
 ## prefferes stuff##
 
-set $term termite
+set $term termite -e fish
 set $menu rofi -show 
 set $browser vivaldi-stable
 set $fm termite -e ranger
