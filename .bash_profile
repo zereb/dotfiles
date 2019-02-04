@@ -1,7 +1,7 @@
 #
 # ~/.bash_profile
 #
-
+fish
 export PATH=${PATH}:$HOME/.config/scripts
 export EDITOR="nvim"
 export TERMINAL="termite"
