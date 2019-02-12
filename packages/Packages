@@ -7,6 +7,7 @@ bash
 binutils
 bison
 bzip2
+cmus
 coreutils
 cryptsetup
 device-mapper
@@ -49,6 +50,7 @@ jre-openjdk
 jsoncpp
 less
 libcaca
+libmad
 libtool
 licenses
 linux
@@ -61,7 +63,6 @@ man-db
 man-pages
 mdadm
 mitmproxy
-mpd
 mpv
 mupdf
 nano
@@ -75,6 +76,7 @@ openjdk-doc
 openjdk-src
 openjdk8-doc
 openjdk8-src
+openssh
 pacman
 pacman-contrib
 pass
@@ -86,6 +88,7 @@ poppler
 procps-ng
 psmisc
 python-virtualenv
+qutebrowser
 ranger
 reiserfsprogs
 rofi
@@ -93,15 +96,14 @@ rp-pppoe
 s-nail
 sed
 shadow
-sonata
 sudo
 syncthing
 sysfsutils
 systemd
 systemd-sysvcompat
 tar
-termite
 texinfo
+thunar
 tor
 transmission-cli
 ttf-font-awesome
@@ -119,6 +121,7 @@ wayland
 which
 xclip
 xf86-video-vesa
+xfce4-terminal
 xfsprogs
 xorg-docs
 xorg-fonts-100dpi

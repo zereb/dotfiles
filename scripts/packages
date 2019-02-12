@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+pacman -Qqe | grep -vx "$(pacman -Qqm)" > ~/dotfiles/packages/Packages
+pacman -Qqm > ~/dotfiles/packages/Packages.aur

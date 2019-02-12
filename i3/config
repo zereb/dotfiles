@@ -14,10 +14,11 @@ set $right l
 
 ## prefferes stuff##
 
-set $term termite -e fish
+set $term xfce4-terminal 
 set $menu rofi -show 
-set $browser vivaldi-stable
-set $fm termite -e ranger
+set $browser qutebrowser 
+set $fm xfce4-terminal -x ranger
+set $exe xfce4-terminal -x 
 
 ### wallpaper
 exec ~/.fehbg &
@@ -42,7 +43,7 @@ exec ~/.fehbg &
 
 
 #wolume controll
-    bindsym XF86AudioMute exec termite -e alsamixer
+   #bindsym XF86AudioMute xfce4-terminal --command=alsamixer
     bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
     bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 
@@ -68,6 +69,11 @@ exec ~/.fehbg &
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+# Resise
+    bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
+    bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
+    bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
+    bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
 #
 # Workspaces:
 #
@@ -151,6 +157,8 @@ bindsym $mod+shift+r mode "resize"
      exec_always --no-startup-id polybar_launch
      exec transmission-daemon
      exec --no-startup-id mpd
+
+for_window [class="mpv"] floating enable
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.

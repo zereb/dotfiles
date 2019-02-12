@@ -5,3 +5,4 @@ set softtabstop=4
 set shiftround
 set autoindent
 set number
+set termguicolors

@@ -52,8 +52,8 @@ font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;3
 
 
 modules-left = i3
-modules-center = mpd 
-modules-right = alsa pulseaudio xkeyboard memory cpu temperature wlan eth battery date 
+modules-center = cmus 
+modules-right = alsa updates xkeyboard memory cpu temperature wlan eth battery date 
 
 tray-position = right
 tray-padding = 1
@@ -239,7 +239,7 @@ bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = -
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -249,23 +249,8 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
-
-format-charging = <ramp-capacity> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-charging-foreground = #00FF00
-
-label-charging = %percentage%
-label-discharging = %percentage%
-
-format-full-prefix = ""
-format-full-prefix-foreground = ${colors.foreground-alt}
-
-ramp-capacity-0 = 
-ramp-capacity-1 =  
-ramp-capacity-2 = 
-ramp-capacity-0-foreground = #FF0000
-
+full-at = 99
+poll-interva = 0
 
 
 [module/temperature]
@@ -289,4 +274,13 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
+[module/updates]
+type = custom/script
+exec = ~/.config/scripts/updates-arch.sh
+interval = 600
+
+[module/cmus]
+type = custom/script
+exec = ~/.config/scripts/poly_cmus.sh
+interval = 5
 ; vim:ft=dosini
