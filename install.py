@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
 import os, errno
+
 HOME = os.getenv("HOME")
 CWD = os.getcwd()
 confpath = HOME + "/.config/"
+
 def symlink_force(target, link):
     try:
         os.symlink(target, link)
@@ -14,7 +16,11 @@ def symlink_force(target, link):
 
 if not os.path.exists(confpath):
     os.makedirs(confpath)
+
 lns = []
+
+
+
 for dir1 in os.listdir():
     if os.path.isdir(dir1):
         if not os.path.exists(confpath+dir1):

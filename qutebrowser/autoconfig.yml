@@ -3,27 +3,5 @@
 
 config_version: 2
 settings:
-  aliases:
-    global:
-      csf: config-write-py --force
-      q: quit
-      w: session-save
-      wq: quit --save
-  auto_save.interval:
-    global: 15000
-  auto_save.session:
-    global: false
-  backend:
-    global: webengine
-  bindings.commands:
-    global:
-      normal:
-        X: spawn mpv '{url}'
-        x: hint links spawn mpv '{hint-url}'
-  editor.command:
-    global:
-    - nvim
-    - -f
-    - '{file}'
-    - -c
-    - normal {line}G{column0}l
+  content.proxy:
+    global: system

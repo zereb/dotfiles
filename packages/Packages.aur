@@ -1,8 +1,1 @@
-pcmciautils
-polybar-git
-rofi-calc
-rofi-dmenu
-tor-browser
-vivaldi
-vivaldi-codecs-ffmpeg-extra-bin
-yay
+/home/oleg/dotfiles/packages/Packages.aur
