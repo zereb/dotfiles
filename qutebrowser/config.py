@@ -58,7 +58,7 @@ c.qt.low_end_device_mode = 'auto'
 # as it can cause issues with some bitmap fonts. As an alternative to
 # this, it's possible to set font sizes and the `zoom.default` setting.
 # Type: Bool
-c.qt.highdpi = True
+c.qt.highdpi = False 
 
 # Time interval (in milliseconds) between auto-saves of
 # config/cookies/etc.
@@ -130,7 +130,12 @@ c.scrolling.smooth = False
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://www.google.com/search?q={}', 'git': 'https://github.com/search?q={}', 'aw': 'https://wiki.archlinux.org/index.php?search={}'}
+c.url.searchengines = {
+        'DEFAULT': 'https://www.google.com/search?q={}',
+        'git': 'https://github.com/search?q={}', 
+        'aw': 'https://wiki.archlinux.org/index.php?search={}',
+        'slant': 'https://www.slant.co/search?query={}'
+        }
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
@@ -183,7 +188,7 @@ c.fonts.statusbar = 'bold 9pt hack'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = 'bold 1hack'
+c.fonts.tabs = 'bold hack'
 
 # Font family for standard fonts.
 # Type: FontFamily
@@ -219,12 +224,12 @@ c.fonts.web.size.default_fixed = 12
 
 # Hard minimum font size (in pixels).
 # Type: Int
-c.fonts.web.size.minimum = 8
+c.fonts.web.size.minimum = 12
 
 # Minimum logical font size (in pixels) that is applied when zooming
 # out.
 # Type: Int
-c.fonts.web.size.minimum_logical = 8
+c.fonts.web.size.minimum_logical = 10
 
 # Bindings for normal mode
 config.bind('x', "hint links spawn mpv '{hint-url}'")

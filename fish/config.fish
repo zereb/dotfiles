@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set -xU PATH $PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools/
+set  PATH $PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools/
 set -xU EDITOR "nvim"
 set -xU TERMINAL "xfce4-stable"
 set -xU BROWSER "qutebrowser"

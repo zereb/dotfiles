@@ -46,14 +46,14 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = fixed:pixelsize=8;1
+font-0 = hack:pixelsize=8;1
 font-1 = FontAwesome 5 Free:size=8:style=Solid;3
 font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;3
 
 
 modules-left = i3
 modules-center = cmus 
-modules-right = alsa updates xkeyboard memory cpu temperature wlan eth battery date 
+modules-right = alsa updates xkeyboard cpu temperature wlan eth battery date 
 
 tray-position = right
 tray-padding = 1
@@ -142,25 +142,8 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-; Separator in between workspaces
-; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-host = 127.0.0.1
-port = 6600
-interval = 2
-
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-icon-prev = 
-icon-stop =  
-icon-play =  
-icon-pause = 
-icon-next =  
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -250,7 +233,7 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 99
-poll-interva = 0
+poll-interval = 2
 
 
 [module/temperature]
