@@ -14,5 +14,10 @@ endif
 
 call plug#begin('~/.config/nvim/plugged/')
     Plug 'elzr/vim-json'
-
+    Plug 'potatoesmaster/i3-vim-syntax'
+    Plug 'vim-airline/vim-airline'
+    Plug 'dbeniamine/cheat.sh-vim'
+    Plug 'matt-deacalion/vim-systemd-syntax'
 call plug#end()
+
+

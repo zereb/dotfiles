@@ -134,7 +134,8 @@ c.url.searchengines = {
         'DEFAULT': 'https://www.google.com/search?q={}',
         'git': 'https://github.com/search?q={}', 
         'aw': 'https://wiki.archlinux.org/index.php?search={}',
-        'slant': 'https://www.slant.co/search?query={}'
+        'slant': 'https://www.slant.co/search?query={}',
+        'cpu': 'https://www.passmark.com/search/zoomsearch.php?zoom_query={}'
         }
 
 # Default monospace fonts. Whenever "monospace" is used in a font

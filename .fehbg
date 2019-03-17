@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/oleg/Pictures/Wallpapers/Art/art_15.png' 
+feh --bg-fill '/home/oleg/Pictures/Wallpapers/Etc/an_era_gone_by.jpg' 

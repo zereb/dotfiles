@@ -14,24 +14,31 @@ set $right l
 
 ## prefferes stuff##
 
-set $term xfce4-terminal 
+set $term alacritty 
 set $menu rofi -show 
 set $browser qutebrowser 
-set $fm xfce4-terminal -x ranger
-set $exe xfce4-terminal -x 
 
 ### wallpaper
 exec ~/.fehbg &
 
-### executions
 
+### drop down windows
+    for_window [title="dropdown_*"] floating enable
+    for_window [title="dropdown_*"] move scratchpad
+    for_window [title="dropdown_*"] scratchpad show
+    for_window [title="dropdown_*"] sticky enable
+    for_window [title="dropdown_*"] resize set 1366 px 400 px
+    for_window [title="dropdown_*"] move position 0 px 0 px
+
+### executions
+    bindsym $mod+grave exec $term -t dropdown_
+    bindsym grave [title="dropdown_*"] scratchpad show
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
     bindsym $mod+d exec $menu run
     bindsym $mod+s exec $menu drun
     bindsym $mod+b exec $browser
-    bindsym $mod+r exec $fm
-    bindsym $mod+p exec polybar_launch
+    bindsym $mod+r exec $term -e ranger
     bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
     bindsym $mod+i exec fontawesome-menu -f /home/oleg/.config/scripts/fa5-icon-list.txt -o '-i -columns 4'
 
@@ -43,7 +50,7 @@ exec ~/.fehbg &
 
 
 #wolume controll
-   #bindsym XF86AudioMute xfce4-terminal --command=alsamixer
+    bindsym XF86AudioMute $term -e alsamixer
     bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
     bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 
@@ -155,20 +162,7 @@ bindsym $mod+shift+r mode "resize"
 #autostart
 #    exec nm-applet
      exec_always --no-startup-id polybar_launch
-     exec transmission-daemon
-     exec --no-startup-id mpd
+     exec --no-startup-id transmission-daemon
 
 for_window [class="mpv"] floating enable
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-# status_command i3status 
-#    position top
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
 
