@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 env -i HOME=$HOME dash -l -c printenv | sed -e '/PATH/s/:/ /g;s/=/ /;s/^/set -x /' | source
-set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms $PATH
+set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ $PATH
 set -xU EDITOR "nvim"
 set -xU TERMINAL "alacritty"
 set -xU FILE "ranger"
