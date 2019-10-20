@@ -1,12 +1,11 @@
-android-studio
 ant-dracula-gtk-theme
 apkstudio-git
-java-openjfx-bin
+jdk-adoptopenjdk
+leiningen
 parsec-bin
 polybar-git
 python-frida
 rofi-calc
 rofi-dmenu
 tealdeer
-tor-browser
 yay

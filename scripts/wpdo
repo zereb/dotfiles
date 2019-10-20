@@ -1,4 +1,4 @@
-#!/usr/bin/java --source 11
+#!/usr/bin/java --source 12
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
@@ -7,22 +7,22 @@ public class wpdo {
 
     public static void main(String[] args) {
         String response = "";
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()){
-            String line = scanner.nextLine();
-            try {
-                Process process = Runtime.getRuntime().exec("pacman -Qs " + line);
-                BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-                String s = null;
-                while ((s = stdInput.readLine()) != null)
-                    response = response.concat(s + "\n");
-                while ((s = stdError.readLine()) != null)
-                    response = response.concat(s + "\n");
-                System.out.println(response);
-            }catch (Exception e){
-                System.out.println(e.toString());
-            }
+        StringBuilder data = new StringBuilder();
+        for(String arg: args)
+            data.append(arg+" ");
+        String line = data.toString().strip();
+        try {
+            Process process = Runtime.getRuntime().exec("pacman -Qs " + line);
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+            String s = null;
+            while ((s = stdInput.readLine()) != null)
+                response = response.concat(s + "\n");
+            while ((s = stdError.readLine()) != null)
+                response = response.concat(s + "\n");
+            System.out.println(response);
+        }catch (Exception e){
+            System.out.println(e.toString());
         }
     }
 }

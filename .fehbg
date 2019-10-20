@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill '/home/oleg/Pictures/Wallpapers/Etc/an_era_gone_by.jpg' 
+feh --no-fehbg --bg-fill '/home/oleg/Pictures/Wallpapers/Etc/an_era_gone_by.jpg' 
