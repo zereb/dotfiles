@@ -8,3 +8,4 @@ config_version: 2
 settings:
   content.notifications:
     https://music.yandex.ru: false
+    https://www.reddit.com: false
