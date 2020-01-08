@@ -1,7 +1,7 @@
 #show-read-feeds no
 auto-reload yes
-
-#external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+ssl-verifyhost no
+ssl-verifypeer no
 
 bind-key j down
 bind-key k up
@@ -30,5 +30,5 @@ color info red black bold
 color article cyan default
 
 browser qutebrowser 
-macro , open-in-browser
+macro b open-in-browser
 macro v set browser "setsid nohup mpv"; open-in-browser ; set browser qutebrowser

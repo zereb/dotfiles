@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged/')
     Plug 'dbeniamine/cheat.sh-vim'
     Plug 'matt-deacalion/vim-systemd-syntax'
     Plug 'udalov/kotlin-vim'
+    Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
 

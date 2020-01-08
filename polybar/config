@@ -51,7 +51,8 @@ font-1 = FontAwesome 5 Free:size=8:style=Solid;3
 font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;3
 
 
-modules-left = i3
+;modules-left = i3
+modules-left = bspwm
 modules-center = cmus 
 modules-right = alsa updates xkeyboard cpu temperature wlan eth battery date 
 
@@ -59,8 +60,8 @@ tray-position = right
 tray-padding = 1
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
-wm-restack = i3
+wm-restack = bspwm
+;wm-restack = i3
 
 ;override-redirect = true
 
