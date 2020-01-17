@@ -1,14 +1,22 @@
 #!/usr/bin/fish
-env -i HOME=$HOME dash -l -c printenv | sed -e '/PATH/s/:/ /g;s/=/ /;s/^/set -x /' | source
+#env -i HOME=$HOME dash -l -c printenv | sed -e '/PATH/s/:/ /g;s/=/ /;s/^/set -x /' | source
 set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ $PATH
-set -xU EDITOR "nvim"
-set -xU TERMINAL "alacritty"
-set -xU FILE "ranger"
-set -xU BROWSER "qutebrowser"
-set -xU _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
-#set -xU PATH_TO_FX "~/Documents/.SDK/javafx-sdk-12.0.1/"
-set -xU ANDROID_HOME "~/Android/Sdk"
-set -xU XDG_CONFIG_HOME $HOME/.config/
+set -xg EDITOR "nvim"
+set -xg TERMINAL "alacritty"
+set -xg FILE "ranger"
+set -xg BROWSER "/usr/bin/qutebrowser"
+set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
+#set -g  PATH_TO_FX "~/Documents/.SDK/javafx-sdk-12.0.1/"
+set -xg ANDROID_HOME "~/Android/Sdk"
+set -xg XDG_CONFIG_HOME $HOME/.config/
+set -xg GNUPGHOME $XDG_CONFIG_HOME/gnupg
+set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
+set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
+set -xg CARGO_HOME $XDG_DATA_HOME/cargo
+set -xg GRADLE_USER_HOME "~/.config/gradle"
+#set -xg DOOMDIR "~/.config/doom.d"
+xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
+xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
