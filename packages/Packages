@@ -10,6 +10,7 @@ binutils
 blender
 bspwm
 bzip2
+clang
 clojure
 code
 coreutils
@@ -20,7 +21,9 @@ dex
 dhcpcd
 diffutils
 e2fsprogs
+emacs
 fakeroot
+fd
 feh
 ffmpegthumbnailer
 file
@@ -124,6 +127,7 @@ systemd
 systemd-sysvcompat
 tar
 texinfo
+thunar
 tor
 transmission-cli
 ttf-font-awesome
@@ -138,6 +142,7 @@ vi
 w3m
 wayland
 which
+wmname
 xclip
 xf86-video-vesa
 xfsprogs
@@ -158,5 +163,6 @@ xorg-xmodmap
 xorg-xprop
 xorg-xrandr
 xorg-xrdb
+xorg-xsetroot
 xorg-xwininfo
 youtube-dl
