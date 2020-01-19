@@ -1,10 +1,6 @@
 #! /bin/sh
 #### AUTOSTART ####
-xsetroot -cursor_name left_ptr &
-polybar_launch &
-transmission-daemon &
-wmname LG3D &
-~/.fehbg &
+autostart &
 
 #### MONITORS ####
 bspc monitor --reset-desktops 1 2 3 4 5 6 7 8 9 10

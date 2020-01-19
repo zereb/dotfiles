@@ -25,7 +25,10 @@ if status --is-login
 end
 alias vim "nvim"
 alias cat "bat"
-alias todo "vim ~/Documents/misc/todo"
+#alias todo "vim ~/Documents/misc/todo"
+alias todo "emacs ~/Documents/misc/todo.org"
 alias vimrc "vim ~/dotfiles/nvim/init.vim"
 alias fishrc "vim ~/dotfiles/fish/config.fish"
 alias i3rc "vim ~/dotfiles/i3/config"
+alias scriptch "chmod -R -v 755 ~/.config/scripts/"
+alias pswd "java -jar /home/oleg/Programms/pswd.jar"

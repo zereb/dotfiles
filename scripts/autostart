@@ -1,0 +1,9 @@
+#! /bin/sh
+#### AUTOSTART ####
+sxhkd &
+xsetroot -cursor_name left_ptr &
+polybar_launch &
+transmission-daemon &
+wmname LG3D &
+dunst &
+~/.fehbg &
