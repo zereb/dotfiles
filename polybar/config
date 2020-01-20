@@ -41,9 +41,9 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 2
-padding-right = 0
+padding-right = 2
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 1
 
 font-0 = hack:pixelsize=8;1
@@ -81,7 +81,7 @@ format-background = ${colors.background}
 format-foreground = #fff
 format-padding = 1
 label = %title%
-label-maxlen = 40
+label-maxlen = 35
 label-empty = bspwm
 label-empty-foreground = #707880
 
@@ -164,6 +164,8 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%
+label-indicator-padding = 0
+label-indicator-margin = 0
 
 
 
@@ -293,6 +295,7 @@ interval = 2
 format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <bar-progress> <label-time>  <label-song>
 
 label-song =  %artist% - %title%
+label-song-maxlen = 35
 label-offline =  mpd is offline
 icon-play = 
 icon-pause =
@@ -306,7 +309,7 @@ toggle-on-foreground = #ff
 toggle-off-foreground = #55
 
 ; Only applies if <bar-progress> is used
-bar-progress-width = 30
+bar-progress-width = 20
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = -
