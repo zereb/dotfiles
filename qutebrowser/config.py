@@ -2,7 +2,17 @@
 # Documentation:
 #   qute://help/configuring.html
 #   qute://help/settings.html
+import dracula.draw
 
+# Load existing settings made via :set
+config.load_autoconfig()
+
+dracula.draw.blood(c, {
+    'spacing': {
+        'vertical': 2,
+        'horizontal': 8
+    }
+})
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
