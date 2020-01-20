@@ -145,7 +145,7 @@ startup_notification = false
 dmenu = /usr/bin/dmenu -p dunst:
 
 # Browser for opening urls in context menu.
-browser = /usr/bin/firefox -new-tab
+browser = /usr/bin/qutebrowser
 
 # Align icons left/right/off
 icon_position = off
@@ -154,8 +154,7 @@ max_icon_size = 80
 # Paths to default icons.
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
-frame_width = 3
-frame_color = "#8EC07C"
+frame_width = 1
 
 [shortcuts]
 
@@ -176,36 +175,59 @@ close_all = ctrl+shift+space
 history = ctrl+grave
 
 # Context menu.
-context = ctrl+shift+period
 
-[urgency_low]
+#
+##[urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#3B7C87"
-foreground = "#3B7C87"
-background = "#191311"
+##frame_color = "#3B7C87"
+##foreground = "#3B7C87"
+##background = "#191311"
 #background = "#2B313C"
-timeout = 4
+##timeout = 4
+
+##[urgency_normal]
+##frame_color = "#5B8234"
+##foreground = "#5B8234"
+##background = "#191311"
+#background = "#2B313C"
+##timeout = 6
+
+##[urgency_critical]
+##frame_color = "#B7472A"
+##foreground = "#B7472A"
+##background = "#191311"
+#background = "#2B313C"
+##timeout = 8
+
+
+
+
+## DRACULA
+
+frame_color = "#e9e9f4"
+separator_color = "#e9e9f4"
+
+[urgency_low]
+    msg_urgency = low
+    background = "#3a3c4e"
+    foreground = "#4d4f68"
 
 [urgency_normal]
-frame_color = "#5B8234"
-foreground = "#5B8234"
-background = "#191311"
-#background = "#2B313C"
-timeout = 6
+    msg_urgency = normal
+    background = "#626483"
+    foreground = "#e9e9f4"
 
 [urgency_critical]
-frame_color = "#B7472A"
-foreground = "#B7472A"
-background = "#191311"
-#background = "#2B313C"
-timeout = 8
+    msg_urgency = critical
+    background = "#ea51b2"
+    foreground = "#f1f2f8"
 
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 # Messages can be matched by "appname", "summary", "body", "icon", "category",
-# "msg_urgency" and you can override the "timeout", "urgency", "foreground",
+# "msg_urgen/qu you can override the "timeout", "urgency", "foreground",
 # "background", "new_icon" and "format".
 # Shell-like globbing will get expanded.
 #
@@ -219,8 +241,7 @@ timeout = 8
 # NOTE: if you don't want a notification to be displayed, set the format
 # to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
-# to find fitting options for rules.
-
+# to find fitting options for/qu
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh
@@ -235,7 +256,7 @@ timeout = 8
 #    format = ""
 
 #[signed_on]
-#    appname = Pidgin
+#    appname/qu n
 #    summary = "*signed on*"
 #    urgency = low
 #
@@ -250,7 +271,7 @@ timeout = 8
 #    urgency = critical
 #
 #[twitter]
-#    appname = Pidgin
+#    a/qu Pidgin
 #    summary = *twitter.com*
 #    urgency = normal
 #

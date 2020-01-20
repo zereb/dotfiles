@@ -2,10 +2,10 @@
 #### AUTOSTART ####
 sxhkd &
 xsetroot -cursor_name left_ptr &
-polybar_launch &
 transmission-daemon &
+polybar_launch &
 wmname LG3D &
+~/.fehbg &
 dunst &
 xautolock -locker "i3lock -i ~/Pictures/lock.png" &
-compton
-~/.fehbg &
+compton &

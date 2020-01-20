@@ -43,21 +43,20 @@ border-color = #00000000
 padding-left = 0
 padding-right = 1
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 1
 
 font-0 = hack:pixelsize=8;1
 font-1 = FontAwesome 5 Free:size=8:style=Solid;3
 font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;3
 
-
 ;modules-left = i3
-modules-left = bspwm
+modules-left = sysmenu bspwm
 modules-center = title
-modules-right = alsa updates xkeyboard cpu temperature wlan eth battery date 
+modules-right = alsa updates xkeyboard cpu temperature battery date
 
 tray-position = right
-tray-padding = 1
+tray-padding = 5
 ;tray-background = #0063ff
 
 wm-restack = bspwm
@@ -78,8 +77,8 @@ cursor-scroll = ns-resize
 [module/title]
 type = internal/xwindow
 format = <label>
-format-background = #fff
-format-foreground = #000
+format-background = ${colors.background}
+format-foreground = #fff
 format-padding = 4
 label = %title%
 label-maxlen = 50
@@ -277,8 +276,11 @@ type = custom/script
 exec = ~/.config/scripts/updates-arch.sh
 interval = 600
 
-[module/cmus]
-type = custom/script
-exec = ~/.config/scripts/poly_cmus.sh
-interval = 5
-; vim:ft=dosini
+[module/sysmenu]
+type = custom/text
+content = 
+;content-foreground = ${color.fg}
+content-padding = 1
+
+click-left = ~/.config/scripts/gnome-sysmenu
+click-right = ~/.config/scripts/gnome-sysmenu
