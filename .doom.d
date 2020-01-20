@@ -1,1 +1,0 @@
-/home/oleg/.doom.d

@@ -6,4 +6,6 @@ polybar_launch &
 transmission-daemon &
 wmname LG3D &
 dunst &
+xautolock -locker "i3lock -i ~/Pictures/lock.png" &
+compton
 ~/.fehbg &

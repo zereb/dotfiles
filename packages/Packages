@@ -20,6 +20,7 @@ device-mapper
 dex
 dhcpcd
 diffutils
+dunst
 e2fsprogs
 emacs
 fakeroot
@@ -37,6 +38,7 @@ gawk
 gcc
 gcc-libs
 gettext
+gftp
 git
 glibc
 grep
@@ -67,6 +69,7 @@ linux
 linux-firmware
 logrotate
 lvm2
+lxappearance
 m4
 maim
 make
@@ -80,6 +83,7 @@ nano
 neofetch
 neovim
 netctl
+network-manager-applet
 networkmanager
 newsboat
 nodejs
@@ -93,10 +97,12 @@ openssl-1.0
 p7zip
 pacman
 pacman-contrib
+papirus-icon-theme
 pass
 patch
 pciutils
 perl
+picom
 pkgconf
 poppler
 procps-ng
@@ -108,7 +114,6 @@ python-pip
 python-virtualenv
 python2-pip
 qutebrowser
-ranger
 rdesktop
 reflector
 reiserfsprogs
@@ -136,6 +141,7 @@ ttf-inconsolata
 ttf-liberation
 unrar
 unzip
+urxvt-perls
 usbutils
 util-linux
 vi
@@ -143,6 +149,7 @@ w3m
 wayland
 which
 wmname
+xautolock
 xclip
 xf86-video-vesa
 xfsprogs
