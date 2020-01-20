@@ -26,7 +26,7 @@ rofi.padding:                        5
 rofi.yoffset:                       -2
 
 ! "X-offset relative to location" Set from: Default
-rofi.xoffset:                        0
+rofi.xoffset:                        2
 
 ! "Always show number of lines" Set from: Default
 rofi.fixed-num-lines:                false

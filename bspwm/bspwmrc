@@ -3,7 +3,7 @@
 autostart &
 
 #### MONITORS ####
-bspc monitor --reset-desktops 1 2 3 8 9 10
+bspc monitor --reset-desktops 1 2 3 4 9 10
 
 
 ### DRACULA
