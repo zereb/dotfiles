@@ -13,7 +13,8 @@ dracula.draw.blood(c, {
         'horizontal': 8
     }
 })
-# Uncomment this to still load settings configured via autoconfig.yml
+
+#s Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
 # Aliases for commands. The keys of the given dictionary are the
