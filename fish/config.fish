@@ -24,7 +24,6 @@ if status --is-login
     end
 end
 alias vim "nvim"
-alias cat "bat"
 #alias todo "vim ~/Documents/misc/todo"
 alias todo "emacs ~/Documents/misc/todo.org"
 alias vimrc "vim ~/dotfiles/nvim/init.vim"
