@@ -53,8 +53,8 @@ MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System :' \
 -color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
 <<< ">> Lock|>> Logout|>> Reboot|>> Shutdown")"
 case "$MENU" in
-  *Lock) i3lock-fancy ;;
-  *Logout) openbox --exit;;
+  *Lock)  i3lock -i ~/Pictures/lock.png && systemctl suspend;;
+  *Logout) bspc quit;;
   *Reboot) systemctl reboot ;;
   *Shutdown) systemctl -i poweroff
 esac
