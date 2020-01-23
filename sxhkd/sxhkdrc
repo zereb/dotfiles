@@ -61,9 +61,9 @@ XF86AudioLowerVolume
 super + b
 			qutebrowser
 super + r
-			alacritty -e ranger
+			kitty -e ranger
 super + Return
-			alacritty
+			kitty
 super + d
 			rofi --config ~/.config/rofi/config -show drun -theme ~/.config/rofi/dracula.rasi
 super + s
@@ -75,6 +75,6 @@ super + c
 super + x
 			i3lock -i ~/Pictures/lock.png
 super + w
-			alacritty -e newsboat
+			kitty -e newsboat
 super + grave 
-	tdrop -ma -y 18 --wm "bspwm" alacritty
+	tdrop -ma -y 18 --wm "bspwm" kitty
