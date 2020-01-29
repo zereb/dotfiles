@@ -10,6 +10,7 @@ binutils
 blender
 bspwm
 bzip2
+cantata
 clang
 clojure
 code
@@ -59,6 +60,7 @@ jdk-openjdk
 jfsutils
 jsoncpp
 kakoune
+kitty
 less
 libcaca
 libmad
@@ -77,6 +79,7 @@ man-db
 man-pages
 mdadm
 mitmproxy
+mpd
 mpv
 mupdf
 nano
@@ -131,6 +134,7 @@ sysfsutils
 systemd
 systemd-sysvcompat
 tar
+telegram-desktop
 texinfo
 thunar
 tor
