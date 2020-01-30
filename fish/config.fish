@@ -8,12 +8,12 @@ set -xg BROWSER "/usr/bin/qutebrowser"
 set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
 #set -g  PATH_TO_FX "~/Documents/.SDK/javafx-sdk-12.0.1/"
 set -xg ANDROID_HOME "~/Android/Sdk"
-set -xg XDG_CONFIG_HOME $HOME/.config/
+set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
 set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
 set -xg CARGO_HOME $XDG_DATA_HOME/cargo
-set -xg GRADLE_USER_HOME "~/.config/gradle"
+set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
 #set -xg DOOMDIR "~/.config/doom.d"
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
