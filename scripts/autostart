@@ -10,3 +10,4 @@ dunst &
 applets &
 xautolock -locker "i3lock -i ~/Pictures/lock.png" &
 compton &
+syncthing -no-browser &
