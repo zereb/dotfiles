@@ -63,7 +63,7 @@ super + b
 super + r
 			kitty -e ranger
 super + Return
-			kitty
+			alacritty
 super + d
 			rofi --config ~/.config/rofi/config -show drun -theme ~/.config/rofi/dracula.rasi
 super + s
@@ -75,6 +75,6 @@ super + c
 super + x
 			i3lock -i ~/Pictures/lock.png
 super + w
-			kitty -e newsboat
+			alacritty -e newsboat
 super + grave 
-	tdrop -ma -y 18 --wm "bspwm" kitty
+	tdrop -ma -y 18 --wm "bspwm" alacritty
