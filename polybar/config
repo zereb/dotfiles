@@ -254,7 +254,7 @@ poll-interval = 2
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
+thermal-zone = 2
 warn-temperature = 70
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
