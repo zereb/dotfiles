@@ -69,11 +69,13 @@ super + d
 super + s
 			rofi --config ~/.config/rofi/config -show run -theme ~/.config/rofi/dracula.rasi
 alt + Tab
-		rofi -show window -theme ~/.config/rofi/dracula.rasi
+			rofi -show window -theme ~/.config/rofi/dracula.rasi
 super + c
 			rofi -show calc -modi calc -no-show-match -no-sor -theme ~/.config/rofi/dracula.rasi
 super + x
-			i3lock -i ~/Pictures/lock.png
+			betterlockscreen -l dim -t
+super + shift + x
+			betterlockscreen -s dim
 super + w
 			alacritty -e newsboat
 super + grave 
