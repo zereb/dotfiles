@@ -53,7 +53,11 @@ font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;1
 ;modules-left = i3
 modules-left = sysmenu bspwm title
 modules-center = mpd
+<<<<<<< HEAD
 modules-right = alsa updates xkeyboard cpu temperature temperaturePad battery date
+=======
+modules-right = alsa updates xkeyboard cpu temperature memory battery date
+>>>>>>> 9c1e9fa9147d779ba57e2c5eb8e552a1a3074273
 
 tray-position = right
 tray-padding = 5
@@ -68,7 +72,7 @@ wm-restack = bspwm
 ;scroll-down = bspwm-deskprev
 
 ;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+;scroll-down = i3wm-wsprev:
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -282,6 +286,11 @@ ramp-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true
+
+[module/memory]
+type = internal/memory
+format = <label>
+label = %gb_used%
 
 [global/wm]
 margin-top = 0
