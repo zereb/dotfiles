@@ -14,7 +14,7 @@ set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
 set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
 set -xg CARGO_HOME $XDG_DATA_HOME/cargo
 set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
-#set -xg DOOMDIR "~/.config/doom.d"
+set -xg DOOMDIR "~/.config/doom"
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 
@@ -31,3 +31,4 @@ alias fishrc "vim ~/dotfiles/fish/config.fish"
 alias i3rc "vim ~/dotfiles/i3/config"
 alias scriptch "chmod -R -v 755 ~/dotfiles/config/scripts/"
 alias pswd "java -jar /home/oleg/Programms/pswd.jar"
+alias j2me "cd /home/oleg/Programms/games/java/ && java -jar freej2me.jar"

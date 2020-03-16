@@ -53,7 +53,7 @@ font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;1
 ;modules-left = i3
 modules-left = sysmenu bspwm title
 modules-center = mpd
-modules-right = alsa updates xkeyboard cpu temperature battery date
+modules-right = alsa updates xkeyboard cpu temperature temperaturePad battery date
 
 tray-position = right
 tray-padding = 5
@@ -168,7 +168,6 @@ label-indicator-padding = 0
 label-indicator-margin = 0
 
 
-
 [module/wlan]
 type = internal/network
 interface = wlp3s0
@@ -250,6 +249,21 @@ battery = BAT0
 adapter = AC
 full-at = 99
 poll-interval = 2
+
+[module/temperaturePad]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+ramp-2 =  
+ramp-1 = 
+ramp-0 = 
+ramp-foreground = ${colors.foreground-alt}
+
 
 
 [module/temperature]
