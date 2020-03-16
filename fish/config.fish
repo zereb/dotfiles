@@ -31,9 +31,6 @@ alias fishrc "vim ~/dotfiles/fish/config.fish"
 alias i3rc "vim ~/dotfiles/i3/config"
 alias scriptch "chmod -R -v 755 ~/dotfiles/config/scripts/"
 alias pswd "java -jar /home/oleg/Programms/pswd.jar"
-<<<<<<< HEAD
 alias j2me "cd /home/oleg/Programms/games/java/ && java -jar freej2me.jar"
-=======
 alias psqlstart "sudo systemctl start postgresql.service"
 alias psqlstop "sudo systemctl stop postgresql.service"
->>>>>>> 9c1e9fa9147d779ba57e2c5eb8e552a1a3074273
