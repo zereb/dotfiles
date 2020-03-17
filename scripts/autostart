@@ -8,6 +8,6 @@ wmname LG3D &
 ~/.fehbg &
 dunst &
 applets &
-xautolock -locker "i3lock -i ~/Pictures/lock.png" &
+xautolock -locker "betterlockscreen -l dim" &
 compton &
 syncthing -no-browser &
