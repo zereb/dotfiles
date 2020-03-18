@@ -1,8 +1,8 @@
 #!/bin/bash
 
+    mkdir "./output"
 for arg_file in "$@"; do
     echo "converting: $arg_file"
-    mkdir "./output"
     ffprobe -i $arg_file  -v quiet -print_format json -show_format -show_streams -hide_banner > "./output/info"
     width=$(grep \"width\" ./output/info | grep -o '[0-9]\+')
     height=$(grep \"height\" ./output/info | grep -o '[0-9]\+')
@@ -16,12 +16,12 @@ for arg_file in "$@"; do
     echo $width x $height
     if (( $width>$height )); then
         echo "width bigger"
-        ffmpeg -i $filename -vf scale=$width:480 -vcodec libx264 -profile:v baseline -y -level 3.1 -b:v 128KB -r 25 ./output/$filename
+        ffmpeg -i $filename -vf scale=$width:480 -vcodec libx264 -profile:v baseline -y -level 3.1 -b:v 256KB -r 25 ./output/$filename
     elif (( $width<$height )); then
         echo "height bigger"
-        ffmpeg -i $filename -vf scale=480:$height -vcodec libx264 -profile:v baseline -y -level 3.1 -b:v 128KB -r 25 ./output/$filename
+        ffmpeg -i $filename -vf scale=480:$height -vcodec libx264 -profile:v baseline -y -level 3.1 -b:v 256KB -r 25 ./output/$filename
     else
         echo "equal"
-        ffmpeg -i $filename -vf scale=480:480 -vcodec libx264 -profile:v baseline -y -level 3.1 -b:v 128KB -r 25 ./output/$filename
+        ffmpeg -i $filename -vf scale=480:480 -vcodec libx264 -profile:v baseline -y -level 3.1 -b:v 256KB -r 25 ./output/$filename
     fi
     done
