@@ -13,15 +13,19 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged/')
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'preservim/nerdtree'
     Plug 'elzr/vim-json'
+    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'potatoesmaster/i3-vim-syntax'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
-    Plug 'dbeniamine/cheat.sh-vim'
     Plug 'matt-deacalion/vim-systemd-syntax'
-    Plug 'udalov/kotlin-vim'
     Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
+color dracula
+noremap <Space> <Nop>
+let mapleader = "\<Space>"
+
+map <A-1> :NERDTreeToggle<CR>
 

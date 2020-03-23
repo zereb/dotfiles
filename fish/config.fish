@@ -15,6 +15,8 @@ set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
 set -xg CARGO_HOME $XDG_DATA_HOME/cargo
 set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
 set -xg DOOMDIR "~/.config/doom"
+set -xg WINEPREFIX /home/oleg/HDrive/Games/wine
+set -xg WINEARCH win32
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 

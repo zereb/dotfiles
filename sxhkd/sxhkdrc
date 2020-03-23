@@ -75,7 +75,7 @@ super + c
 super + x
 			betterlockscreen -l dim -t
 super + shift + x
-			betterlockscreen -s dim
+	  		systemctl suspend
 super + w
 			alacritty -e newsboat
 super + grave 
