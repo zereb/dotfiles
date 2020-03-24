@@ -1,13 +1,13 @@
 #!/usr/bin/fish
-#env -i HOME=$HOME dash -l -c printenv | sed -e '/PATH/s/:/ /g;s/=/ /;s/^/set -x /' | source
 set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ $PATH
 set -xg EDITOR "nvim"
 set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
 set -xg BROWSER "/usr/bin/qutebrowser"
 set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
-#set -g  PATH_TO_FX "~/Documents/.SDK/javafx-sdk-12.0.1/"
 set -xg ANDROID_HOME "~/Android/Sdk"
+
+##### CLEANUP #####
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
@@ -17,6 +17,10 @@ set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
 set -xg DOOMDIR "~/.config/doom"
 set -xg WINEPREFIX /home/oleg/HDrive/Games/wine
 set -xg WINEARCH win32
+set -xg XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
+set -xg GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
+set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 
