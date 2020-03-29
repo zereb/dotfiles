@@ -9,5 +9,5 @@ wmname LG3D &
 dunst &
 applets &
 xautolock -locker "betterlockscreen -l dim" &
-compton &
+#compton &
 syncthing -no-browser &

@@ -154,7 +154,3 @@
     spacing:    0;
     text-color: @normal-foreground;
 }
-
-/* vim:ft=css
-*/
-

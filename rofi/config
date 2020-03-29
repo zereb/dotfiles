@@ -2,16 +2,16 @@
 rofi.modi:                           run,drun,window
 
 ! "Window width" Set from: Default
-rofi.width:                          1368
+!rofi.width:                          1368
 
 ! "Number of lines" Set from: Default
-!rofi.lines:                          8
+!rofi.lines:                          1
 
 ! "Number of columns" Set from: Default
 rofi.columns:                        4
 
 ! "Font to use" Set from: Default
-rofi.font:                           Iosevka 12
+rofi.font:                            Droid sans 14
 
 ! "Border width" Set from: Default
 rofi.bw:                             8

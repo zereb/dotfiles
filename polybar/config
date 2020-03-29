@@ -46,9 +46,9 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = hack:pixelsize=8;1
-font-1 = FontAwesome 5 Free:size=8:style=Solid;1
-font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=false;1
+font-0 = mono:pixelsize=8;2
+font-1 = FontAwesome 5 Free:size=9:style=Solid;2
+font-2 = FontAwesome5Brands:style=Solid:pixelsize=9;2
 
 ;modules-left = i3
 modules-left = sysmenu bspwm title

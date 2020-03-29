@@ -1,10 +1,10 @@
-#! /bin/sh
+#! /bin/bash
 #### AUTOSTART ####
 autostart &
 
-#### MONITORS ####
-bspc monitor --reset-desktops 1 2 3 4 9 10
 
+#### MONITORS ####
+bspc monitor --reset-desktops      
 
 ### DRACULA
 bspc config normal_border_color "#282a36"
@@ -31,5 +31,17 @@ bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 
-bspc rule -a mpv state=floating
-bspc rule -a Emacs state=tiled
+bspc rule --add Emacs state=tiled
+
+bspc rule --add cantata desktop=^6 follow=on
+bspc rule --add lbry desktop=^6 follow=on
+bspc rule --add mpv state=floating desktop=^6 follow=on
+
+bspc rule --add steam --one-shot desktop=^5 follow=on
+bspc rule --add Lutris desktop=^5 follow=on
+bspc rule --add retroarch desktop=^5 follow=on
+
+
+bspc rule --add firefox desktop=^1 follow=on
+bspc rule --add brave desktop=^1 follow=on
+bspc rule --add qutebrowser desktop=^1 follow=on

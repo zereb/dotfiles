@@ -9,6 +9,7 @@ set -xg ANDROID_HOME "~/Android/Sdk"
 
 ##### CLEANUP #####
 set -xg XDG_CONFIG_HOME $HOME/.config
+set -xg XDG_CACHE_HOME $HOME/.cahe
 set -xg GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
 set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
