@@ -2,7 +2,7 @@
 (setq user-full-name "John Doe"
       user-mail-address "john@doe.com")
 
-(setq doom-font (font-spec :family "hack" :size 12))
+(setq doom-font (font-spec :family "Hack" :size 12))
 
 (setq doom-theme 'doom-dracula)
 

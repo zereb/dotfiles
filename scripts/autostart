@@ -11,3 +11,4 @@ applets &
 xautolock -locker "betterlockscreen -l dim" &
 #compton &
 syncthing -no-browser &
+mpd &

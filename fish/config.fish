@@ -9,7 +9,7 @@ set -xg ANDROID_HOME "~/Android/Sdk"
 
 ##### CLEANUP #####
 set -xg XDG_CONFIG_HOME $HOME/.config
-set -xg XDG_CACHE_HOME $HOME/.cahe
+set -xg XDG_CACHE_HOME $HOME/.cache
 set -xg GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
 set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
@@ -41,3 +41,5 @@ alias pswd "java -jar /home/oleg/Programms/pswd.jar"
 alias j2me "cd /home/oleg/Programms/games/java/ && java -jar freej2me.jar"
 alias psqlstart "sudo systemctl start postgresql.service"
 alias psqlstop "sudo systemctl stop postgresql.service"
+alias poe_mode "xrandr --output DVI-D-1 --mode 1280x720 && xinput --set-prop 11 'libinput Accel Speed' -0.5 && polybar_launch && killall compton &"
+alias normal_mode "xrandr --output DVI-D-1 --auto && xinput --set-prop 11 'libinput Accel Speed' 0 && polybar_launch && compton &"
