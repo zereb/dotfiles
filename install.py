@@ -1,4 +1,4 @@
-#!/usr/bin/python
+ss!/usr/bin/python
 
 import os, errno
 

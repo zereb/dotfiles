@@ -42,6 +42,7 @@ bspc rule --add Lutris desktop=^6 follow=on
 bspc rule --add retroarch desktop=^6 follow=on
 
 bspc rule --add steam_app_238960 desktop=^5 follow=on state=fullscrean #poe
+bspc rule --add "Dota 2" desktop=^5 follow=on state=fullscrean
 
 bspc rule --add firefox desktop=^1 follow=on
 bspc rule --add Brave-browser desktop=^1 follow=on
@@ -52,3 +53,4 @@ bspc rule --add "Instant Meshes" desktop=^4 follow=on
 bspc rule --add Inkscape desktop=^4 follow=on
 bspc rule --add krita desktop=^4 follow=on
 bspc rule --add meshroom desktop=^4 follow=on
+bspc rule --add "GNU Image Manipulation Program" desktop=^4 follow=on

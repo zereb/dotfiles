@@ -14,6 +14,9 @@ dracula.draw.blood(c, {
     }
 })
 
+c.url.start_pages = "file:///home/oleg/dotfiles/homepage/homepage.html"
+
+
 #s Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 

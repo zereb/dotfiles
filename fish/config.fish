@@ -5,7 +5,7 @@ set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
 set -xg BROWSER "/usr/bin/qutebrowser"
 set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
-set -xg ANDROID_HOME "~/Android/Sdk"
+set -xg ANDROID_HOME "/home/oleg/Android/Sdk"
 
 ##### CLEANUP #####
 set -xg XDG_CONFIG_HOME $HOME/.config
@@ -31,6 +31,8 @@ if status --is-login
     end
 end
 alias vim "nvim"
+alias nvim "nvim"
+alias vi "nvim"
 #alias todo "vim ~/Documents/misc/todo"
 alias todo "emacs ~/Documents/misc/todo.org"
 alias vimrc "vim ~/dotfiles/nvim/init.vim"
