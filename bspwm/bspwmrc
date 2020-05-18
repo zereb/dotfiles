@@ -40,9 +40,11 @@ bspc rule --add mpv state=floating desktop=^7 follow=on
 bspc rule --add Steam --one-shot desktop=^6 follow=on
 bspc rule --add Lutris desktop=^6 follow=on
 bspc rule --add retroarch desktop=^6 follow=on
+bspc rule --add Doomseeker desktop=^6 follow=on
 
 bspc rule --add steam_app_238960 desktop=^5 follow=on state=fullscrean #poe
 bspc rule --add "Dota 2" desktop=^5 follow=on state=fullscrean
+
 
 bspc rule --add firefox desktop=^1 follow=on
 bspc rule --add Brave-browser desktop=^1 follow=on

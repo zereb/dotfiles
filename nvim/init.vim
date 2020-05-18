@@ -5,11 +5,15 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged/')
-    Plug 'preservim/nerdtree'
+"    Plug 'preservim/nerdtree'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'ryanoasis/vim-devicons'
     Plug 'itchyny/lightline.vim'  
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
+    Plug 'mhinz/vim-signify'
+    Plug 'liuchengxu/vim-which-key'
 
 ""highlits
     Plug 'kovetskiy/sxhkd-vim' 
@@ -33,14 +37,18 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
-map <A-1> :NERDTreeToggle<CR>
-map <leader>r :Ranger<CR>
+"map <A-1> :NERDTreeToggle<CR>
+map <A-1> :CocCommand explorer<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif ""autoclose if eplorer is last buffer
 map <leader>pu :PlugInstall<CR>
 map <leader>pc :PlugClean<CR>
-
+map <leader><leader> :FZF<CR>
+map <leader>bb :Buffers<CR>
+map <leader>x :Commands<CR>
 
 map <leader>n :bnext<CR>
 map <leader>p :bprevious<CR>
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 color dracula
 
@@ -51,6 +59,7 @@ set splitbelow      ""splits spawn below
 set splitright      ""splits spawn right
 set number          ""line numbers
 set clipboard=unnamedplus       ""clipboard with evertything
+set showtabline=2   ""always show tabline
 set showcmd
 set cursorline      
 set shiftwidth=4
@@ -60,6 +69,7 @@ set softtabstop=4
 set shiftround
 set autoindent
 set termguicolors
+set timeoutlen=500
 
 
 
@@ -215,4 +225,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+
+autocmd CursorHold * silent call CocActionAsync('highlight') "highlight same words
+"CocInstall coc-css coc-eslint coc-highlight coc-html coc-python coc-snippets coc-vetur coc-vimlsp coc-json coc-explorer
 
