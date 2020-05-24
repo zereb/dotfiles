@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged/')
     Plug 'airblade/vim-rooter'
     Plug 'mhinz/vim-signify'
     Plug 'liuchengxu/vim-which-key'
+    Plug 'honza/vim-snippets'
 
 ""highlits
     Plug 'kovetskiy/sxhkd-vim' 
@@ -29,7 +30,7 @@ inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwUi<ESC>
 "TAB in general mode will move to text buffer
 "nnoremap <TAB> :bnext<CR> 
-"nnoremap <S-TAB> :bprevious<CR> 
+
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
