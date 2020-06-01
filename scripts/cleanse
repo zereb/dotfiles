@@ -1,1 +1,10 @@
+#!/usr/bin/bash
+rm -rf /home/oleg/.zoom/
+rm -rf /home/oleg/.w3m/
+rm -rf /home/oleg/.java/
+rm -rf /home/oleg/.cahe/
+rm -rf /home/oleg/.cache/yay
+rm -rf /home/oleg/.pki
+rm /home/oleg/.dir-locals.el
+rm /home/oleg/.netrc
 
