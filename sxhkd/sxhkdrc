@@ -82,3 +82,19 @@ super + w
 			alacritty -e newsboat
 super + grave 
 	tdrop -ma -y 18 --wm "bspwm" alacritty
+
+
+Print
+    scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+
+
+#poe related
+
+F3
+    poe_logout
+
+XF86AudioMute
+    pulsemixer --id source-2  --toggle-mute
+
+super + F3
+    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Delirium
