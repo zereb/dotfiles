@@ -29,7 +29,7 @@ super + {_,shift + }{h,j,k,l}
 
 # focus the next/previous node in the current desktop
 super + {_,shift + }n
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.local.!hidden.window
 
 # focus or send to the given desktop
 super + {_,shift + }{1-4,8,9,0}
