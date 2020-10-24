@@ -4,17 +4,19 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 call plug#begin('~/.config/nvim/plugged/')
 "    Plug 'preservim/nerdtree'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'ryanoasis/vim-devicons'
-    Plug 'itchyny/lightline.vim'  
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     Plug 'mhinz/vim-signify'
     Plug 'liuchengxu/vim-which-key'
     Plug 'honza/vim-snippets'
+    Plug 'itchyny/lightline.vim'  
+    Plug 'mengelbrecht/lightline-bufferline'
 
 ""highlits
     Plug 'kovetskiy/sxhkd-vim' 
@@ -22,8 +24,10 @@ call plug#begin('~/.config/nvim/plugged/')
     Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-noremap <Space> <Nop>
-let mapleader = "\<Space>"
+autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
+
+nnoremap <Space> <Nop>
+let g:mapleader = "\<Space>"
 
 "ctrl + u capitalize
 inoremap <c-u> <ESC>viwUi
@@ -37,19 +41,87 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+map <leader>wk <C-w>q
+map <leader>wq <C-w>q
+map <leader>ww :vsplit<CR>
+map <leader>wh :split<CR>
 
-"map <A-1> :NERDTreeToggle<CR>
-map <A-1> :CocCommand explorer<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif ""autoclose if eplorer is last buffer
-map <leader>pu :PlugInstall<CR>
+
+"plug
 map <leader>pc :PlugClean<CR>
+map <leader>pi :PlugInstall<CR>
+map <leader>pu :PlugUpdate<CR>
+nnoremap <silent> <space>pe  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>po  :<C-u>CocList commands<cr>
+
 map <leader><leader> :FZF<CR>
-map <leader>bb :Buffers<CR>
 map <leader>x :Commands<CR>
 
-map <leader>n :bnext<CR>
-map <leader>p :bprevious<CR>
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+"Buffers
+map <leader>bb :Buffers<CR>
+map <leader>bn :bnext<CR>
+map <leader>bp :bprevious<CR>
+map <leader>bj :bnext<CR>
+map <leader>bk :bprevious<CR>
+
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+nmap <Leader>b1 <Plug>lightline#bufferline#delete(1)
+nmap <Leader>b2 <Plug>lightline#bufferline#delete(2)
+nmap <Leader>b3 <Plug>lightline#bufferline#delete(3)
+nmap <Leader>b4 <Plug>lightline#bufferline#delete(4)
+nmap <Leader>b5 <Plug>lightline#bufferline#delete(5)
+nmap <Leader>b6 <Plug>lightline#bufferline#delete(6)
+nmap <Leader>b7 <Plug>lightline#bufferline#delete(7)
+nmap <Leader>b8 <Plug>lightline#bufferline#delete(8)
+nmap <Leader>b9 <Plug>lightline#bufferline#delete(9)
+nmap <Leader>b0 <Plug>lightline#bufferline#delete(10)
+
+" Mappings using CoCList:
+nnoremap <silent> <space>cd  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>co  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>cs  :<C-u>CocList -I symbols<cr>
+nmap <leader>ca  <Plug>(coc-codeaction)
+nmap <leader>cf  <Plug>(coc-fix-current)
+nmap <leader>cn <Plug>(coc-rename)
+xmap <leader>cp  <Plug>(coc-format-selected)
+nmap <leader>cp  <Plug>(coc-format-selected)
+
+
+"which key
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+call which_key#register('<Space>', "g:which_key_map")
+let g:which_key_map =  {}
+let g:which_key_map['b'] = { 'name' : '+BUFFERS'}
+let g:which_key_map['p'] = { 'name' : '+PLUGGINS'}
+let g:which_key_map['c'] = { 'name' : '+CODE'}
+let g:which_key_map['w'] = { 'name' : '+WINDOW', 'q' : 'kill window', 'k' : 'kill window'}
+let g:which_key_map['<Space>'] = { 'name' : 'FZF'}
+let g:which_key_map.1 = 'which_key_ignore'
+let g:which_key_map.2 = 'which_key_ignore'
+let g:which_key_map.3 = 'which_key_ignore'
+let g:which_key_map.4 = 'which_key_ignore'
+let g:which_key_map.5 = 'which_key_ignore'
+let g:which_key_map.6 = 'which_key_ignore'
+let g:which_key_map.7 = 'which_key_ignore'
+let g:which_key_map.8 = 'which_key_ignore'
+let g:which_key_map.9 = 'which_key_ignore'
+let g:which_key_map.0 = 'which_key_ignore'
+
+" Open file explorer
+map <A-1> :CocCommand explorer<CR>
+
+""autoclose if eplorer is last buffer
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif 
+
 
 color dracula
 
@@ -71,35 +143,37 @@ set shiftround
 set autoindent
 set termguicolors
 set timeoutlen=500
-
+set noshowmode "remove -- INSERT -- etc.
 
 
 "plugins
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-\ }
 
+" Lightline
+
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+let g:lightline#bufferline#clickable = 1
+
+let g:lightline = {'colorscheme': 'wombat'}
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 
 "" coc
-" TextEdit might fail if hidden is not set.
-set hidden
 
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
 " Give more space for displaying messages.
 set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
@@ -112,6 +186,8 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -154,13 +230,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -171,25 +240,6 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
 nmap <silent> <C-s> <Plug>(coc-range-select)
@@ -209,26 +259,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings using CoCList:
-" Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-
 
 autocmd CursorHold * silent call CocActionAsync('highlight') "highlight same words
 "CocInstall coc-css coc-eslint coc-highlight coc-html coc-python coc-snippets coc-vetur coc-vimlsp coc-json coc-explorer
 
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
