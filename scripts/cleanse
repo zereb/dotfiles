@@ -1,10 +1,16 @@
 #!/usr/bin/bash
-rm -rf /home/oleg/.zoom/
-rm -rf /home/oleg/.w3m/
-rm -rf /home/oleg/.java/
-rm -rf /home/oleg/.cahe/
+rm -rf /home/oleg/.zoom
+rm -rf /home/oleg/.w3m
+rm -rf /home/oleg/.java
+rm -rf /home/oleg/.cahe
+rm -rf /home/oleg/.cargo
 rm -rf /home/oleg/.cache/yay
+rm -rf /home/oleg/.android
 rm -rf /home/oleg/.pki
+rm -rf /home/oleg/.parsec
+rm -rf /home/oleg/.putty
+rm -rf /home/oleg/.visualvm
+rm -rf /home/oleg/.vnc
 rm -rf /home/oleg/.cache/mozilla
 rm /home/oleg/.dir-locals.el
 rm /home/oleg/.netrc

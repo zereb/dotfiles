@@ -6,17 +6,22 @@ endif
 
 
 call plug#begin('~/.config/nvim/plugged/')
-"    Plug 'preservim/nerdtree'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'ryanoasis/vim-devicons'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     Plug 'mhinz/vim-signify'
     Plug 'liuchengxu/vim-which-key'
-    Plug 'honza/vim-snippets'
     Plug 'itchyny/lightline.vim'  
     Plug 'mengelbrecht/lightline-bufferline'
+ 
+    Plug 'clojure-vim/vim-jack-in'
+    Plug 'radenling/vim-dispatch-neovim' 
+    Plug 'Olical/conjure', {'tag': 'v4.7.0'}
+    "Plug 'kovisoft/slimv'
+ "   Plug 'vlime/vlime'
 
 ""highlits
     Plug 'kovetskiy/sxhkd-vim' 
@@ -28,6 +33,7 @@ autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
 
 nnoremap <Space> <Nop>
 let g:mapleader = "\<Space>"
+let g:maplocalleader = "z"
 
 "ctrl + u capitalize
 inoremap <c-u> <ESC>viwUi
@@ -57,12 +63,18 @@ nnoremap <silent> <space>po  :<C-u>CocList commands<cr>
 map <leader><leader> :FZF<CR>
 map <leader>x :Commands<CR>
 
+"coc
+nnoremap <leader>pm  :<C-u>CocList marketplace<cr>
+nnoremap <leader>pe  :<C-u>CocList extensions<cr>
+nnoremap <leader>pq  :<C-u>CocDsable<cr>
+nnoremap <leader>px  :<C-u>CocEnable<cr>
+
 "Buffers
 map <leader>bb :Buffers<CR>
 map <leader>bn :bnext<CR>
 map <leader>bp :bprevious<CR>
-map <leader>bj :bnext<CR>
-map <leader>bk :bprevious<CR>
+map <leader>bk :bdelete<CR>
+
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
@@ -98,12 +110,15 @@ nmap <leader>cp  <Plug>(coc-format-selected)
 
 "which key
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader>      :<c-u>WhichKey 'z'<CR>
+
 call which_key#register('<Space>', "g:which_key_map")
 let g:which_key_map =  {}
 let g:which_key_map['b'] = { 'name' : '+BUFFERS'}
 let g:which_key_map['p'] = { 'name' : '+PLUGGINS'}
 let g:which_key_map['c'] = { 'name' : '+CODE'}
 let g:which_key_map['w'] = { 'name' : '+WINDOW', 'q' : 'kill window', 'k' : 'kill window'}
+let g:which_key_map['l'] = { 'name' : '+LISP'}
 let g:which_key_map['<Space>'] = { 'name' : 'FZF'}
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
@@ -115,6 +130,16 @@ let g:which_key_map.7 = 'which_key_ignore'
 let g:which_key_map.8 = 'which_key_ignore'
 let g:which_key_map.9 = 'which_key_ignore'
 let g:which_key_map.0 = 'which_key_ignore'
+let g:which_key_map.b.1 = 'which_key_ignore'
+let g:which_key_map.b.2 = 'which_key_ignore'
+let g:which_key_map.b.3 = 'which_key_ignore'
+let g:which_key_map.b.4 = 'which_key_ignore'
+let g:which_key_map.b.5 = 'which_key_ignore'
+let g:which_key_map.b.6 = 'which_key_ignore'
+let g:which_key_map.b.7 = 'which_key_ignore'
+let g:which_key_map.b.8 = 'which_key_ignore'
+let g:which_key_map.b.9 = 'which_key_ignore'
+let g:which_key_map.b.0 = 'which_key_ignore'
 
 " Open file explorer
 map <A-1> :CocCommand explorer<CR>
@@ -147,7 +172,13 @@ set noshowmode "remove -- INSERT -- etc.
 
 
 "plugins
+"
+" slimv
 
+let g:slimv_swank_cmd = '! alacritty -e sbcl --load ~/.config/nvim/plugged/slimv/slime/start-swank.lisp &'
+let g:slimv_repl_split = 4
+let g:lisp_rainbow = 1
+let g:slimv_simple_compl = 0
 
 " Lightline
 
