@@ -9,14 +9,15 @@ call plug#begin('~/.config/nvim/plugged/')
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'ryanoasis/vim-devicons'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'honza/vim-snippets'
+"    Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
-    Plug 'mhinz/vim-signify'
+    Plug 'mhinz/vim-signify' "git-gutter 
     Plug 'liuchengxu/vim-which-key'
     Plug 'itchyny/lightline.vim'  
     Plug 'mengelbrecht/lightline-bufferline'
- 
+
+    "clojure cider.el
     Plug 'clojure-vim/vim-jack-in'
     Plug 'radenling/vim-dispatch-neovim' 
     Plug 'Olical/conjure', {'tag': 'v4.7.0'}
