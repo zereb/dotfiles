@@ -1,0 +1,36 @@
+add-highlighter global/ number-lines
+colorscheme dracula
+
+map global normal <space> , -docstring 'leader'
+
+map global normal p '<a-!>xsel --output --clipboard<ret>'
+map global normal P '!xsel --output --clipboard<ret>'
+
+declare-user-mode buffers
+
+map global user b ': enter-user-mode buffers<ret>' -docstring 'Buffers mode'
+map global buffers b ': rofi-buffers<ret>' -docstring 'switch buffers'
+map global buffers k ': delete-buffer<ret>' -docstring 'bur'
+
+
+hook global RegisterModified '"' %{ nop %sh{
+      printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+
+
+define-command rofi-buffers \
+-docstring 'Select an open buffer using Rofi' %{ evaluate-commands %sh{
+    BUFFER=$(printf "%s\n" "${kak_buflist}" | tr " " "\n" | rofi -dmenu -theme ~/.config/rofi/dracula.rasi| tr -d \')
+    if [ -n "$BUFFER" ]; then
+        printf "%s\n" "buffer ${BUFFER}"
+    fi
+} }
+
+
+define-command rofi-files \
+-docstring 'Select files in project using Ag and Rofi' %{nop %sh{
+    FILE=$(ls "" | rofi -dmenu -theme ~/.config/rofi/dracula.rasi)
+    if [ -n "$FILE" ]; then
+        printf 'eval -client %%{%s} edit %%{%s}\n' "${kak_client}" "${FILE}" | kak -p "${kak_session}"
+    fi
+} }
