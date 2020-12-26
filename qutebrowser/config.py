@@ -208,7 +208,6 @@ c.fonts.statusbar = 'bold 9pt hack'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = 'bold hack'
 
 # Font family for standard fonts.
 # Type: FontFamily
