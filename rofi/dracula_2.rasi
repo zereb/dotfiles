@@ -1,0 +1,83 @@
+// Dracula colors
+* {
+    background: 	rgba ( 40, 42, 54, 100 % );
+    current-line: 	rgba ( 68, 71, 90, 100 % );
+    selection: 	rgba ( 68, 71, 90, 100 % );
+    foreground: 	rgba ( 248, 248, 242, 100 % );
+    comment: 	rgba ( 98, 114, 164, 100 % );
+    cyan: 	rgba ( 139, 233, 253, 100 % );
+    green: 	rgba ( 80, 250, 123, 100 % );
+    orange: 	rgba ( 255, 184, 108, 100 % );
+    pink: 	rgba ( 255, 121, 198, 100 % );
+    purple: 	rgba ( 189, 147, 249, 100 % );
+    red: 	rgba ( 255, 85, 85, 100 % );
+    yellow: 	rgba ( 241, 250, 140, 100 % );
+}
+* {
+    selected-normal-background:     @cyan;
+    normal-background:              @background;
+    normal-foreground:              @foreground;
+    alternate-normal-background:    @normal-background;
+    alternate-normal-foreground:    @foreground;
+    selected-normal-foreground:     @normal-background;
+    urgent-foreground:              @red;
+    urgent-background:              @normal-background;
+    alternate-urgent-background:    @urgent-background;
+    alternate-urgent-foreground:    @urgent-foreground;
+    selected-active-foreground:     @foreground;
+    selected-urgent-background:     @normal-background;
+    alternate-active-background:    @normal-background;
+    alternate-active-foreground:    @selected-active-foreground;
+    alternate-active-background:    @selected-active-background;
+    border-color:                   @selected-normal-background;
+    separatorcolor:                 @border-color;
+    spacing: 2;
+    background-color: @normal-background;
+}
+#window {
+  anchor: south;
+  location: south;
+  width: 100%;
+  background-color: @base-bg;
+  margin: 0px 0px 10% 0px;
+  children: [ horibox ];
+}
+#horibox {
+  background-color: @transparent;
+  orientation: horizontal;
+  children: [ prompt, textbox-prompt-colon, entry, listview ];
+}
+#prompt {
+  text-color: @selected-color;
+  padding: 0.7em 0px 0.7em 10px;
+  background-color: @transparent;
+}
+#textbox-prompt-colon  {
+  expand: false;
+  str: ":";
+  padding: 0.7em 10px 0.7em 0px;
+  text-color: @selected-color;
+  background-color: @transparent;
+}
+#entry {
+  padding: 0.7em;
+  text-color: @selected-color;
+  background-color: #eee;
+  expand: false;
+  width: 10em;
+}
+#listview {
+  background-color: @transparent;
+  layout: horizontal;
+  spacing: 5px;
+  lines: 100;
+}
+#element {
+  background-color: @transparent;
+  padding: 0.7em;
+}
+#element selected {
+  border: 0px 1px;
+  text-color: @selected-color;
+  background-color: @selected-bg;
+}

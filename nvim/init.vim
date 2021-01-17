@@ -8,27 +8,34 @@ endif
 call plug#begin('~/.config/nvim/plugged/')
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'ryanoasis/vim-devicons'
+    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "    Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     Plug 'mhinz/vim-signify' "git-gutter 
     Plug 'liuchengxu/vim-which-key'
-    Plug 'itchyny/lightline.vim'  
-    Plug 'mengelbrecht/lightline-bufferline'
+    "Plug 'itchyny/lightline.vim'  
+    Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
+    Plug 'romgrk/barbar.nvim'
+"    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+
+    "Plug 'mengelbrecht/lightline-bufferline'
 
     "clojure cider.el
-    Plug 'clojure-vim/vim-jack-in'
-    Plug 'radenling/vim-dispatch-neovim' 
-    Plug 'Olical/conjure', {'tag': 'v4.7.0'}
+"    Plug 'clojure-vim/vim-jack-in'
+"    Plug 'radenling/vim-dispatch-neovim' 
+"    Plug 'Olical/conjure', {'tag': 'v4.7.0'}
     "Plug 'kovisoft/slimv'
  "   Plug 'vlime/vlime'
 
 ""highlits
     Plug 'kovetskiy/sxhkd-vim' 
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'sheerun/vim-polyglot'
+"split    Plug 'jiangmiao/auto-pairs'
+"    Plug 'sheerun/vim-polyglot'
 call plug#end()
+
 
 autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
 
@@ -48,16 +55,19 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
 map <leader>wk <C-w>q
 map <leader>wq <C-w>q
 map <leader>ww :vsplit<CR>
 map <leader>wh :split<CR>
+map <leader>wt :vsplit +terminal<CR>
 
 
 "plug
 map <leader>pc :PlugClean<CR>
 map <leader>pi :PlugInstall<CR>
 map <leader>pu :PlugUpdate<CR>
+map <leader>ps :source %<CR>
 nnoremap <silent> <space>pe  :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>po  :<C-u>CocList commands<cr>
 
@@ -72,31 +82,20 @@ nnoremap <leader>px  :<C-u>CocEnable<cr>
 
 "Buffers
 map <leader>bb :Buffers<CR>
-map <leader>bn :bnext<CR>
-map <leader>bp :bprevious<CR>
-map <leader>bk :bdelete<CR>
+map <leader>bn :BufferNext<CR>
+map <leader>bp :BufferPrevious<CR>
+map <leader>bk :BufferClose<CR>
 
 
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-nmap <Leader>b1 <Plug>lightline#bufferline#delete(1)
-nmap <Leader>b2 <Plug>lightline#bufferline#delete(2)
-nmap <Leader>b3 <Plug>lightline#bufferline#delete(3)
-nmap <Leader>b4 <Plug>lightline#bufferline#delete(4)
-nmap <Leader>b5 <Plug>lightline#bufferline#delete(5)
-nmap <Leader>b6 <Plug>lightline#bufferline#delete(6)
-nmap <Leader>b7 <Plug>lightline#bufferline#delete(7)
-nmap <Leader>b8 <Plug>lightline#bufferline#delete(8)
-nmap <Leader>b9 <Plug>lightline#bufferline#delete(9)
-nmap <Leader>b0 <Plug>lightline#bufferline#delete(10)
+nmap <Leader>1 :BufferGoto 1<CR>
+nmap <Leader>2 :BufferGoto 2<CR>
+nmap <Leader>3 :BufferGoto 3<CR>
+nmap <Leader>4 :BufferGoto 4<CR>
+nmap <Leader>5 :BufferGoto 5<CR>
+nmap <Leader>6 :BufferGoto 6<CR>
+nmap <Leader>7 :BufferGoto 7<CR>
+nmap <Leader>8 :BufferGoto 8<CR>
+nmap <Leader>9 :BufferGoto 9<CR>
 
 " Mappings using CoCList:
 nnoremap <silent> <space>cd  :<C-u>CocList diagnostics<cr>
@@ -118,8 +117,7 @@ let g:which_key_map =  {}
 let g:which_key_map['b'] = { 'name' : '+BUFFERS'}
 let g:which_key_map['p'] = { 'name' : '+PLUGGINS'}
 let g:which_key_map['c'] = { 'name' : '+CODE'}
-let g:which_key_map['w'] = { 'name' : '+WINDOW', 'q' : 'kill window', 'k' : 'kill window'}
-let g:which_key_map['l'] = { 'name' : '+LISP'}
+let g:which_key_map['w'] = { 'name' : '+WINDOW', 'q' : 'kill window', 'k' : 'kill window', 't' : 'terminal'}
 let g:which_key_map['<Space>'] = { 'name' : 'FZF'}
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
@@ -193,6 +191,8 @@ let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
+"galaxyline
+lua require('init')
 
 "" coc
 

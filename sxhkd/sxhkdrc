@@ -79,7 +79,7 @@ super + x
 super + shift + x
 	  		systemctl suspend
 super + w
-			alacritty -e newsboat
+			kitty -e newsboat
 super + grave 
 	tdrop -ma -y 18 --wm "bspwm" alacritty
 
@@ -97,4 +97,4 @@ XF86AudioMute
     pulsemixer --id source-2  --toggle-mute
 
 super + F3
-    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Delirium
+    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Ritual
