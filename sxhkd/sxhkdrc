@@ -81,7 +81,7 @@ super + shift + x
 super + w
 			kitty -e newsboat
 super + grave 
-	tdrop -ma -y 18 --wm "bspwm" alacritty
+	tdrop -ma -y 18 --wm "bspwm" kitty 
 
 
 Print
