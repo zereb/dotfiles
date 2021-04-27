@@ -87,6 +87,12 @@ super + grave
 Print
     scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
 
+super + F10
+		sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:1800 --user zereb --worker w1
+
+super + F11
+		sleep 6h && shutdown
+
 
 #poe related
 
@@ -97,4 +103,4 @@ XF86AudioMute
     pulsemixer --id source-2  --toggle-mute
 
 super + F3
-    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Ritual
+    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Ultimatum

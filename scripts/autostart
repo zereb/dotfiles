@@ -2,6 +2,8 @@
 #### AUTOSTART ####
 sxhkd &
 xsetroot -cursor_name left_ptr &
+xrandr --output HDMI-A-0 --set TearFree on &
+sudo modprobe k10temp force=1 &
 transmission-daemon &
 polybar_launch &
 wmname LG3D &
@@ -12,3 +14,4 @@ xautolock -locker "betterlockscreen -l dim" &
 #compton &
 syncthing -no-browser &
 mpd &
+sudo ethtool -s enp5s0 wol g &

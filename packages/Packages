@@ -1,5 +1,7 @@
+adapta-gtk-theme
 alacritty
 alsa-utils
+amd-ucode
 amdvlk
 android-udev
 atool
@@ -21,6 +23,7 @@ dex
 dhcpcd
 dnsmasq
 dunst
+ethtool
 fakeroot
 fd
 feh
@@ -37,10 +40,11 @@ gettext
 gimp
 git
 gnu-netcat
+gnumeric
+gparted
 grep
 groff
 grub
-gtk-chtheme
 gvfs-mtp
 gzip
 hdparm
@@ -56,7 +60,6 @@ jdk8-openjdk
 jfsutils
 jsoncpp
 kakoune
-kdenlive
 kitty
 lib32-amdvlk
 lib32-libva-intel-driver
@@ -70,6 +73,7 @@ libva-mesa-driver
 libvdpau-va-gl
 linux
 linux-firmware
+linux-lts
 logrotate
 lvm2
 lxappearance
@@ -86,7 +90,6 @@ mpv
 mupdf
 nano
 neofetch
-neovim
 netctl
 network-manager-applet
 networkmanager
@@ -95,6 +98,7 @@ nodejs
 noto-fonts
 npm
 ntfs-3g
+obs-studio
 openal
 openjdk8-doc
 openjdk8-src
@@ -117,6 +121,7 @@ python-pip
 python-pynvim
 python-virtualenv
 python2-pip
+qtcreator
 qutebrowser
 ranger
 rdesktop
@@ -153,7 +158,6 @@ ttf-hack
 ttf-inconsolata
 ttf-joypixels
 ttf-liberation
-ttf-nerd-fonts-symbols
 unrar
 unzip
 usbutils
@@ -192,4 +196,3 @@ xorg-xrandr
 xorg-xrdb
 xorg-xsetroot
 xorg-xwininfo
-youtube-dl

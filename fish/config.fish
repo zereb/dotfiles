@@ -47,3 +47,4 @@ alias psqlstart "sudo systemctl start postgresql.service"
 alias psqlstop "sudo systemctl stop postgresql.service"
 alias game_mode "xrandr --output HDMI-0 --mode 1280x720 && xinput --set-prop 11 'libinput Accel Speed' -0.5 && polybar_launch && killall compton && echo 'done'"
 alias normal_mode "xrandr --output HDMI-0 --auto && xinput --set-prop 11 'libinput Accel Speed' 0 && polybar_launch && compton &"
+
