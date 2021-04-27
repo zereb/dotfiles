@@ -4,7 +4,7 @@ set -xg EDITOR "nvim"
 set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
 set -xg BROWSER "/usr/bin/qutebrowser"
-#set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
+set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
 set -xg ANDROID_HOME "/home/oleg/Android/Sdk"
 
 ##### CLEANUP #####
