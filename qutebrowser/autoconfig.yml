@@ -6,6 +6,13 @@
 
 config_version: 2
 settings:
+<<<<<<< HEAD
+=======
+  content.geolocation:
+    https://www.dns-shop.ru: true
+    https://www.google.com: false
+    https://www.wildberries.ru: false
+>>>>>>> 9619a05d35cb0ca0d8eba84db48067069349fdc5
   content.media.audio_capture:
     https://discord.com: true
   content.media.audio_video_capture:
@@ -15,3 +22,4 @@ settings:
   content.notifications:
     https://aliexpress.ru: false
     https://www.reddit.com: false
+    https://www.wildberries.ru: false

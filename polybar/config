@@ -53,7 +53,7 @@ font-2 = FontAwesome5Brands:style=Solid:pixelsize=9;2
 ;modules-left = i3
 modules-left = sysmenu bspwm title
 modules-center = mpd
-modules-right = alsa updates xkeyboard cpu temperature temperaturePad memory  date
+modules-right = alsa updates xkeyboard cpu temperature temperaturePad tempGpu memory  date
 tray-position = right
 tray-padding = 5
 ;tray-background = #0063ff
@@ -201,7 +201,7 @@ type = internal/date
 interval = 5
 
 date = "%Y-%m-%d"
-date-alt = "%Y-%m-%d"
+date-alt = ""
 
 time = %H:%M
 time-alt = %H:%M
@@ -263,12 +263,26 @@ ramp-1 = 
 ramp-0 = 
 ramp-foreground = ${colors.foreground-alt}
 
+[module/tempGpu]
+type = internal/temperature
+thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:06:00.0/0000:07:00.0/0000:08:00.0/hwmon/hwmon2/temp1_input
+warn-temperature = 70
+format =  <label>
+format-warn =  <label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+ramp-foreground = ${colors.foreground-alt}
+
+
+
 
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 warn-temperature = 70
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
@@ -279,6 +293,7 @@ ramp-2 = 
 ramp-1 = 
 ramp-0 = 
 ramp-foreground = ${colors.foreground-alt}
+
 
 [settings]
 screenchange-reload = true

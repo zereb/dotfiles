@@ -85,7 +85,7 @@ super + grave
 
 
 Print
-    scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+    scrot ~/HDrive/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && dunstify -u normal "scrot" "screenshot saved"
 
 super + F10
 		sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:1800 --user zereb --worker w1
@@ -93,14 +93,13 @@ super + F10
 super + F11
 		sleep 6h && shutdown
 
-
 #poe related
 
 F3
     poe_logout
 
 XF86AudioMute
-    pulsemixer --id source-2  --toggle-mute
+	mic
 
 super + F3
     java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Ultimatum

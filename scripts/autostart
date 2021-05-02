@@ -3,7 +3,8 @@
 sxhkd &
 xsetroot -cursor_name left_ptr &
 xrandr --output HDMI-A-0 --set TearFree on &
-sudo modprobe k10temp force=1 &
+#sudo modprobe k10temp force=1 &
+sudo modprobe zenpowe &
 transmission-daemon &
 polybar_launch &
 wmname LG3D &

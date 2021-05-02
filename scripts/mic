@@ -1,0 +1,5 @@
+#! /bin/bash
+pulsemixer --id source-2  --toggle-mute && 
+    mute="$(pulsemixer --id source-2 --get-mute)"
+    dunstify -u normal "micro mute" $mute 
+
