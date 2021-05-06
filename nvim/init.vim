@@ -1,46 +1,10 @@
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-
-call plug#begin('~/.config/nvim/plugged/')
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"    Plug 'honza/vim-snippets'
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
-    Plug 'mhinz/vim-signify' "git-gutter 
-    Plug 'liuchengxu/vim-which-key'
-    "Plug 'itchyny/lightline.vim'  
-    Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
-    Plug 'romgrk/barbar.nvim'
-"    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-
-    "Plug 'mengelbrecht/lightline-bufferline'
-
-    "clojure cider.el
-"    Plug 'clojure-vim/vim-jack-in'
-"    Plug 'radenling/vim-dispatch-neovim' 
-"    Plug 'Olical/conjure', {'tag': 'v4.7.0'}
-    "Plug 'kovisoft/slimv'
- "   Plug 'vlime/vlime'
-
-""highlits
-    Plug 'kovetskiy/sxhkd-vim' 
-"split    Plug 'jiangmiao/auto-pairs'
-"    Plug 'sheerun/vim-polyglot'
-call plug#end()
-
 
 autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
 
+lua require('init')
 nnoremap <Space> <Nop>
 let g:mapleader = "\<Space>"
+
 let g:maplocalleader = "z"
 
 "ctrl + u capitalize
@@ -192,7 +156,6 @@ let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 "galaxyline
-lua require('init')
 
 "" coc
 
