@@ -1,118 +1,4 @@
-
-autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
-
-lua require('init')
-nnoremap <Space> <Nop>
-let g:mapleader = "\<Space>"
-
-let g:maplocalleader = "z"
-
-"ctrl + u capitalize
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwUi<ESC>
-"TAB in general mode will move to text buffer
-"nnoremap <TAB> :bnext<CR> 
-
-" Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-
-map <leader>wk <C-w>q
-map <leader>wq <C-w>q
-map <leader>ww :vsplit<CR>
-map <leader>wh :split<CR>
-map <leader>wt :vsplit +terminal<CR>
-
-
-"plug
-map <leader>pc :PlugClean<CR>
-map <leader>pi :PlugInstall<CR>
-map <leader>pu :PlugUpdate<CR>
-map <leader>ps :source %<CR>
-nnoremap <silent> <space>pe  :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>po  :<C-u>CocList commands<cr>
-
-map <leader><leader> :FZF<CR>
-map <leader>x :Commands<CR>
-
-"coc
-nnoremap <leader>pm  :<C-u>CocList marketplace<cr>
-nnoremap <leader>pe  :<C-u>CocList extensions<cr>
-nnoremap <leader>pq  :<C-u>CocDsable<cr>
-nnoremap <leader>px  :<C-u>CocEnable<cr>
-
-"Buffers
-map <leader>bb :Buffers<CR>
-map <leader>bn :BufferNext<CR>
-map <leader>bp :BufferPrevious<CR>
-map <leader>bk :BufferClose<CR>
-
-
-nmap <Leader>1 :BufferGoto 1<CR>
-nmap <Leader>2 :BufferGoto 2<CR>
-nmap <Leader>3 :BufferGoto 3<CR>
-nmap <Leader>4 :BufferGoto 4<CR>
-nmap <Leader>5 :BufferGoto 5<CR>
-nmap <Leader>6 :BufferGoto 6<CR>
-nmap <Leader>7 :BufferGoto 7<CR>
-nmap <Leader>8 :BufferGoto 8<CR>
-nmap <Leader>9 :BufferGoto 9<CR>
-
-" Mappings using CoCList:
-nnoremap <silent> <space>cd  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>co  :<C-u>CocList outline<cr>
-nnoremap <silent> <space>cs  :<C-u>CocList -I symbols<cr>
-nmap <leader>ca  <Plug>(coc-codeaction)
-nmap <leader>cf  <Plug>(coc-fix-current)
-nmap <leader>cn <Plug>(coc-rename)
-xmap <leader>cp  <Plug>(coc-format-selected)
-nmap <leader>cp  <Plug>(coc-format-selected)
-
-
-"which key
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader>      :<c-u>WhichKey 'z'<CR>
-
-call which_key#register('<Space>', "g:which_key_map")
-let g:which_key_map =  {}
-let g:which_key_map['b'] = { 'name' : '+BUFFERS'}
-let g:which_key_map['p'] = { 'name' : '+PLUGGINS'}
-let g:which_key_map['c'] = { 'name' : '+CODE'}
-let g:which_key_map['w'] = { 'name' : '+WINDOW', 'q' : 'kill window', 'k' : 'kill window', 't' : 'terminal'}
-let g:which_key_map['<Space>'] = { 'name' : 'FZF'}
-let g:which_key_map.1 = 'which_key_ignore'
-let g:which_key_map.2 = 'which_key_ignore'
-let g:which_key_map.3 = 'which_key_ignore'
-let g:which_key_map.4 = 'which_key_ignore'
-let g:which_key_map.5 = 'which_key_ignore'
-let g:which_key_map.6 = 'which_key_ignore'
-let g:which_key_map.7 = 'which_key_ignore'
-let g:which_key_map.8 = 'which_key_ignore'
-let g:which_key_map.9 = 'which_key_ignore'
-let g:which_key_map.0 = 'which_key_ignore'
-let g:which_key_map.b.1 = 'which_key_ignore'
-let g:which_key_map.b.2 = 'which_key_ignore'
-let g:which_key_map.b.3 = 'which_key_ignore'
-let g:which_key_map.b.4 = 'which_key_ignore'
-let g:which_key_map.b.5 = 'which_key_ignore'
-let g:which_key_map.b.6 = 'which_key_ignore'
-let g:which_key_map.b.7 = 'which_key_ignore'
-let g:which_key_map.b.8 = 'which_key_ignore'
-let g:which_key_map.b.9 = 'which_key_ignore'
-let g:which_key_map.b.0 = 'which_key_ignore'
-
-" Open file explorer
-map <A-1> :CocCommand explorer<CR>
-
-""autoclose if eplorer is last buffer
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif 
-
-
-color dracula
-
+set termguicolors
 set hidden          ""hz look up how buffers work
 set nowrap
 set mouse=a         ""mouse enable
@@ -129,36 +15,33 @@ set expandtab
 set softtabstop=4
 set shiftround
 set autoindent
-set termguicolors
 set timeoutlen=500
 set noshowmode "remove -- INSERT -- etc.
 
 
-"plugins
-"
-" slimv
+nnoremap <Space> <Nop>
+let g:mapleader = "\<Space>"
+let g:maplocalleader = "z"
 
-let g:slimv_swank_cmd = '! alacritty -e sbcl --load ~/.config/nvim/plugged/slimv/slime/start-swank.lisp &'
-let g:slimv_repl_split = 4
-let g:lisp_rainbow = 1
-let g:slimv_simple_compl = 0
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Lightline
+autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif "open help in left
 
-let g:lightline#bufferline#show_number  = 1
-let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#unnamed      = '[No Name]'
-let g:lightline#bufferline#clickable = 1
+lua require('init')
+" Open file explorer
+map <A-1> :CocCommand explorer<CR>
 
-let g:lightline = {'colorscheme': 'wombat'}
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+""autoclose if eplorer is last buffer
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif 
 
-"galaxyline
+
+color dracula
 
 "" coc
-
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
@@ -204,12 +87,6 @@ endif
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
