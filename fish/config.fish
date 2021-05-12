@@ -16,8 +16,8 @@ set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
 set -xg CARGO_HOME $XDG_DATA_HOME/cargo
 set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
 set -xg DOOMDIR "~/.config/doom"
-set -xg WINEPREFIX /home/oleg/HDrive/Games/wine
-set -xg STEAM_COMPAT_DATA_PATH /home/oleg/HDrive/Games/proton
+set -xg WINEPREFIX /home/oleg/HDrive/Games/!Wine
+set -xg STEAM_COMPAT_DATA_PATH /home/oleg/HDrive/Games/!Proton
 set -xg WINEARCH win64
 set -xg XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
 set -xg GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
@@ -47,4 +47,5 @@ alias psqlstart "sudo systemctl start postgresql.service"
 alias psqlstop "sudo systemctl stop postgresql.service"
 alias game_mode "xrandr --output HDMI-0 --mode 1280x720 && xinput --set-prop 11 'libinput Accel Speed' -0.5 && polybar_launch && killall compton && echo 'done'"
 alias normal_mode "xrandr --output HDMI-0 --auto && xinput --set-prop 11 'libinput Accel Speed' 0 && polybar_launch && compton &"
+alias rofi "rofi --config ~/.config/rofi/config -theme ~/.config/rofi/dracula.rasi"
 

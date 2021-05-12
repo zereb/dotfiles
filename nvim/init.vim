@@ -24,11 +24,6 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = "z"
 
 " Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif "open help in left
 
 lua require('init')
