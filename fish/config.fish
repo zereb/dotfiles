@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ $PATH
+set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ ~/.local/bin $PATH
 set -xg EDITOR "nvim"
 set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
@@ -42,7 +42,8 @@ alias fishrc "vim ~/dotfiles/fish/config.fish"
 alias i3rc "vim ~/dotfiles/i3/config"
 alias scriptch "chmod -R -v 755 ~/dotfiles/config/scripts/"
 alias pswd "java -jar /home/oleg/Programms/pswd.jar"
-alias j2me "cd /home/oleg/Programms/games/java/ && java -jar freej2me.jar"
+alias freej2me "cd /home/oleg/Programms/games/java/ && java -jar freej2me.jar"
+alias hiero "/usr/lib/jvm/java-8-openjdk/bin/java -jar ~/Programms/runnable-hiero.jar"
 alias psqlstart "sudo systemctl start postgresql.service"
 alias psqlstop "sudo systemctl stop postgresql.service"
 alias game_mode "xrandr --output HDMI-0 --mode 1280x720 && xinput --set-prop 11 'libinput Accel Speed' -0.5 && polybar_launch && killall compton && echo 'done'"
