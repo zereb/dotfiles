@@ -1,0 +1,2 @@
+#!/bin/bash
+exec wine /home/oleg/HDrive/Games/Doom/Q-Zandronum/q-zandronum64.exe "$@"
