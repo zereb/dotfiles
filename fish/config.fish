@@ -3,7 +3,8 @@ set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools
 set -xg EDITOR "nvim"
 set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
-set -xg BROWSER "/usr/bin/qutebrowser"
+# set -xg BROWSER "/usr/bin/qutebrowser"
+set -xg BROWSER "/usr/bin/brave"
 set -xg _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd"
 set -xg ANDROID_HOME "/home/oleg/Android/Sdk"
 

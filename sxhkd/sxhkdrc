@@ -102,4 +102,4 @@ XF86AudioMute
 	mic
 
 super + F3
-    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Ultimatum
+    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Expedition
