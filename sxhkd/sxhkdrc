@@ -65,11 +65,11 @@ super + r
 super + Return
 			alacritty
 super + d
-			rofi --config ~/.config/rofi/config -show drun -theme ~/.config/rofi/dracula.rasi
+			rofi -config ~/.config/rofi/config.rasi -show drun -theme ~/.config/rofi/dracula.rasi
 super + g 
 			rofi -show drun -drun-categories Game
 super + s
-			rofi --config ~/.config/rofi/config -show run -theme ~/.config/rofi/dracula.rasi
+			rofi -config ~/.config/rofi/config -show run -theme ~/.config/rofi/dracula.rasi
 alt + Tab
 			rofi -show window -theme ~/.config/rofi/dracula.rasi
 super + c
