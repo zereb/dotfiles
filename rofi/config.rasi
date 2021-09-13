@@ -1,10 +1,64 @@
 configuration {
     font: "Droid sans 14";
-    location: 2;
-    yoffset: -2;
-    xoffset: 2;
+    location: 1;
+    yoffset: 0;
+    xoffset: 0;
     fixed-num-lines: false;
     show-icons: true;
     terminal: "alacritty";
     icon-theme: "Papirus-Dark";
 }
+
+* {
+    /* Dracula theme colour palette */
+    drac-bgd: #282a36;
+    drac-cur: #44475a;
+    drac-fgd: #f8f8f2;
+    drac-cmt: #6272a4;
+    drac-cya: #8be9fd;
+    drac-grn: #50fa7b;
+    drac-ora: #ffb86c;
+    drac-pnk: #ff79c6;
+    drac-pur: #bd93f9;
+    drac-red: #ff5555;
+    drac-yel: #f1fa8c;
+
+    font: "Jetbrains Mono 12";
+
+    foreground: @drac-fgd;
+    background: @drac-bgd;
+    active-background: @drac-pnk;
+    urgent-background: @drac-red;
+    
+    selected-background: @active-background;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+    separatorcolor: @active-background;
+    bordercolor: #6272a4;
+}
+
+#window {
+    background-color: @background;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+#listview {
+    background-color:               @dracbgd;
+    columns:                        4;
+    layout:                         vertical;
+}
+
+#element.alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+#element.alternate.urgent {
+    background-color: @urgent-background;
+    text-color:       @foreground;
+}
+#element.alternate.active {
+    background-color: @active-background;
+    text-color:       @foreground;
+}
+
