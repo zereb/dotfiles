@@ -25,8 +25,8 @@ set -xg GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -xg  PARALLEL_HOME $XDG_CONFIG_HOME/parallel
 
-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
-xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
+# xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
+# xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https
 
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
