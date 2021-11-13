@@ -14,6 +14,7 @@ settings:
     https://discord.com: true
   content.media.audio_video_capture:
     https://discord.com: true
+    https://www.omegle.com: true
   content.media.video_capture:
     https://discord.com: true
   content.notifications.enabled:
