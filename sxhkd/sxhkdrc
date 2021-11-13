@@ -69,7 +69,7 @@ super + d
 super + g 
 			rofi -config ~/.config/rofi/config.rasi -show drun -drun-categories Game
 super + s
-			rofi -config ~/.config/rofi/config.rasi -show runalt + Tab
+			rofi -config ~/.config/rofi/config.rasi -show run
 Alt + Tab
 			rofi -show window 
 super + c

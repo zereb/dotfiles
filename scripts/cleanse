@@ -23,3 +23,8 @@ rm -rf /home/oleg/.netrc
 rm -rf /home/oleg/.netbeans
 rm -rf /home/oleg/.openjfx
 rm -rf /home/oleg/.prefs
+rm -rf /home/oleg/Documents/Music
+rm -rf /home/oleg/Documents/Videos
+rm -rf /home/oleg/Documents/Pictures
+rm -rf /home/oleg/Documents/Downloads
+
