@@ -3,27 +3,29 @@ local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 
-cmd 'packadd paq-nvim'         -- Load package
+--cmd 'packadd paq-nvim'         -- Load package
 
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
-paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
+local paq = require("paq")
 
-paq {'dracula/vim',  as ='dracula'} --dracula theme
-paq 'ryanoasis/vim-devicons'
-paq 'kyazdani42/nvim-web-devicons'
-paq {'neoclide/coc.nvim', branch ='release'}
-paq 'junegunn/fzf.vim'
-paq 'airblade/vim-rooter'
-paq 'mhinz/vim-signify' -- git gutter
-paq {'glepnir/galaxyline.nvim', branch = 'main'}
-paq 'romgrk/barbar.nvim' --tabs
-paq 'kovetskiy/sxhkd-vim'
-paq {'nvim-treesitter/nvim-treesitter'}
-paq 'folke/which-key.nvim' --which key in lua
-paq 'akinsho/nvim-toggleterm.lua' --terminal
-paq 'norcalli/nvim-colorizer.lua' --show color in #RGB
-paq 'b3nj5m1n/kommentary' --coment line like in idea Ctrl + /
--- paq 'kyazdani42/nvim-tree.lua'
+paq{
+    "savq/paq-nvim";
+    "dracula/vim";
+    "ryanoasis/vim-devicons";
+    "kyazdani42/nvim-web-devicons";
+    "neoclide/coc.nvim";
+    "junegunn/fzf.vim";
+    "airblade/vim-rooter";
+    "mhinz/vim-signify"; --git gutter
+    "glepnir/galaxyline.nvim";
+    "romgrk/barbar.nvim"; --tabs
+    "kovetskiy/sxhkd-vim";
+    "nvim-treesitter/nvim-treesitter";
+    "folke/which-key.nvim";
+    "akinsho/nvim-toggleterm.lua"; --terminal
+    "norcalli/nvim-colorizer.lua"; --show color in #RGB
+    "b3nj5m1n/kommentary"; --coment line like in idea Ctrl + /
+    "kyazdani42/nvim-tree.lua";
+}
 
 require('evilline')
 

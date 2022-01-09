@@ -11,6 +11,13 @@ set -xg ANDROID_HOME "/home/oleg/Android/Sdk"
 ##### CLEANUP #####
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CACHE_HOME $HOME/.cache
+set -xg XDG_DATA_HOME $HOME/.local/share
+set -xg XDG_STATE_HOME $HOME/.local/state
+set -xg XDG_RUNTIME_DIR $HOME/.config/.runtime
+
+set -xg GRADLE_USER_HOME $XDG_DATA_HOME/gradle
+set -xg GRADLE_USER_HOME $XDG_DATA_HOME/gradle
+
 set -xg GNUPGHOME $XDG_CONFIG_HOME/gnupg
 set -xg ICEAUTHORITY $XDG_CACHE_HOME/ICEauthority
 set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie

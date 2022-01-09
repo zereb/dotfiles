@@ -27,4 +27,11 @@ rm -rf /home/oleg/Documents/Music
 rm -rf /home/oleg/Documents/Videos
 rm -rf /home/oleg/Documents/Pictures
 rm -rf /home/oleg/Documents/Downloads
+rm ~/.bash_history
+rm ~/.fcuid
+rm ~/.grip
+rm ~/.grip-oggenc
+rm ~/.lesshst
+rm ~/.viminfo
+rm ~/.wget-hsts
 
