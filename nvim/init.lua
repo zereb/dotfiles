@@ -3,10 +3,59 @@ local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 
-
 vim.opt.termguicolors = true
+vim.opt.backup = false                  -- dont create backup files
+vim.opt.hidden = true
+vim.opt.nowrap = true
+vim.opt.conceallevel = 0                -- so that `` is visible in markdown files
+vim.opt.mouse = "a"     
+vim.opt.splitbelow = true     
+vim.opt.splitright = true               -- force to split on right
+vim.opt.number = true                   -- line numbers
+vim.opt.clipboard = "unnamedplus"       -- system clipboard
+vim.opt.showtabline = 2                 -- always show tabline
+vim.opt.showcmd = true
+vim.opt.cursorline = true   
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true                -- convert tabs to spaces
+vim.opt.softtabstop = 4
+vim.opt.shiftround = true
+vim.opt.autoindent = true
+vim.opt.timeoutlen = 500
+vim.opt.noshowmode                      -- dont show mode like -- INSERT -- etc.
+vim.opt.fileencoding = "utf-8" 
+vim.opt.ignorecase = true               -- ignore case in search patterns
+vim.opt.swapfile = false                -- dont create a swapfile
+vim.opt.updatetime = 300                -- completion in milliseconds 
+vim.opt.signcolumn = "yes"              -- always show the sign column, otherwise it would shift the text each time
 
-require("user.plugins")
+
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- window navigation
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-_>", "<Plug>kommentary_line_default", opts)
+-- Resize with arrows
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+
+require("usr.plugins")
 require("user.evilline")
 require("user.cmp")
 
@@ -133,17 +182,12 @@ wk.register(
     {prefix = "g"}
 )
 
-wk.register(
-    {
-        ["<M-CR>"] = {"<Plug>(coc-codeaction)", "Codeaction"},
-        ["<C-h>"] = {"<C-w>h", "Window left"},
-        ["<C-j>"] = {"<C-w>j", "Window down"},
-        ["<C-k>"] = {"<C-w>k", "Window up"},
-        ["<C-l>"] = {"<C-w>l", "Window right"},
-        ["<C-_>"] = {"<Plug>kommentary_line_default", "Comment out"}
+-- wk.register(
+    -- {
+        -- ["<C-_>"] = {"<Plug>kommentary_line_default", "Comment out"}
 
-    }
-)
+    -- }
+-- )
 
 
 --end keymaps
