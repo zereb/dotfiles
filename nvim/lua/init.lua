@@ -7,7 +7,7 @@ local g = vim.g      -- a table to access global variables
 vim.opt.termguicolors = true
 vim.opt.backup = false                  -- dont create backup files
 vim.opt.hidden = true
-vim.opt.nowrap = true
+vim.opt.wrap = true
 vim.opt.conceallevel = 0                -- so that `` is visible in markdown files
 vim.opt.mouse = "a"     
 vim.opt.splitbelow = true     
@@ -24,7 +24,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftround = true
 vim.opt.autoindent = true
 vim.opt.timeoutlen = 500
-vim.opt.noshowmode                      -- dont show mode like -- INSERT -- etc.
+vim.opt.showmode = false                -- dont show mode like -- INSERT -- etc.
 vim.opt.fileencoding = "utf-8" 
 vim.opt.ignorecase = true               -- ignore case in search patterns
 vim.opt.swapfile = false                -- dont create a swapfile
@@ -32,12 +32,12 @@ vim.opt.updatetime = 300                -- completion in milliseconds
 vim.opt.signcolumn = "yes"              -- always show the sign column, otherwise it would shift the text each time
 
 require("user.plugins")
-require("user.evilline")
+--require("user.evilline")
 require("user.cmp")
-
+require("user.lsp")
+require("user.lualine")
 
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 keymap("", "<Space>", "<Nop>", opts)
@@ -49,7 +49,6 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<C-_>", "<Plug>kommentary_line_default", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -58,16 +57,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
-
-
-
-
---inspect objects
-function _G.dump(...)
-    local objects = vim.tbl_map(vim.inspect, {...})
-    print(unpack(objects))
-end
 
 
 --keymaps
@@ -116,10 +105,10 @@ wk.setup {
 
 wk.register({
     x = {"<cmd>Commands<CR>", "Commands"},
-    ["<leader>"] = {"<cmd>FZF<CR>", "FZF"},
+    ["<leader>"] = {"<cmd>FzfLua git_files<CR>", "FZF"},
     b = {
         name = "BUFFERS",
-        b = {"<cmd>Buffers<CR>", "Buffers"},
+        b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
         n = {"<cmd>BufferNext<CR>", "Next"},
         p = {"<cmd>BufferPrevious<CR>", "Previous"},
         k = {"<cmd>BufferClose<CR>", "Kill current"},
@@ -132,6 +121,13 @@ wk.register({
         ["7"] = {"<cmd> BufferGoto 7<CR>", "which_key_ignore"},
         ["8"] = {"<cmd> BufferGoto 8<CR>", "which_key_ignore"},
         ["9"] = {"<cmd> BufferGoto 9<CR>", "which_key_ignore"}
+    },
+    s = {
+        name = "SEARCH",
+        b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
+        g = {"<cmd>FzfLua grep<CR>", "Grep"},
+        h = {"<cmd>FzfLua help_tags<CR>", "Help"},
+        m = {"<cmd>FzfLua help_tags<CR>", "Man"},
     },
     w = {
         name = "WINDOWS",
@@ -153,48 +149,44 @@ wk.register({
         r = {"<cmd>TermExec cmd=\"ranger\"<CR>", "ranger"}
     },
     l = {
-        name = "LSP(CoC) Settings",
-        c = {"<cmd>CocList commands<CR>", "CoC Commands"},
-        e = {"<cmd>CocList extensions<CR>", "CoC Extentions"},
-        d = {"<cmd>CocDisable<CR>", "CoC Disable"},
-        t = {"<cmd>CocEnable<CR>", "CoC Enable"},
-        m = {"<cmd>CocList marketplace<CR>", "CoC Marketplace"}
+        name = "LSP",
+        i = {"<cmd>LspInfo<CR>", "Info"},
+        I = {"<cmd>LspInstallInfo<CR>", "Install"},
     },
-    c = {
-        name = "CODE",
-        x = {"<Plug>kommentary_line_default", "Comment out"},
-        c = {"<Plug>kommentary_visual_default", "Comment out", mode = "v"},
-        a = {"<Plug>(coc-codeaction)", "Codeaction"},
-        q = {"<Plug>(coc-fix-current)", "Quick fix"},
-        r = {"<Plug>(coc-rename)", "Raname"},
-        -- f = {"<Plug>coc-format-selected", "Format"},
-        f = {"<Plug>(coc-format-selected)", "Format", mode = "v"},
-        d = {"<cmd>CocList diagnostics<CR>", "CoC diagnostics"},
-        o = {"<cmd>CocList outline<CR>", "CoC outline"},
-        s = {"<cmd>CocList -I symbols<CR>", "CoC symbols"}
-        -- TODO more coment stuff
-    }
-}, {prefix = "<leader>"})
+   }, {prefix = "<leader>"})
 
 wk.register(
     {
-        d = {"<Plug>(coc-definition)", "Goto definition"},
-        y = {"<Plug>(coc-type-definition)", "Goto type definition"},
-        i = {"<Plug>(coc-implementation)", "Goto implementation"},
-        r = {"<Plug>(coc-refernces)", "Goto refernces"},
+        D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration"},
+        d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Goto definition"},
+        i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation"},
+        n = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename"},
+        a = {"<cmd>FzfLua lsp_code_actions<CR>", "Actions"},
+        r = {"<cmd>FzfLua lsp_references<CR>", "Goto refernces"},
+        f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Formatting"},
+        l = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Diagnostics"},
     },
     {prefix = "g"}
 )
 
+
+wk.register({
+    ["<C-_>"] = {"<Plug>kommentary_line_default<CR>", "Comment out"},
+    ["<C-e>"] = {"<cmd>FzfLua buffers<CR>", "Comment out"},
+   -- ["<C-_>"] = {"<Plug>kommentary_visual_default<CR>", "Comment out", mode = "v"},
+    ["<A-1>"] = {"<cmd>NvimTreeToggle<CR>", ""},
+    ["<A-2>"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
+    ["<ESC>"] = {"<cmd>ToggleTerm<CR>", "Terminal", mode = "t"}
+})
 --end keymaps
 
 --TreeSitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"bash", "css", "fish", "html", "java", "javascript", "json", "lua", "typescript", "vue"}, 
-  ignore_install = {  }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
+    ensure_installed = "maintained",
+    ignore_install = {  }, -- List of parsers to ignore installing
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+        disable = { },  -- list of language that will be disabled
   },
 }
 --end TreeSitter
@@ -202,4 +194,85 @@ require("toggleterm").setup{}
 require'colorizer'.setup()
 vim.g.kommentary_create_default_mappings = false
 
+
+--nvim tree
+local tree_cb = require("nvim-tree.config").nvim_tree_callback
+
+require'nvim-tree'.setup {
+  disable_netrw = true,
+  hijack_netrw = true,
+  open_on_setup = false,
+  ignore_ft_on_setup = {
+    "startify",
+    "dashboard",
+    "alpha",
+  },
+  auto_close = true,
+  open_on_tab = false,
+  hijack_cursor = false,
+  update_cwd = true,
+  update_to_buf_dir = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {},
+  },
+  system_open = {
+    cmd = nil,
+    args = {},
+  },
+  filters = {
+    dotfiles = false,
+    custom = {},
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    width = 35,
+    height = 30,
+    hide_root_folder = false,
+    side = "left",
+    auto_resize = true,
+    mappings = {
+      custom_only = false,
+      list = {
+        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+        { key = "h", cb = tree_cb "close_node" },
+        { key = "v", cb = tree_cb "vsplit" },
+      },
+    },
+    number = false,
+    relativenumber = false,
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true,
+  },
+  quit_on_open = 0,
+  git_hl = 1,
+  disable_window_picker = 0,
+  root_folder_modifier = ":t",
+  show_icons = {
+    git = 1,
+    folders = 1,
+    files = 1,
+    folder_arrows = 1,
+    tree_width = 30,
+  },
+}
 
