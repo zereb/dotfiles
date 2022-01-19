@@ -1,6 +1,7 @@
 
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
+    vim.api.nvim_err_writeln("Failed to load lualine")
 	return
 end
 
@@ -53,6 +54,14 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local function lspStatus()
+    if vim.lsp.buf.server_ready() then
+        return "lsp: " .. tostring(vim.lsp.buf.server_ready());
+    else
+        return ""
+    end
+end
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
@@ -64,7 +73,7 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { diagnostics },
-		lualine_b = { mode },
+		lualine_b = { mode, lspStatus },
 		lualine_c = { "filename" },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, "encoding", filetype },

@@ -7,16 +7,16 @@ local g = vim.g      -- a table to access global variables
 vim.opt.termguicolors = true
 vim.opt.backup = false                  -- dont create backup files
 vim.opt.hidden = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.conceallevel = 0                -- so that `` is visible in markdown files
-vim.opt.mouse = "a"     
-vim.opt.splitbelow = true     
+vim.opt.mouse = "a"
+vim.opt.splitbelow = true
 vim.opt.splitright = true               -- force to split on right
 vim.opt.number = true                   -- line numbers
 vim.opt.clipboard = "unnamedplus"       -- system clipboard
 vim.opt.showtabline = 2                 -- always show tabline
 vim.opt.showcmd = true
-vim.opt.cursorline = true   
+vim.opt.cursorline = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true                -- convert tabs to spaces
@@ -25,17 +25,20 @@ vim.opt.shiftround = true
 vim.opt.autoindent = true
 vim.opt.timeoutlen = 500
 vim.opt.showmode = false                -- dont show mode like -- INSERT -- etc.
-vim.opt.fileencoding = "utf-8" 
+vim.opt.fileencoding = "utf-8"
 vim.opt.ignorecase = true               -- ignore case in search patterns
 vim.opt.swapfile = false                -- dont create a swapfile
-vim.opt.updatetime = 300                -- completion in milliseconds 
+vim.opt.updatetime = 300                -- completion in milliseconds
 vim.opt.signcolumn = "yes"              -- always show the sign column, otherwise it would shift the text each time
 
 require("user.plugins")
---require("user.evilline")
 require("user.cmp")
 require("user.lsp")
 require("user.lualine")
+require("user.barbar")
+require("user.file-tree")
+require("user.trouble")
+require("user.signature")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
@@ -106,22 +109,22 @@ wk.setup {
 wk.register({
     x = {"<cmd>Commands<CR>", "Commands"},
     ["<leader>"] = {"<cmd>FzfLua git_files<CR>", "FZF"},
+    ["1"] = {"<cmd> BufferGoto 1<CR>", "which_key_ignore"},
+    ["2"] = {"<cmd> BufferGoto 2<CR>", "which_key_ignore"},
+    ["3"] = {"<cmd> BufferGoto 3<CR>", "which_key_ignore"},
+    ["4"] = {"<cmd> BufferGoto 4<CR>", "which_key_ignore"},
+    ["5"] = {"<cmd> BufferGoto 5<CR>", "which_key_ignore"},
+    ["6"] = {"<cmd> BufferGoto 6<CR>", "which_key_ignore"},
+    ["7"] = {"<cmd> BufferGoto 7<CR>", "which_key_ignore"},
+    ["8"] = {"<cmd> BufferGoto 8<CR>", "which_key_ignore"},
+    ["9"] = {"<cmd> BufferGoto 9<CR>", "which_key_ignore"},
     b = {
         name = "BUFFERS",
         b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
         n = {"<cmd>BufferNext<CR>", "Next"},
         p = {"<cmd>BufferPrevious<CR>", "Previous"},
         k = {"<cmd>BufferClose<CR>", "Kill current"},
-        ["1"] = {"<cmd> BufferGoto 1<CR>", "which_key_ignore"},
-        ["2"] = {"<cmd> BufferGoto 2<CR>", "which_key_ignore"},
-        ["3"] = {"<cmd> BufferGoto 3<CR>", "which_key_ignore"},
-        ["4"] = {"<cmd> BufferGoto 4<CR>", "which_key_ignore"},
-        ["5"] = {"<cmd> BufferGoto 5<CR>", "which_key_ignore"},
-        ["6"] = {"<cmd> BufferGoto 6<CR>", "which_key_ignore"},
-        ["7"] = {"<cmd> BufferGoto 7<CR>", "which_key_ignore"},
-        ["8"] = {"<cmd> BufferGoto 8<CR>", "which_key_ignore"},
-        ["9"] = {"<cmd> BufferGoto 9<CR>", "which_key_ignore"}
-    },
+   },
     s = {
         name = "SEARCH",
         b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
@@ -152,6 +155,7 @@ wk.register({
         name = "LSP",
         i = {"<cmd>LspInfo<CR>", "Info"},
         I = {"<cmd>LspInstallInfo<CR>", "Install"},
+        t = {"<cmd>TroubleToggle<CR>", "Trouble"}
     },
    }, {prefix = "<leader>"})
 
@@ -192,87 +196,9 @@ require'nvim-treesitter.configs'.setup {
 --end TreeSitter
 require("toggleterm").setup{}
 require'colorizer'.setup()
+
+-- some settings
+
 vim.g.kommentary_create_default_mappings = false
-
-
---nvim tree
-local tree_cb = require("nvim-tree.config").nvim_tree_callback
-
-require'nvim-tree'.setup {
-  disable_netrw = true,
-  hijack_netrw = true,
-  open_on_setup = false,
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
-  auto_close = true,
-  open_on_tab = false,
-  hijack_cursor = false,
-  update_cwd = true,
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true,
-  },
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
-  system_open = {
-    cmd = nil,
-    args = {},
-  },
-  filters = {
-    dotfiles = false,
-    custom = {},
-  },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
-  },
-  view = {
-    width = 35,
-    height = 30,
-    hide_root_folder = false,
-    side = "left",
-    auto_resize = true,
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
-      },
-    },
-    number = false,
-    relativenumber = false,
-  },
-  trash = {
-    cmd = "trash",
-    require_confirm = true,
-  },
-  quit_on_open = 0,
-  git_hl = 1,
-  disable_window_picker = 0,
-  root_folder_modifier = ":t",
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
-  },
-}
+vim.g.gitblame_enabled = 0
 

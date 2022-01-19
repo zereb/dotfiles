@@ -72,14 +72,16 @@ return packer.startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use "romgrk/barbar.nvim"
     use "folke/which-key.nvim"
+    use "folke/trouble.nvim"
+    use "ray-x/lsp_signature.nvim"
 
-    use "airblade/vim-rooter";
+    use "airblade/vim-rooter"
 --    use "glepnir/galaxyline.nvim";
-    use "kovetskiy/sxhkd-vim";
-    use "nvim-treesitter/nvim-treesitter";
-    use "akinsho/nvim-toggleterm.lua"; --terminal
-    use "norcalli/nvim-colorizer.lua"; --show color in #RGB
-    use "b3nj5m1n/kommentary"; --coment line like in idea Ctrl + /
+    use "kovetskiy/sxhkd-vim"
+    use { "nvim-treesitter/nvim-treesitter", commit = "723d91e8217ae66ea75f809f404d801ed939f497"}
+    use "akinsho/nvim-toggleterm.lua" --terminal
+    use "norcalli/nvim-colorizer.lua" --show color in #RGB
+    use "b3nj5m1n/kommentary" --coment line like in idea Ctrl + /
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
