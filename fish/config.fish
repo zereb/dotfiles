@@ -30,7 +30,8 @@ set -xg WINEARCH win64
 set -xg XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
 set -xg GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
-set -xg  PARALLEL_HOME $XDG_CONFIG_HOME/parallel
+set -xg PARALLEL_HOME $XDG_CONFIG_HOME/parallel
+set -xg NPM_CONFIG_PREFIX $XDG_DATA_HOME/npm
 
 # xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/http
 # xdg-mime default org.qutebrowser.qutebrowser.desktop x-scheme-handler/https

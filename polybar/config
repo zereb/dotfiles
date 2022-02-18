@@ -46,14 +46,14 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = mono:pixelsize=8;2
-font-1 = FontAwesome 5 Free:size=9:style=Solid;2
-font-2 = FontAwesome5Brands:style=Solid:pixelsize=9;2
+font-0 = Hack :pixelsize=8;2
+font-1 = FontAwesome 6 Free:size=9:style=Solid;2
+font-2 = FontAwesome6Brands:style=Solid:pixelsize=9;2
 
 ;modules-left = i3
 modules-left = sysmenu bspwm title
 modules-center = mpd
-modules-right = alsa updates xkeyboard cpu temperature temperaturePad tempGpu memory  date
+modules-right = alsa micro updates xkeyboard cpu temperature temperaturePad tempGpu memory  date
 tray-position = right
 tray-padding = 5
 ;tray-background = #0063ff
@@ -234,7 +234,7 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = -
 bar-volume-fill-font = 2
 bar-volume-empty = -
 bar-volume-empty-font = 2
@@ -353,3 +353,11 @@ bar-progress-width = 20
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = -
+
+
+[module/micro]
+type = custom/script
+exec = ~/.config/scripts/micro
+interval = 1
+
+

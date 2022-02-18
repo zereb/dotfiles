@@ -19,4 +19,4 @@ mpd &
 sudo ethtool -s enp5s0 wol g &
 xdg-mime default brave-browser.desktop x-scheme-handler/http
 xdg-mime default brave-browser.desktop x-scheme-handler/https
-sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:1800 --user zereb --worker w1
+#sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:1800 --user zereb --worker w1

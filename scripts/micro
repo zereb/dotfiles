@@ -1,0 +1,9 @@
+#! /bin/bash
+    mute="$(pulsemixer --id source-2 --get-mute)"
+    if [[ $mute -eq 0 ]]; then
+         echo 
+    fi
+    if [[ $mute -eq 1 ]]; then
+        echo        
+    fi
+
