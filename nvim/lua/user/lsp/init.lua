@@ -9,7 +9,7 @@ lsp_installer.on_server_ready(function(server)
         on_attach = function(client, bufnr)
             local opts = { noremap = true, silent = true }
             vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-            vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-<Enter>>", "<cmd>FzfLua lsp_code_actions <CR>", opts)
+            -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-<CR>>", "<cmd>FzfLua lsp_code_actions <CR>", opts)
         end,
         capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
     }
@@ -32,5 +32,4 @@ lsp_installer.on_server_ready(function(server)
 
     server:setup(opts)
 end)
-
 

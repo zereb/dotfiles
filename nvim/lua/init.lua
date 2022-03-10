@@ -34,6 +34,7 @@ vim.opt.signcolumn = "yes"              -- always show the sign column, otherwis
 require("user.plugins")
 require("user.cmp")
 require("user.lsp")
+require("user.lsp.null")
 require("user.lualine")
 require("user.barbar")
 require("user.file-tree")
@@ -59,9 +60,11 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<A-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
-
+keymap("n", "<A-h>", ":bprevious<CR>", opts)
+-- code
+--
 --keymaps
 local wk = require("which-key")
 wk.setup {
@@ -128,9 +131,8 @@ wk.register({
     s = {
         name = "SEARCH",
         b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
-        g = {"<cmd>FzfLua grep<CR>", "Grep"},
+        f = {"<cmd>FzfLua grep<CR>", "Grep"},
         h = {"<cmd>FzfLua help_tags<CR>", "Help"},
-        m = {"<cmd>FzfLua help_tags<CR>", "Man"},
     },
     w = {
         name = "WINDOWS",
@@ -157,12 +159,19 @@ wk.register({
         I = {"<cmd>LspInstallInfo<CR>", "Install"},
         t = {"<cmd>TroubleToggle<CR>", "Trouble"}
     },
+    g = {
+        name = "Git",
+        s = {"<cmd>FzfLua git_status<CR>", "Status"},
+        c = {"<cmd>FzfLua git_commits<CR>", "Commits"},
+        C = {"<cmd>FzfLua git_bcommits<CR>", "Branch Commits"},
+        b = {"<cmd>FzfLua git_branches<CR>", "Status"},
+    }
    }, {prefix = "<leader>"})
 
 wk.register(
     {
-        D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration"},
-        d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Goto definition"},
+        D = {"<cmd>FzfLua lsp_declarations)<CR>", "Goto declaration"},
+        d = {"<cmd>FzfLua lsp_definitions<CR>", "Goto definition"},
         i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation"},
         n = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename"},
         a = {"<cmd>FzfLua lsp_code_actions<CR>", "Actions"},
@@ -180,8 +189,14 @@ wk.register({
    -- ["<C-_>"] = {"<Plug>kommentary_visual_default<CR>", "Comment out", mode = "v"},
     ["<A-1>"] = {"<cmd>NvimTreeToggle<CR>", ""},
     ["<A-2>"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
-    ["<ESC>"] = {"<cmd>ToggleTerm<CR>", "Terminal", mode = "t"}
+    ["<A-CR>"] = {"<cmd>FzfLua lsp_code_actions<CR>", "Terminal"},
+    ["<A-l>"] = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Terminal"},
+    ["<ESC>"] = {"<cmd>ToggleTerm<CR>", "Terminal", mode = "t"},
 })
+
+
+
+
 --end keymaps
 
 --TreeSitter
@@ -192,7 +207,6 @@ require("toggleterm").setup{}
 require'colorizer'.setup()
 
 -- some settings
-
 vim.g.kommentary_create_default_mappings = false
 vim.g.gitblame_enabled = 0
 

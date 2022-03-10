@@ -1,9 +1,43 @@
-#! /bin/bash
-    mute="$(pulsemixer --id source-2 --get-mute)"
-    if [[ $mute -eq 0 ]]; then
-         echo 
-    fi
-    if [[ $mute -eq 1 ]]; then
-        echo        
-    fi
+#!/bin/bash
+    
+ status="$(amixer get Capture | grep '\[off\]' -c)"
+ channels="$(amixer get Capture toggle | awk /channels:/'{print $3}')"
 
+function F1() {
+    if [[ $channels == "Mono" ]];
+    then
+        s="HFP "
+    else
+        s="A2DP "
+
+    fi
+    
+if [[ $status -lt 1 ]]; then
+    echo "$s "
+fi
+if [[ $status -gt 0 ]]; then
+    echo "$s "      
+fi
+}
+
+function switchProfiles(){
+    if [[ $channels == "Mono" ]]; then
+        pacmd set-card-profile bluez_card.FC_58_FA_F8_C7_7F a2dp_sink
+    else
+        pacmd set-card-profile bluez_card.FC_58_FA_F8_C7_7F  handsfree_head_unit
+    fi
+}
+
+if [[ $1 = "--toggle" ]]; then
+    msg="$(amixer set Capture toggle | grep '\[')"
+    dunstify -u normal "micro mute" "$msg"
+else
+if [[ $1 = "--switch" ]]; then
+
+    switchProfiles
+else
+    F1
+fi
+
+
+fi

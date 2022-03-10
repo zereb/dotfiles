@@ -64,6 +64,7 @@ return packer.startup(function(use)
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
     -- ui
     use 'ibhagwan/fzf-lua'
@@ -82,6 +83,7 @@ return packer.startup(function(use)
     use "akinsho/nvim-toggleterm.lua" --terminal
     use "norcalli/nvim-colorizer.lua" --show color in #RGB
     use "b3nj5m1n/kommentary" --coment line like in idea Ctrl + /
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

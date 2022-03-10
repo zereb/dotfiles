@@ -99,7 +99,7 @@ F3
     poe_logout
 
 XF86AudioMute
-	mic
+	micro --toggle
 
 super + F3
     java -jar /home/oleg/Programms/cadiro.jar -l Scourge
