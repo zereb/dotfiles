@@ -26,7 +26,7 @@ set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
 set -xg DOOMDIR "~/.config/doom"
 set -xg WINEPREFIX /home/oleg/HDrive/Games/!Wine
 set -xg STEAM_COMPAT_DATA_PATH /home/oleg/HDrive/Games/!Proton
-set -xg WINEARCH win64
+set -xg WINEARCH win32
 set -xg XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
 set -xg GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc

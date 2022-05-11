@@ -1,0 +1,4 @@
+ #!/bin/sh
+
+ java -jar /home/oleg/Programms/pswd.jar -url | dmenu -l 30 | awk '{print $1}' | xargs java -jar ~/Programms/pswd.jar -id | xsel --clipboard
+

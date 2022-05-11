@@ -93,6 +93,9 @@ super + F10
 super + F11
 		sleep 6h && shutdown
 
+super + p
+	/home/oleg/dotfiles/scripts/pswd
+
 #poe related
 
 F3

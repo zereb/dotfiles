@@ -1,8 +1,6 @@
-
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
-
 
 vim.opt.termguicolors = true
 vim.opt.backup = false                  -- dont create backup files
@@ -10,7 +8,7 @@ vim.opt.hidden = true
 vim.opt.wrap = false
 vim.opt.conceallevel = 0                -- so that `` is visible in markdown files
 vim.opt.mouse = "a"
-vim.opt.splitbelow = true
+vim.opt.splitbelow = false
 vim.opt.splitright = true               -- force to split on right
 vim.opt.number = true                   -- line numbers
 vim.opt.clipboard = "unnamedplus"       -- system clipboard
@@ -60,7 +58,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<A-l>", ":bnext<CR>", opts)
+keymap("n", "<a-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-h>", ":bprevious<CR>", opts)
 -- code
@@ -110,8 +108,8 @@ wk.setup {
 }
 
 wk.register({
-    x = {"<cmd>Commands<CR>", "Commands"},
-    ["<leader>"] = {"<cmd>FzfLua git_files<CR>", "FZF"},
+    x = {"<cmd>FzfLua Commands<CR>", "Commands"},
+    ["<leader>"] = {"<cmd>FzfLua files<CR>", "FZF"},
     ["1"] = {"<cmd> BufferGoto 1<CR>", "which_key_ignore"},
     ["2"] = {"<cmd> BufferGoto 2<CR>", "which_key_ignore"},
     ["3"] = {"<cmd> BufferGoto 3<CR>", "which_key_ignore"},
@@ -190,7 +188,7 @@ wk.register({
     ["<A-1>"] = {"<cmd>NvimTreeToggle<CR>", ""},
     ["<A-2>"] = {"<cmd>ToggleTerm<CR>", "Terminal"},
     ["<A-CR>"] = {"<cmd>FzfLua lsp_code_actions<CR>", "Terminal"},
-    ["<A-l>"] = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Terminal"},
+    ["<A-f>"] = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Terminal"},
     ["<ESC>"] = {"<cmd>ToggleTerm<CR>", "Terminal", mode = "t"},
 })
 
@@ -202,9 +200,15 @@ wk.register({
 --TreeSitter
 require("user.treesitter")
 
---end TreeSitter
+require('nvim-ts-autotag').setup()
 require("toggleterm").setup{}
 require'colorizer'.setup()
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
 
 -- some settings
 vim.g.kommentary_create_default_mappings = false
