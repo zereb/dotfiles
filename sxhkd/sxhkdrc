@@ -75,7 +75,7 @@ Alt + Tab
 super + c
 			rofi -show calc -modi calc -no-show-match -no-sor 
 super + x
-			betterlockscreen -l dim -t
+			betterlockscreen -l
 super + shift + x
 	  		systemctl suspend
 super + w
@@ -88,13 +88,13 @@ Print
     scrot ~/HDrive/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && dunstify -u normal "scrot" "screenshot saved"
 
 super + F10
-		sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:8888 --user zereb --worker w1
+		sudo radeon-profile
 
 super + F11
 		sleep 6h && shutdown
 
 super + p
-	/home/oleg/dotfiles/scripts/pswd
+	pswd
 
 #poe related
 
@@ -105,4 +105,4 @@ XF86AudioMute
 	micro --toggle
 
 super + F3
-    java -jar /home/oleg/Programms/cadiro.jar -l Scourge
+    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Sentinel
