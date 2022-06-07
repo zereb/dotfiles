@@ -53,6 +53,7 @@ super + {Left,Down,Up,Right}
 # GENERAL
 XF86AudioRaiseVolume
 	amixer set Master 5%+
+
 XF86AudioLowerVolume
 	amixer set Master 5%-
 
@@ -70,8 +71,6 @@ super + g
 			rofi -config ~/.config/rofi/config.rasi -show drun -drun-categories Game
 super + s
 			rofi -config ~/.config/rofi/config.rasi -show run
-Alt + Tab
-			rofi -show window 
 super + c
 			rofi -show calc -modi calc -no-show-match -no-sor 
 super + x
@@ -83,8 +82,7 @@ super + w
 super + grave 
 	tdrop -ma -y 18 --wm "bspwm" kitty 
 
-
-Print
+super + insert
     scrot ~/HDrive/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && dunstify -u normal "scrot" "screenshot saved"
 
 super + F10

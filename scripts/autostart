@@ -1,12 +1,13 @@
 #!/bin/sh
 #### AUTOSTART ####
-sxhkd &
 xsetroot -cursor_name left_ptr &
-xrandr --output HDMI-A-0 --set TearFree on &
-sudo modprobe k10temp force=1 &
-#sudo modprobe zenpowe &
+if [ hostname = "PC" ]; then
+    xrandr --output HDMI-A-0 --set TearFree on &
+    sudo modprobe k10temp force=1 &
+    # sudo modprobe zenpowe &
+fi
 pulseaudio --start
-bluetoothctl power on
+bluetoothctl power on &
 transmission-daemon &
 polybar_launch &
 wmname LG3D &
@@ -17,7 +18,7 @@ xautolock -locker "betterlockscreen -l dim" &
 #compton &
 syncthing -no-browser &
 mpd &
-sudo ethtool -s enp5s0 wol g &
 xdg-mime default brave-browser.desktop x-scheme-handler/http
 xdg-mime default brave-browser.desktop x-scheme-handler/https
+sxhkd & disown
 #sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:1800 --user zereb --worker w1

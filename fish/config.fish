@@ -40,6 +40,7 @@ if status --is-login
         exec startx -- -keeptty
     end
 end
+
 alias vim "nvim"
 alias nvim "nvim"
 alias vi "nvim"

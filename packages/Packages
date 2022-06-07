@@ -14,7 +14,6 @@ bluez-tools
 bspwm
 bzip2
 cantata
-clang
 coreutils
 cryptsetup
 dash
@@ -62,7 +61,6 @@ jfsutils
 jsoncpp
 kitty
 less
-lib32-alsa-plugins
 libcaca
 libmad
 libtool
@@ -136,7 +134,6 @@ scrot
 sdl2_image
 sed
 shadow
-steam
 sudo
 sxhkd
 syncthing
@@ -166,8 +163,6 @@ w3m
 wayland
 wget
 which
-wine
-winetricks
 wmname
 xautolock
 xclip
