@@ -1,11 +1,19 @@
 #!/bin/sh
 #### AUTOSTART ####
+hostname="$(hostname)"
+
 xsetroot -cursor_name left_ptr &
-if [ hostname = "PC" ]; then
+
+if [ "$hostname" = "PC" ]; then
     xrandr --output HDMI-A-0 --set TearFree on &
     sudo modprobe k10temp force=1 &
     # sudo modprobe zenpowe &
 fi
+
+if [ "$hostname" = "ThinkPadT14" ]; then
+    cbatticon & disown
+fi
+
 pulseaudio --start
 bluetoothctl power on &
 transmission-daemon &
@@ -13,7 +21,7 @@ polybar_launch &
 wmname LG3D &
 ~/.fehbg &
 dunst &
-applets &
+nm-applet &
 xautolock -locker "betterlockscreen -l dim" &
 #compton &
 syncthing -no-browser &
