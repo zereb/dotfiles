@@ -44,7 +44,7 @@ local keymap = vim.api.nvim_set_keymap
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 -- window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -124,7 +124,7 @@ wk.register({
         b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
         n = {"<cmd>BufferNext<CR>", "Next"},
         p = {"<cmd>BufferPrevious<CR>", "Previous"},
-        k = {"<cmd>BufferClose<CR>", "Kill current"},
+        k = {"<cmd>!BufferClose<CR>", "Kill current"},
    },
     s = {
         name = "SEARCH",
@@ -163,6 +163,17 @@ wk.register({
         c = {"<cmd>FzfLua git_commits<CR>", "Commits"},
         C = {"<cmd>FzfLua git_bcommits<CR>", "Branch Commits"},
         b = {"<cmd>FzfLua git_branches<CR>", "Status"},
+        u = {"<cmd>GitBlameOpenCommitURL<CR>", "Open commit URL"},
+        t = {"<cmd>GitBlameToggle<CR>", "Toggle blame"},
+    },
+    e = {
+        name = "Eval",
+        b = {"<cmd>ConjureEvalBuf<CR>", "Eval buffer"},
+        l = {"<cmd>ConjureLogVSplit<CR>", "Log"},
+        e = {"<cmd>ConjureEvalCurrentForm<CR>", "Eval current form"},
+        r = {"<cmd>ConjureEvalRootForm<CR>", "Eval root"},
+        w = {"<cmd>ConjureEvalWord<CR>", "Inspect word"},
+        m = {"<cmd>ConjureEvalMarkedForm", "Eval at mark"},
     }
    }, {prefix = "<leader>"})
 
@@ -180,7 +191,6 @@ wk.register(
     {prefix = "g"}
 )
 
-
 wk.register({
     ["<C-_>"] = {"<Plug>kommentary_line_default<CR>", "Comment out"},
     ["<C-e>"] = {"<cmd>FzfLua buffers<CR>", "Comment out"},
@@ -192,9 +202,6 @@ wk.register({
     ["<ESC>"] = {"<cmd>ToggleTerm<CR>", "Terminal", mode = "t"},
 })
 
-
-
-
 --end keymaps
 
 --TreeSitter
@@ -203,6 +210,7 @@ require("user.treesitter")
 require('nvim-ts-autotag').setup()
 require("toggleterm").setup{}
 require'colorizer'.setup()
+require('gitsigns').setup()
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
@@ -210,7 +218,47 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
+
 -- some settings
 vim.g.kommentary_create_default_mappings = false
-vim.g.gitblame_enabled = 0
+vim.g.gitblame_enabled = 1
 
+
+require'marks'.setup {
+  -- whether to map keybinds or not. default true
+  default_mappings = true,
+  -- which builtin marks to show. default {}
+  builtin_marks = { ".", "<", ">", "^" },
+  -- whether movements cycle back to the beginning/end of buffer. default true
+  cyclic = true,
+  -- whether the shada file is updated after modifying uppercase marks. default false
+  force_write_shada = false,
+  -- how often (in ms) to redraw signs/recompute mark positions. 
+  -- higher values will have better performance but may cause visual lag, 
+  -- while lower values may cause performance penalties. default 150.
+  refresh_interval = 250,
+  -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+  -- marks, and bookmarks.
+  -- can be either a table with all/none of the keys, or a single number, in which case
+  -- the priority applies to all marks.
+  -- default 10.
+  sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+  -- disables mark tracking for specific filetypes. default {}
+  excluded_filetypes = {},
+  -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+  -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+  -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+  -- default virt_text is "".
+  bookmark_0 = {
+    sign = "⚑",
+    virt_text = "hello world"
+  },
+  mappings = {
+    set_next = "m,",
+    next = "mn",
+    prev = "mN",
+    preview = "m;",
+    set_bookmark0 = "m0",
+    delete = "md"
+  }
+}

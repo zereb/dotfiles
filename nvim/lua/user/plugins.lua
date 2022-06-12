@@ -66,6 +66,8 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use "Olical/conjure" -- lisp support
+    use "wlangstroth/vim-racket"
 
     --functions
     use 'windwp/nvim-ts-autotag' --auto close and edit html tag
@@ -81,6 +83,8 @@ return packer.startup(function(use)
     use "folke/which-key.nvim"
     use "folke/trouble.nvim"
     use "ray-x/lsp_signature.nvim"
+    use "chentoast/marks.nvim"
+    use "lewis6991/gitsigns.nvim"
 
     use "airblade/vim-rooter"
 --    use "glepnir/galaxyline.nvim";

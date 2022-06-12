@@ -70,7 +70,7 @@ c.qt.force_software_rendering = 'none'
 #   - always: Always use low-end device mode.
 #   - auto: Decide automatically (uses low-end mode with < 1 GB available RAM).
 #   - never: Never use low-end device mode.
-c.qt.low_end_device_mode = 'auto'
+c.qt.chromium.low_end_device_mode = 'auto'
 
 # Turn on Qt HighDPI scaling. This is equivalent to setting
 # QT_AUTO_SCREEN_SCALE_FACTOR=1 in the environment. It's off by default
