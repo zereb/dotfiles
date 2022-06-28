@@ -86,6 +86,11 @@ return packer.startup(function(use)
     use "chentoast/marks.nvim"
     use "lewis6991/gitsigns.nvim"
 
+    --nvim-treesitter plugins
+    use "p00f/nvim-ts-rainbow"
+    use "nvim-treesitter/nvim-treesitter-context"
+    use "6cdh/tree-sitter-scheme"
+
     use "airblade/vim-rooter"
 --    use "glepnir/galaxyline.nvim";
     use "kovetskiy/sxhkd-vim"

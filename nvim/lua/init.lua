@@ -124,7 +124,7 @@ wk.register({
         b = {"<cmd>FzfLua buffers<CR>", "Buffers"},
         n = {"<cmd>BufferNext<CR>", "Next"},
         p = {"<cmd>BufferPrevious<CR>", "Previous"},
-        k = {"<cmd>!BufferClose<CR>", "Kill current"},
+        k = {"<cmd>BufferClose!<CR>", "Kill current"},
    },
     s = {
         name = "SEARCH",
@@ -217,7 +217,6 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = true,
 }
-
 
 -- some settings
 vim.g.kommentary_create_default_mappings = false
