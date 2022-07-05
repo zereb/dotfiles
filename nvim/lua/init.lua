@@ -173,7 +173,9 @@ wk.register({
         e = {"<cmd>ConjureEvalCurrentForm<CR>", "Eval current form"},
         r = {"<cmd>ConjureEvalRootForm<CR>", "Eval root"},
         w = {"<cmd>ConjureEvalWord<CR>", "Inspect word"},
-        m = {"<cmd>ConjureEvalMarkedForm", "Eval at mark"},
+        m = {"<cmd>ConjureEvalMarkedForm<CR>", "Eval at mark"},
+        f = {"<cmd>ConjureEvalFile<CR>", "Eval FILE"},
+
     }
    }, {prefix = "<leader>"})
 

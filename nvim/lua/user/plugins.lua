@@ -68,6 +68,7 @@ return packer.startup(function(use)
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
     use "Olical/conjure" -- lisp support
     use "wlangstroth/vim-racket"
+    use "vlime/vlime"
 
     --functions
     use 'windwp/nvim-ts-autotag' --auto close and edit html tag
