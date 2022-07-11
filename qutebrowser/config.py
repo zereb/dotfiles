@@ -164,11 +164,11 @@ c.url.searchengines = {
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '9pt hack'
+c.fonts.completion.entry = '12pt hack'
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = '9pt hack'
+c.fonts.completion.category = '12pt hack'
 
 # Font used for the debugging console.
 # Type: QtFont
@@ -176,27 +176,27 @@ c.fonts.debug_console = '10pt hack'
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '9pt hack'
+c.fonts.downloads = '12pt hack'
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = 'bold 9pt hack'
+c.fonts.hints = 'bold 12pt hack'
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '9pt hack'
+c.fonts.keyhint = '12pt hack'
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '9pt hack'
+c.fonts.messages.error = '12pt hack'
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '9pt hack'
+c.fonts.messages.info = '12pt hack'
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '9pt hack'
+c.fonts.messages.warning = '12pt hack'
 
 # Font used for prompts.
 # Type: Font
@@ -211,7 +211,7 @@ c.fonts.statusbar = 'bold 9pt hack'
 
 # Font family for standard fonts.
 # Type: FontFamily
-c.fonts.web.family.standard = '12'
+c.fonts.web.family.standard = '14'
 
 # Font family for fixed fonts.
 # Type: FontFamily
@@ -235,20 +235,20 @@ c.fonts.web.family.fantasy = 'cantarell'
 
 # Default font size (in pixels) for regular text.
 # Type: Int
-c.fonts.web.size.default = 12
+c.fonts.web.size.default = 14
 
 # Default font size (in pixels) for fixed-pitch text.
 # Type: Int
-c.fonts.web.size.default_fixed = 12
+c.fonts.web.size.default_fixed = 14
 
 # Hard minimum font size (in pixels).
 # Type: Int
-c.fonts.web.size.minimum = 12
+c.fonts.web.size.minimum = 14
 
 # Minimum logical font size (in pixels) that is applied when zooming
 # out.
 # Type: Int
-c.fonts.web.size.minimum_logical = 10
+c.fonts.web.size.minimum_logical = 12
 
 
 def blood(c, options={}):
