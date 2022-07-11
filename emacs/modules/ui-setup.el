@@ -24,9 +24,6 @@
 (setq mouse-wheel-progressive-speed nil) ;; accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-(set-face-attribute 'default nil :family "Hack")
-(set-face-attribute 'default nil :height (* 14 10))
-
 (use-package dracula-theme
   :config
   (load-theme 'dracula t))
@@ -55,10 +52,34 @@
 	centaur-tabs-height 14
 	centaur-tabs-set-bar 'left
 	centaur-tabs-set-icons t
-	centaur-tabs-set-modified-marker t
-	)
+	centaur-tabs-set-modified-marker t)
   :config
   (centaur-tabs-mode t))
+
+(defcustom neo-window-width 30
+  "*Specifies the width of the NeoTree window."
+  :type 'integer
+  :group 'neotree)
+
+(use-package neotree
+  :config
+  (setq neo-smart-open t
+        neo-window-width 30
+        neo-theme (if (display-graphic-p) 'icons 'arrow)
+        ;;neo-window-fixed-size nil
+	neo-show-hidden-files t
+        inhibit-compacting-font-caches t
+        projectile-switch-project-action 'neotree-projectile-action) 
+        ;; truncate long file names in neotree
+  (add-hook 'neo-after-create-hook
+     #'(lambda (_)
+         (with-current-buffer (get-buffer neo-buffer-name)
+           (setq truncate-lines t)
+           (setq word-wrap nil)
+           (make-local-variable 'auto-hscroll-mode)
+           (setq auto-hscroll-mode nil)))))
+
+
 
 (use-package all-the-icons)
 
@@ -124,6 +145,25 @@
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
 
+
+(defun my-set-fonts (family size)
+  (set-face-attribute 'default nil :family family)
+  (set-face-attribute 'default nil :height size))
+
+(defun my-set-neotree-fonts (family size)
+  (custom-set-faces
+   (set-face-attribute 'neo-button-face      nil :height size)
+   (set-face-attribute 'neo-file-link-face   nil :height size :family family)
+   (set-face-attribute 'neo-dir-link-face    nil :height size :family family)
+   (set-face-attribute 'neo-header-face      nil :height size)
+   (set-face-attribute 'neo-expand-btn-face  nil :height size)))
+
+(if (string= system-name "PC")
+    (progn (my-set-fonts "Hack" 102)
+	   (my-set-neotree-fonts "Noto Sans" 100))
+    (progn (my-set-fonts "Hack" 140)
+	   (my-set-neotree-fonts "Noto Sans" 120)))
+
 (nvmap "K" 'helpful-at-point)
 
 (nvmap :prefix "SPC s"
@@ -136,10 +176,19 @@
        "i"   '(consult-imenu :which-key "Imenu")
        "r"   '(projectile-replace :which-key "Search in project"))
 
-
 (nvmap :prefix "SPC f"
        "" '(nil :which-key "FILES")
        "o" '(dired :which-key "Open directory in dired")
        "d" '(dired-jump :which-key "Open directory in dired")
        "s" '(save-all :which-key "Save all"))
+
+(evil-define-key 'normal neotree-mode-map (kbd "l") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "o") 'neotree-quick-look)
+(evil-define-key 'normal neotree-mode-map (kbd "h") 'neotree-select-up-node)
+(evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
+(evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+(evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
+(evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-rename-node)
+(evil-define-key 'normal neotree-mode-map (kbd "a") 'neotree-create-node)
 
