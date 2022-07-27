@@ -65,7 +65,7 @@
   :config
   (setq neo-smart-open t
         neo-window-width 35
-        neo-theme (if (display-graphic-p) 'icons 'arrow)
+        neo-theme (if (display-graphic-p) 'classic 'arrow)
         ;;neo-window-fixed-size nil
 	neo-show-hidden-files t
         inhibit-compacting-font-caches t

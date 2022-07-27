@@ -53,7 +53,7 @@ font-2 = FontAwesome6Brands:style=Solid:pixelsize=9;2
 ;modules-left = i3
 modules-left = sysmenu bspwm title
 modules-center = mpd
-modules-right = pulseaudio micro bt updates xkeyboard cpu temperature cput memory date
+modules-right = pulseaudio micro bt brightness updates xkeyboard cpu temperature cput memory date
 tray-position = right
 tray-padding = 5
 ;tray-background = #0063ff
@@ -347,6 +347,13 @@ interval = 1
 type = custom/script
 click-left = "~/.config/scripts/bt -f"
 exec = "echo "
+
+[module/brightness]
+type = custom/script
+click-left = "~/.config/scripts/brightness -i"
+click-right = "~/.config/scripts/brightness -d"
+exec = "~/.config/scripts/brightness -b"
+
 
 [module/cput]
 type = custom/script
