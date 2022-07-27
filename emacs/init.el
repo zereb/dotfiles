@@ -4,7 +4,6 @@
 (load "evil-setup")
 (load "completion-setup")
 (load "ui-setup")
-(load "neotree-setup")
 (load "flycheck-setup")
 (load "programming-setup")
 
@@ -77,7 +76,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(sly-asdf lsp-ui lsp-mode helpful git-gutter-fringe hl-todo sly-macrostep tree-sitter parinfer-rust-mode consult orderless company-box flycheck gcmh doom-modeline emojify all-the-icons general which-key use-package undo-fu-session evil-collection dracula-theme async)))
+   '(company-prescient prescient sly-asdf lsp-ui lsp-mode helpful git-gutter-fringe hl-todo sly-macrostep tree-sitter parinfer-rust-mode consult orderless company-box flycheck gcmh doom-modeline emojify all-the-icons general which-key use-package undo-fu-session evil-collection dracula-theme async)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

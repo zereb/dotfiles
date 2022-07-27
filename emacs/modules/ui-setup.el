@@ -56,7 +56,7 @@
   :config
   (centaur-tabs-mode t))
 
-(defcustom neo-window-width 30
+(defcustom neo-window-width 35
   "*Specifies the width of the NeoTree window."
   :type 'integer
   :group 'neotree)
@@ -64,7 +64,7 @@
 (use-package neotree
   :config
   (setq neo-smart-open t
-        neo-window-width 30
+        neo-window-width 35
         neo-theme (if (display-graphic-p) 'icons 'arrow)
         ;;neo-window-fixed-size nil
 	neo-show-hidden-files t
@@ -81,7 +81,8 @@
 
 
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :if (display-graphic-p))
 
 (use-package emojify
   :hook (after-init . global-emojify-mode))
@@ -160,9 +161,9 @@
 
 (if (string= system-name "PC")
     (progn (my-set-fonts "Hack" 102)
-	   (my-set-neotree-fonts "Noto Sans" 100))
-    (progn (my-set-fonts "Hack" 140)
-	   (my-set-neotree-fonts "Noto Sans" 120)))
+	   (my-set-neotree-fonts "Noto Sans" 80))
+    (progn (my-set-fonts "Hack" 130)
+	   (my-set-neotree-fonts "Noto Sans" 100)))
 
 (nvmap "K" 'helpful-at-point)
 
@@ -179,7 +180,9 @@
 (nvmap :prefix "SPC f"
        "" '(nil :which-key "FILES")
        "o" '(dired :which-key "Open directory in dired")
-       "d" '(dired-jump :which-key "Open directory in dired")
+       "d" '(dired-jump :which-key "Dired jump")
+       "p" '(projectile-switch-project :which-key "Switch to project")
+       "a" '(projectile-add-known-project :which-key "Add project")
        "s" '(save-all :which-key "Save all"))
 
 (evil-define-key 'normal neotree-mode-map (kbd "l") 'neotree-enter)

@@ -30,7 +30,6 @@
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :init
   (marginalia-mode))
-
 ;;; in buffer completion
 (use-package company
   :config
@@ -43,5 +42,12 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
+
+(use-package prescient
+  :after company)
+
+(use-package company-prescient
+  :after prescient)
+
 
 ;;;describe
