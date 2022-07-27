@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ ~/.local/bin $PATH
+set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ ~/.local/bin ~/.local/share/npm/bin $PATH
 set -xg EDITOR "nvim"
 set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
