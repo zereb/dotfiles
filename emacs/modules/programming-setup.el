@@ -7,6 +7,8 @@
         ;; and this highlights the entire sub tree in your code
         tree-sitter-debug-highlight-jump-region t))
 
+(use-package tree-sitter-langs)
+
 (use-package evil-nerd-commenter)
 
 (defun comment-and-next-line ()
@@ -49,6 +51,30 @@
 
 (use-package lsp-java
   :after lsp-mode)
+
+;; (use-package vue-mode)
+
+(use-package web-mode
+  :mode "\\.[px]?html?\\'"
+  :mode "\\.\\(?:tpl\\|blade\\)\\(?:\\.php\\)?\\'"
+  :mode "\\.erb\\'"
+  :mode "\\.[lh]?eex\\'"
+  :mode "\\.sface\\'"
+  :mode "\\.jsp\\'"
+  :mode "\\.as[cp]x\\'"
+  :mode "\\.ejs\\'"
+  :mode "\\.hbs\\'"
+  :mode "\\.mustache\\'"
+  :mode "\\.svelte\\'"
+  :mode "\\.twig\\'"
+  :mode "\\.jinja2?\\'"
+  :mode "\\.eco\\'"
+  :mode "wp-content/themes/.+/.+\\.php\\'"
+  :mode "templates/.+\\.php\\'"
+  :mode "\\.vue\\'")
+
+(add-hook 'web-mode 'lsp)
+(add-hook 'js-mode 'lsp)
 
 ;; SQL
 (add-hook 'sql-mode-hook 'lsp)
