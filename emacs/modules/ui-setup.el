@@ -11,6 +11,14 @@
 
 ;;line numbers
 
+(defun call-tdrop ()
+  (interactive)
+  (call-process "tdrop" nil 0 nil "-ma" "-y" "18" "--wm" "bspwm" "kitty"))
+
+(defun call-ranger ()
+  (interactive)
+  (call-process "kitty" nil 0 nil "-e" "ranger"))
+
 (defun my/linum-off ()
   (linum-mode -1))
 
@@ -183,7 +191,14 @@
        "d" '(dired-jump :which-key "Dired jump")
        "p" '(projectile-switch-project :which-key "Switch to project")
        "a" '(projectile-add-known-project :which-key "Add project")
-       "s" '(save-all :which-key "Save all"))
+       "s" '(save-all :which-key "Save all")
+       "r" '(call-ranger :which-key "Ranger")
+       "t" '(call-tdrop :which-key "Tdrop"))
+
+(nvmap :prefix "SPC d"
+       "" '(nil :which-key "CALL EXTERNAL")
+       "r" '(call-ranger :which-key "Ranger")
+       "t" '(call-tdrop :which-key "Tdrop"))
 
 (evil-define-key 'normal neotree-mode-map (kbd "l") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)

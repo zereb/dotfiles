@@ -63,6 +63,8 @@
        "p"   '(previous-buffer :which-key "Previous buffer")
        "K"   '(kill-buffer :which-key "Kill buffer"))
 
+;; (call-process "/usr/bin/tdrop" "-ma -y 18 --wm bspwm /usr/bin/alacritty")
+(server-start)
 ;;;programming
 ;; Silence compiler warnings as they can be pretty disruptive
 (if (boundp 'comp-deferred-compilation)

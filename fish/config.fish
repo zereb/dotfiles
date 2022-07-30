@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 set -gx PATH ~/.config/scripts/ ~/dotfiles/scripts/ ~/Android/Sdk/platform-tools ~/Programms ~/.emacs.d/bin/ ~/.local/bin ~/.local/share/npm/bin $PATH
-set -xg EDITOR "nvim"
+set -xg EDITOR "emacsclient -n"
 set -xg TERMINAL "alacritty"
 set -xg FILE "ranger"
 # set -xg BROWSER "/usr/bin/qutebrowser"

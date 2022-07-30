@@ -29,15 +29,15 @@
 
 (use-package sly-asdf)
 
-(use-package parinfer-rust-mode
-  :hook ((emacs-lisp-mode
-          clojure-mode
-          scheme-mode
-          lisp-mode
-          racket-mode
-          hy-mode) . parinfer-rust-mode)
-    :init
-    (setq parinfer-rust-auto-download t))
+;; (use-package parinfer-rust-mode
+;;  :hook ((emacs-lisp-mode
+;;          clojure-mode
+;;          scheme-mode
+;;          lisp-mode
+;;          racket-mode
+;;          hy-mode) . parinfer-rust-mode)
+;;    :init
+;;    (setq parinfer-rust-auto-download t))
   
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
