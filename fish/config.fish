@@ -24,8 +24,8 @@ set -xg HTTPIE_CONFIG_DIR $XDG_CONFIG_HOME/httpie
 set -xg CARGO_HOME $XDG_DATA_HOME/cargo
 set -xg GRADLE_USER_HOME $XDG_CONFIG_HOME/gradle
 set -xg DOOMDIR "~/.config/doom"
-set -xg WINEPREFIX /home/oleg/SSDrive/Games/!Wine
-set -xg WINEARCH win32
+set -xg WINEPREFIX /home/oleg/SSDrive/Games/!Wine64
+set -xg WINEARCH win64
 set -xg XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
 set -xg GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -xg NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc

@@ -43,10 +43,15 @@
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
+  :hook
+  ((sh-mode . lsp)
+   (web-mod . lsp)
+   (js-mode . lsp))
   :config
   (lsp-enable-which-key-integration t))
       
 (use-package lsp-ui
+  :after lsp-mode
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package lsp-java
