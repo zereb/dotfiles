@@ -79,7 +79,7 @@ super + p
 	 /home/oleg/.config/scripts/pswd
 
 super + grave 
-	tdrop -ma -y 18 --wm "bspwm" kitty 
+	tdrop -ma -y 18 --wm "bspwm" alacritty 
 
 super + insert
     scrot ~/HDrive/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && dunstify -u normal "scrot" "screenshot saved"
