@@ -85,7 +85,10 @@
 
 (use-package projectile
   :diminish projectile-mode
-  :config (projectile-mode))
+  :config (projectile-mode)
+  :config
+  (setq projectile-project-search-path '("~/Programming/My" "~/Programming/work" "~/dotfiles")
+	projectile-sort-order 'recently-active))
 
 ;;; General Keybindings
 (use-package general

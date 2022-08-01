@@ -4,8 +4,8 @@
 ;; (global-visual-line-mode t) 
 (setq visible-bell t)
 (global-hl-line-mode 1) ;highlight current line
-(setq-default display-line-numbers-width 3)
-(setq-default display-line-numbers-widen t)
+;; (setq-default display-line-numbers-width 3)
+;; (setq-default display-line-numbers-widen t)
 (setq use-dialog-box nil)
 (defalias 'yes-or-no-p 'y-or-n-p) 
 
@@ -24,7 +24,7 @@
 
 (add-hook 'helpful-mode-hook #'my/linum-off)
 (add-hook 'prog-mode-hook #'linum-mode)
-(setq linum-format "%4d | ")
+(setq linum-format "%4d ")
 
 ;;;mouse scroll
 (setq scroll-conservatively 101) ;; value greater than 100 gets rid of half page jumping
@@ -60,9 +60,13 @@
 	centaur-tabs-height 14
 	centaur-tabs-set-bar 'left
 	centaur-tabs-set-icons t
-	centaur-tabs-set-modified-marker t)
+	centaur-tabs-set-modified-marker t
+	centaur-tabs-modified-marker "*"
+	)
   :config
   (centaur-tabs-mode t))
+
+
 
 (defcustom neo-window-width 35
   "*Specifies the width of the NeoTree window."
