@@ -109,6 +109,7 @@
  (interactive)
  (my-mode-wrapper 'emacs-lisp-mode 'eval-expression 'sly-eval-last-expression))
 
+
 (nvmap :prefix "SPC e"
        "" '(nil :which-key "EVAL")
        "b" '(my-eval-buffer :which-key "Eval buffer")
@@ -117,9 +118,11 @@
        "i" '(my-eval-expression :which-key "Eval interactive")
        "u" '(sly-undefine-function :which-key "Undefine fynctions [sly]")
        "m" '(macrostep-expand :which-key "Expand macro")
-       "p" '(parinfer-rust-toggle-disable :which-key "Toggle parinfer"))
+       "p" '(parinfer-rust-toggle-disable :which-key "Toggle parinfer")
+       "c" '(sly-compile-and-load-file :which-key "Compile and load file"))
 
-(nvmap :prefix "SPC e c"
+
+(nvmap :prefix "SPC e C"
        "" '(nil :which-key "COMPILE")
        "e" '(sly-compile-defun :which-key "Compile defun")
        "C" '(sly-compile-and-load-file :which-key "Compile and load file")
