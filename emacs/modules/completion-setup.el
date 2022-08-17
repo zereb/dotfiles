@@ -1,4 +1,3 @@
-
 ;;; in minibuffer completion
 (use-package orderless
   :ensure t
@@ -48,6 +47,3 @@
 
 (use-package company-prescient
   :after prescient)
-
-
-;;;describe

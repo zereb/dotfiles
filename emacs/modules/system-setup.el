@@ -87,7 +87,7 @@
   :diminish projectile-mode
   :config (projectile-mode)
   :config
-  (setq projectile-project-search-path '("~/Programming/My" "~/Programming/work" "~/dotfiles")
+  (setq projectile-project-search-path '("~/Programming/My" "~/Programming/Work" "~/dotfiles" "~/Programming/!syncthing")
 	projectile-sort-order 'recently-active))
 
 ;;; General Keybindings

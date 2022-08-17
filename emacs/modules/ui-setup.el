@@ -179,15 +179,19 @@
 
 (nvmap "K" 'helpful-at-point)
 
+(defun grep-current-word ()
+  (interactive)
+  (consult-grep "" (current-word)))
+
 (nvmap :prefix "SPC s"
        "" '(nil :which-key "SEARCH")
        "f"   '(helpful-callable :which-key "Describe function")
        "c"   '(helpful-command :which-key "Describe command")
        "m"   '(consult-mode-command :which-key "Modes")
        "v"   '(helpful-variable :which-key "Describe variable")
-       "g"   '(consult-grep :which-key "Search in project")
+       "g"   '(grep-current-word :which-key "Search in project")
        "i"   '(consult-imenu :which-key "Imenu")
-       "r"   '(projectile-replace :which-key "Search in project"))
+       "r"   '(projectile-replace :which-key "Replace in project"))
 
 (nvmap :prefix "SPC f"
        "" '(nil :which-key "FILES")
