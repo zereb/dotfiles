@@ -1,0 +1,6 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "editor.fontFamily": "'Hack'",
+    "editor.minimap.enabled": false,
+    "vim.enableNeovim": true,
+}

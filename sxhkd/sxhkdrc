@@ -53,6 +53,9 @@ XF86AudioLowerVolume
 XF86AudioMute
 	micro --toggle
 
+F1
+	micro --toggle
+
 # APPLICATION KEYBINDINGS
 super + b
 			qutebrowser
@@ -83,7 +86,7 @@ super + grave
 
 super + insert
     scrot ~/HDrive/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && dunstify -u normal "scrot" "screenshot saved"
-
+    
 super + F12
     scrot -s
 
