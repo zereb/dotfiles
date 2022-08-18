@@ -3,4 +3,11 @@
     "editor.fontFamily": "'Hack'",
     "editor.minimap.enabled": false,
     "vim.enableNeovim": true,
+    "explorer.decorations.badges": false,
+    "explorer.excludeGitIgnore": true,
+    "editor.suggest.preview": true,
+    "editor.suggest.shareSuggestSelections": true,
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
 }

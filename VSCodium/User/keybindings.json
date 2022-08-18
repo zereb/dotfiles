@@ -86,7 +86,8 @@
     },
     {
         "key": "shift+l",
-        "command": "workbench.action.nextEditor"
+        "command": "workbench.action.nextEditor",
+        "when": "!textInputFocus"
     },
     {
         "key": "ctrl+pagedown",
@@ -94,7 +95,8 @@
     },
     {
         "key": "shift+h",
-        "command": "workbench.action.previousEditor"
+        "command": "workbench.action.previousEditor",
+        "when": "!textInputFocus"
     },
     {
         "key": "ctrl+pageup",
@@ -157,11 +159,6 @@
     },
     {
         "key": "ctrl+j",
-        "command": "cursorDown",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+j",
         "command": "breadcrumbs.selectFocused",
         "when": "breadcrumbsActive && breadcrumbsVisible"
     },
@@ -187,7 +184,7 @@
     {
         "key": "g d",
         "command": "editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
         "key": "f12",
@@ -197,7 +194,7 @@
     {
         "key": "g r",
         "command": "editor.action.goToReferences",
-        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
         "key": "shift+f12",
@@ -207,7 +204,7 @@
     {
         "key": "g i",
         "command": "editor.action.goToImplementation",
-        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+f12",
@@ -227,12 +224,12 @@
     {
         "key": "a",
         "command": "explorer.newFile",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
         "key": "shift+a",
         "command": "explorer.newFolder",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
         "key": "d",
@@ -248,6 +245,25 @@
         "key": "f2",
         "command": "-renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "g g",
+        "command": "-list.focusFirst",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "g g",
+        "command": "list.focusFirst",
+        "when": "vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+enter",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     }
-    
 ]
