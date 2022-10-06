@@ -1,5 +1,5 @@
 # Ake sxhkd reload its configuration files:
-super + Delete
+uper + Delete
 	pkill -USR1 -x sxhkd && dunstify -u critical "sxhkd" "Configuration reloaded!"
 
 
@@ -79,7 +79,7 @@ super + w
 			kitty -e newsboat
 
 super + p
-	 /home/oleg/dotfiles/scripts/pswd-cl
+	 /home/oleg/.config/scripts/pswd
 
 super + grave 
 	tdrop -ma -y 18 --wm "bspwm" alacritty 

@@ -26,8 +26,8 @@
 (nvmap
   "M-1" '(neotree-toggle :which-key "Toggle neotree file viewer")
   "C-e" '(consult-buffer :which-key "Find buffer")
-  "L" '(my-next-buffer :which-key "Goto next buffer")
-  "H" '(my-prev-buffer :which-key "Goto prev buffer")
+  ;; "L" '(my-next-buffer :which-key "Goto next buffer")
+  ;; "H" '(my-prev-buffer :which-key "Goto prev buffer")
   "SPC SPC" '(project-find-file :which-key "Find file"))
 
 (defun save-all () (interactive) (save-some-buffers t))
@@ -59,8 +59,8 @@
        "b"   '(consult-buffer :which-key "Switch to buffer")
        "c"   '(clone-indirect-buffer-other-window :which-key "Clone indirect buffer other window")
        "k"   '(kill-current-buffer :which-key "Kill current buffer")
-       "n"   '(next-buffer :which-key "Next buffer")
-       "p"   '(previous-buffer :which-key "Previous buffer")
+       "n"   '(centaur-tabs-forward-group :which-key "Next buffer group")
+       "p"   '(centaur-tabs-backward-group :which-key "Previous buffer group")
        "K"   '(kill-buffer :which-key "Kill buffer"))
 
 ;; (call-process "/usr/bin/tdrop" "-ma -y 18 --wm bspwm /usr/bin/alacritty")

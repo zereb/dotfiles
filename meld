@@ -1,0 +1,209 @@
+diff --git a/VSCodium/User/keybindings.json b/VSCodium/User/keybindings.json
+index b0b2254..3d5d8be 100644
+--- a/VSCodium/User/keybindings.json
++++ b/VSCodium/User/keybindings.json
+@@ -87,7 +87,7 @@
+     {
+         "key": "shift+l",
+         "command": "workbench.action.nextEditor",
+-        "when": "!textInputFocus"
++        "when": "editorTextFocus && vim.mode == 'Normal'"
+     },
+     {
+         "key": "ctrl+pagedown",
+@@ -96,7 +96,7 @@
+     {
+         "key": "shift+h",
+         "command": "workbench.action.previousEditor",
+-        "when": "!textInputFocus"
++        "when": "vim.mode == 'Normal'"
+     },
+     {
+         "key": "ctrl+pageup",
+@@ -254,7 +254,7 @@
+     {
+         "key": "g g",
+         "command": "list.focusFirst",
+-        "when": "vim.mode == 'Normal'"
++        "when": "listFocus && !inputFocus"
+     },
+     {
+         "key": "alt+enter",
+diff --git a/VSCodium/User/settings.json b/VSCodium/User/settings.json
+index 465a974..c1ba4d7 100644
+--- a/VSCodium/User/settings.json
++++ b/VSCodium/User/settings.json
+@@ -10,4 +10,6 @@
+     "editor.quickSuggestions": {
+         "strings": "on"
+     },
++    "editor.fontSize": 12,
++    "workbench.iconTheme": "vscode-great-icons",
+ }
+\ No newline at end of file
+diff --git a/bspwm/bspwmrc b/bspwm/bspwmrc
+index d9b7119..aab5e33 100755
+--- a/bspwm/bspwmrc
++++ b/bspwm/bspwmrc
+@@ -33,26 +33,27 @@ bspc config pointer_action3 resize_corner
+ 
+ bspc rule --add Emacs state=tiled
+ 
+-bspc rule --add cantata desktop=^7 follow=on
+-bspc rule --add LBRY desktop=^7 follow=on
+-bspc rule --add mpv state=floating desktop=^7 follow=on
+-
+-bspc rule --add Steam --one-shot desktop=^6 follow=on
+-bspc rule --add Lutris desktop=^6 follow=on
+-bspc rule --add retroarch desktop=^6 follow=on
+-bspc rule --add Doomseeker desktop=^6 follow=on
+-
+-bspc rule --add steam_app_238960 desktop=^2 follow=on state=fullscrean #poe
+-bspc rule --add "Dota 2" desktop=^2 follow=on state=fullscrean
+-
+-
+-bspc rule --add firefox desktop=^1 follow=on
+-bspc rule --add Brave-browser desktop=^1 follow=on
+-bspc rule --add qutebrowser desktop=^1 follow=on
+-
+-bspc rule --add Blender desktop=^4 follow=on
+-bspc rule --add "Instant Meshes" desktop=^4 follow=on
+-bspc rule --add Inkscape desktop=^4 follow=on
+-bspc rule --add krita desktop=^4 follow=on
+-bspc rule --add meshroom desktop=^4 follow=on
+-bspc rule --add "GNU Image Manipulation Program" desktop=^4 follow=on
++bspc rule --add cantata desktop=^7 follow=off
++bspc rule --add LBRY desktop=^7 follow=off
++bspc rule --add mpv state=floating desktop=^7 follow=off
++
++bspc rule --add Steam --one-shot desktop=^6 follow=off
++bspc rule --add Lutris desktop=^6 follow=off
++bspc rule --add retroarch desktop=^6 follow=off
++bspc rule --add Doomseeker desktop=^6 follow=off
++
++bspc rule --add steam_app_238960 desktop=^2 follow=off state=fullscrean #poe
++bspc rule --add "Dota 2" desktop=^2 follow=off state=fullscrean
++
++
++bspc rule --add firefox desktop=^1 follow=off
++bspc rule --add Brave-browser desktop=^1 follow=off
++bspc rule --add qutebrowser desktop=^1 follow=off
++
++bspc rule --add Slack desktop=^4 follow=off
++bspc rule --add Blender desktop=^4 follow=off
++bspc rule --add "Instant Meshes" desktop=^4 follow=off
++bspc rule --add Inkscape desktop=^4 follow=off
++bspc rule --add krita desktop=^4 follow=off
++bspc rule --add meshroom desktop=^4 follow=off
++bspc rule --add "GNU Image Manipulation Program" desktop=^4 follow=off
+diff --git a/emacs/init.el b/emacs/init.el
+index cd835c6..267d659 100644
+--- a/emacs/init.el
++++ b/emacs/init.el
+@@ -26,8 +26,8 @@
+ (nvmap
+   "M-1" '(neotree-toggle :which-key "Toggle neotree file viewer")
+   "C-e" '(consult-buffer :which-key "Find buffer")
+-  "L" '(my-next-buffer :which-key "Goto next buffer")
+-  "H" '(my-prev-buffer :which-key "Goto prev buffer")
++  ;; "L" '(my-next-buffer :which-key "Goto next buffer")
++  ;; "H" '(my-prev-buffer :which-key "Goto prev buffer")
+   "SPC SPC" '(project-find-file :which-key "Find file"))
+ 
+ (defun save-all () (interactive) (save-some-buffers t))
+@@ -59,8 +59,8 @@
+        "b"   '(consult-buffer :which-key "Switch to buffer")
+        "c"   '(clone-indirect-buffer-other-window :which-key "Clone indirect buffer other window")
+        "k"   '(kill-current-buffer :which-key "Kill current buffer")
+-       "n"   '(next-buffer :which-key "Next buffer")
+-       "p"   '(previous-buffer :which-key "Previous buffer")
++       "n"   '(centaur-tabs-forward-group :which-key "Next buffer group")
++       "p"   '(centaur-tabs-backward-group :which-key "Previous buffer group")
+        "K"   '(kill-buffer :which-key "Kill buffer"))
+ 
+ ;; (call-process "/usr/bin/tdrop" "-ma -y 18 --wm bspwm /usr/bin/alacritty")
+diff --git a/emacs/modules/programming-setup.el b/emacs/modules/programming-setup.el
+index 1f1912d..e646d7f 100644
+--- a/emacs/modules/programming-setup.el
++++ b/emacs/modules/programming-setup.el
+@@ -109,6 +109,13 @@
+  (interactive)
+  (my-mode-wrapper 'emacs-lisp-mode 'eval-expression 'sly-eval-last-expression))
+ 
++(defun my-format-region ()
++  (interactive)
++  (lsp-format-region))
++
++(defun my-format-buffer ()
++  (interactive)
++  (lsp-format-buffer))
+ 
+ (nvmap :prefix "SPC e"
+        "" '(nil :which-key "EVAL")
+@@ -140,15 +147,20 @@
+ (nvmap :prefix "SPC l"
+   "" '(nil :which-key "LSP")
+   "i" '(lsp-install-server :which-key "Install lsp server")
+-  "X" '(lsp-djisconnect :which-key "Disconnect")
++  "X" '(lsp-disconnect :which-key "Disconnect")
++  "R" '(lsp-restart :which-key "Restart")
+   "r" '(lsp-rename :which-key "Rename SYMBOL"))
+-  
++
++(nvmap
++  "M-f" '(my-format-buffer :which-key "Format buffer")
++  "M-F" '(my-format-region :which-key "Format region"))
++
+ (nvmap
+-  "fd" '(lsp-find-definition :which-key "Find definition")
+-  "fD" '(lsp-find-declaration :which-key "Find declaration")
+-  "fi" '(lsp-find-implementation :which-key "Find implementation")
+-  "ft" '(lsp-find-type-definition :which-key "Find type definition")
+-  "fr" '(lsp-find-references :which-key "Find references"))
++  "Fd" '(lsp-find-definition :which-key "Find definition")
++  "FD" '(lsp-find-declaration :which-key "Find declaration")
++  "Fi" '(lsp-find-implementation :which-key "Find implementation")
++  "Ft" '(lsp-find-type-definition :which-key "Find type definition")
++  "Fr" '(lsp-find-references :which-key "Find references"))
+   
+   
+   
+diff --git a/emacs/modules/ui-setup.el b/emacs/modules/ui-setup.el
+index f20244a..1754aaf 100644
+--- a/emacs/modules/ui-setup.el
++++ b/emacs/modules/ui-setup.el
+@@ -62,11 +62,14 @@
+ 	centaur-tabs-set-icons t
+ 	centaur-tabs-set-modified-marker t
+ 	centaur-tabs-modified-marker "*"
++	centaur-tabs-cycle-scope 'tabs
+ 	)
+   :config
+   (centaur-tabs-mode t))
+ 
+-
++(nvmap
++  "L" 'centaur-tabs-forward
++  "H" 'centaur-tabs-backward)
+ 
+ (defcustom neo-window-width 35
+   "*Specifies the width of the NeoTree window."
+diff --git a/sxhkd/sxhkdrc b/sxhkd/sxhkdrc
+index 757d1b7..2db03a5 100644
+--- a/sxhkd/sxhkdrc
++++ b/sxhkd/sxhkdrc
+@@ -1,4 +1,4 @@
+-# ake sxhkd reload its configuration files:
++# Ake sxhkd reload its configuration files:
+ super + Delete
+ 	pkill -USR1 -x sxhkd && dunstify -u critical "sxhkd" "Configuration reloaded!"
+ 
+@@ -79,7 +79,7 @@ super + w
+ 			kitty -e newsboat
+ 
+ super + p
+-	 /home/oleg/.config/scripts/pswd
++	 /home/oleg/dotfiles/scripts/pswd-cl
+ 
+ super + grave 
+ 	tdrop -ma -y 18 --wm "bspwm" alacritty 

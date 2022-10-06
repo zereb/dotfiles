@@ -109,6 +109,13 @@
  (interactive)
  (my-mode-wrapper 'emacs-lisp-mode 'eval-expression 'sly-eval-last-expression))
 
+(defun my-format-region ()
+  (interactive)
+  (lsp-format-region))
+
+(defun my-format-buffer ()
+  (interactive)
+  (lsp-format-buffer))
 
 (nvmap :prefix "SPC e"
        "" '(nil :which-key "EVAL")
@@ -140,15 +147,20 @@
 (nvmap :prefix "SPC l"
   "" '(nil :which-key "LSP")
   "i" '(lsp-install-server :which-key "Install lsp server")
-  "X" '(lsp-djisconnect :which-key "Disconnect")
+  "X" '(lsp-disconnect :which-key "Disconnect")
+  "R" '(lsp-restart :which-key "Restart")
   "r" '(lsp-rename :which-key "Rename SYMBOL"))
-  
+
 (nvmap
-  "fd" '(lsp-find-definition :which-key "Find definition")
-  "fD" '(lsp-find-declaration :which-key "Find declaration")
-  "fi" '(lsp-find-implementation :which-key "Find implementation")
-  "ft" '(lsp-find-type-definition :which-key "Find type definition")
-  "fr" '(lsp-find-references :which-key "Find references"))
+  "M-f" '(my-format-buffer :which-key "Format buffer")
+  "M-F" '(my-format-region :which-key "Format region"))
+
+(nvmap
+  "Fd" '(lsp-find-definition :which-key "Find definition")
+  "FD" '(lsp-find-declaration :which-key "Find declaration")
+  "Fi" '(lsp-find-implementation :which-key "Find implementation")
+  "Ft" '(lsp-find-type-definition :which-key "Find type definition")
+  "Fr" '(lsp-find-references :which-key "Find references"))
   
   
   

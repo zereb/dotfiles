@@ -87,7 +87,7 @@
     {
         "key": "shift+l",
         "command": "workbench.action.nextEditor",
-        "when": "!textInputFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+pagedown",
@@ -96,7 +96,7 @@
     {
         "key": "shift+h",
         "command": "workbench.action.previousEditor",
-        "when": "!textInputFocus"
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+pageup",
@@ -254,7 +254,7 @@
     {
         "key": "g g",
         "command": "list.focusFirst",
-        "when": "vim.mode == 'Normal'"
+        "when": "listFocus && !inputFocus"
     },
     {
         "key": "alt+enter",

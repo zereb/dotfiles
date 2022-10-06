@@ -33,26 +33,27 @@ bspc config pointer_action3 resize_corner
 
 bspc rule --add Emacs state=tiled
 
-bspc rule --add cantata desktop=^7 follow=on
-bspc rule --add LBRY desktop=^7 follow=on
-bspc rule --add mpv state=floating desktop=^7 follow=on
+bspc rule --add cantata desktop=^7 follow=off
+bspc rule --add LBRY desktop=^7 follow=off
+bspc rule --add mpv state=floating desktop=^7 follow=off
 
-bspc rule --add Steam --one-shot desktop=^6 follow=on
-bspc rule --add Lutris desktop=^6 follow=on
-bspc rule --add retroarch desktop=^6 follow=on
-bspc rule --add Doomseeker desktop=^6 follow=on
+bspc rule --add Steam --one-shot desktop=^6 follow=off
+bspc rule --add Lutris desktop=^6 follow=off
+bspc rule --add retroarch desktop=^6 follow=off
+bspc rule --add Doomseeker desktop=^6 follow=off
 
-bspc rule --add steam_app_238960 desktop=^2 follow=on state=fullscrean #poe
-bspc rule --add "Dota 2" desktop=^2 follow=on state=fullscrean
+bspc rule --add steam_app_238960 desktop=^2 follow=off state=fullscrean #poe
+bspc rule --add "Dota 2" desktop=^2 follow=off state=fullscrean
 
 
-bspc rule --add firefox desktop=^1 follow=on
-bspc rule --add Brave-browser desktop=^1 follow=on
-bspc rule --add qutebrowser desktop=^1 follow=on
+bspc rule --add firefox desktop=^1 follow=off
+bspc rule --add Brave-browser desktop=^1 follow=off
+bspc rule --add qutebrowser desktop=^1 follow=off
 
-bspc rule --add Blender desktop=^4 follow=on
-bspc rule --add "Instant Meshes" desktop=^4 follow=on
-bspc rule --add Inkscape desktop=^4 follow=on
-bspc rule --add krita desktop=^4 follow=on
-bspc rule --add meshroom desktop=^4 follow=on
-bspc rule --add "GNU Image Manipulation Program" desktop=^4 follow=on
+bspc rule --add Slack desktop=^4 follow=off
+bspc rule --add Blender desktop=^4 follow=off
+bspc rule --add "Instant Meshes" desktop=^4 follow=off
+bspc rule --add Inkscape desktop=^4 follow=off
+bspc rule --add krita desktop=^4 follow=off
+bspc rule --add meshroom desktop=^4 follow=off
+bspc rule --add "GNU Image Manipulation Program" desktop=^4 follow=off

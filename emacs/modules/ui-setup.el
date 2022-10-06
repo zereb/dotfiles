@@ -62,11 +62,14 @@
 	centaur-tabs-set-icons t
 	centaur-tabs-set-modified-marker t
 	centaur-tabs-modified-marker "*"
+	centaur-tabs-cycle-scope 'tabs
 	)
   :config
   (centaur-tabs-mode t))
 
-
+(nvmap
+  "L" 'centaur-tabs-forward
+  "H" 'centaur-tabs-backward)
 
 (defcustom neo-window-width 35
   "*Specifies the width of the NeoTree window."
