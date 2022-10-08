@@ -149,7 +149,8 @@
   "i" '(lsp-install-server :which-key "Install lsp server")
   "X" '(lsp-disconnect :which-key "Disconnect")
   "R" '(lsp-restart :which-key "Restart")
-  "r" '(lsp-rename :which-key "Rename SYMBOL"))
+  "r" '(lsp-rename :which-key "Rename SYMBOL")
+  "h" '(sly-documentation-lookup :which-key "Hyperspec lookup"))
 
 (nvmap
   "M-f" '(my-format-buffer :which-key "Format buffer")
