@@ -67,10 +67,6 @@
   :config
   (centaur-tabs-mode t))
 
-(nvmap
-  "L" 'centaur-tabs-forward
-  "H" 'centaur-tabs-backward)
-
 (defcustom neo-window-width 35
   "*Specifies the width of the NeoTree window."
   :type 'integer
@@ -180,44 +176,9 @@
     (progn (my-set-fonts "Hack" 130)
 	   (my-set-neotree-fonts "Noto Sans" 100)))
 
-(nvmap "K" 'helpful-at-point)
 
 (defun grep-current-word ()
   (interactive)
   (consult-grep "" (current-word)))
 
-(nvmap :prefix "SPC s"
-       "" '(nil :which-key "SEARCH")
-       "f"   '(helpful-callable :which-key "Describe function")
-       "c"   '(helpful-command :which-key "Describe command")
-       "m"   '(consult-mode-command :which-key "Modes")
-       "v"   '(helpful-variable :which-key "Describe variable")
-       "g"   '(grep-current-word :which-key "Search in project")
-       "i"   '(consult-imenu :which-key "Imenu")
-       "r"   '(projectile-replace :which-key "Replace in project"))
-
-(nvmap :prefix "SPC f"
-       "" '(nil :which-key "FILES")
-       "o" '(dired :which-key "Open directory in dired")
-       "d" '(dired-jump :which-key "Dired jump")
-       "p" '(projectile-switch-project :which-key "Switch to project")
-       "a" '(projectile-add-known-project :which-key "Add project")
-       "s" '(save-all :which-key "Save all")
-       "r" '(call-ranger :which-key "Ranger")
-       "t" '(call-tdrop :which-key "Tdrop"))
-
-(nvmap :prefix "SPC d"
-       "" '(nil :which-key "CALL EXTERNAL")
-       "r" '(call-ranger :which-key "Ranger")
-       "t" '(call-tdrop :which-key "Tdrop"))
-
-(evil-define-key 'normal neotree-mode-map (kbd "l") 'neotree-enter)
-(evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-(evil-define-key 'normal neotree-mode-map (kbd "o") 'neotree-quick-look)
-(evil-define-key 'normal neotree-mode-map (kbd "h") 'neotree-select-up-node)
-(evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
-(evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
-(evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
-(evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-rename-node)
-(evil-define-key 'normal neotree-mode-map (kbd "a") 'neotree-create-node)
-
+(use-package google-this)

@@ -16,15 +16,13 @@
   (evilnc-comment-or-uncomment-lines 1)
   (evil-next-line))
 
-(global-set-key (kbd "C-/") 'comment-and-next-line)
-
 ;; lisp
 (use-package sly
   :init
   (setq inferior-lisp-program "sbcl"))
 
 (use-package sly-quicklisp)
-  
+
 (use-package sly-macrostep)
 
 (use-package sly-asdf)
@@ -38,7 +36,7 @@
 ;;          hy-mode) . parinfer-rust-mode)
 ;;    :init
 ;;    (setq parinfer-rust-auto-download t))
-  
+
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :init
@@ -49,7 +47,7 @@
    (js-mode . lsp))
   :config
   (lsp-enable-which-key-integration t))
-      
+
 (use-package lsp-ui
   :after lsp-mode
   :hook (lsp-mode . lsp-ui-mode))
@@ -85,29 +83,31 @@
 (add-hook 'sql-mode-hook 'lsp)
 (setq lsp-sqls-workspace-config-path nil)
 (setq lsp-sqls-connections
-    '(((driver . "mysql") (dataSourceName . "yyoncho:local@tcp(localhost:3306)/foo"))
-      ((driver . "mssql") (dataSourceName . "Server=localhost;Database=sammy;User Id=yyoncho;Password=hunter2;"))))
-      
+      '(((driver . "mysql") (dataSourceName . "yyoncho:local@tcp(localhost:3306)/foo"))
+	((driver . "mssql") (dataSourceName . "Server=localhost;Database=sammy;User Id=yyoncho;Password=hunter2;"))))
+
+(use-package format-all)
+
 (defun my-mode-wrapper (mode run-then run-else)
   (if (eq major-mode mode)
       (call-interactively run-then)
-      (call-interactively run-else)))
-  
+    (call-interactively run-else)))
+
 (defun my-eval-buffer ()
   (interactive)
   (my-mode-wrapper 'emacs-lisp-mode 'eval-buffer 'sly-eval-buffer))
-   
+
 (defun my-eval-defun ()
- (interactive)
- (my-mode-wrapper 'emacs-lisp-mode 'eval-defun 'sly-eval-defun))
-    
+  (interactive)
+  (my-mode-wrapper 'emacs-lisp-mode 'eval-defun 'sly-eval-defun))
+
 (defun my-eval-region ()
- (interactive)
- (my-mode-wrapper 'emacs-lisp-mode 'eval-region 'sly-eval-region))
- 
+  (interactive)
+  (my-mode-wrapper 'emacs-lisp-mode 'eval-region 'sly-eval-region))
+
 (defun my-eval-expression ()
- (interactive)
- (my-mode-wrapper 'emacs-lisp-mode 'eval-expression 'sly-eval-last-expression))
+  (interactive)
+  (my-mode-wrapper 'emacs-lisp-mode 'eval-expression 'sly-eval-last-expression))
 
 (defun my-format-region ()
   (interactive)
@@ -118,43 +118,30 @@
   (lsp-format-buffer))
 
 (nvmap :prefix "SPC e"
-       "" '(nil :which-key "EVAL")
-       "b" '(my-eval-buffer :which-key "Eval buffer")
-       "e" '(my-eval-defun :which-key "Eval expression")
-       "v" '(my-eval-region :which-key "Eval region")
-       "i" '(my-eval-expression :which-key "Eval interactive")
-       "u" '(sly-undefine-function :which-key "Undefine fynctions [sly]")
-       "m" '(macrostep-expand :which-key "Expand macro")
-       "p" '(parinfer-rust-toggle-disable :which-key "Toggle parinfer")
-       "c" '(sly-compile-and-load-file :which-key "Compile and load file"))
+  "" '(nil :which-key "EVAL")
+  "b" '(my-eval-buffer :which-key "Eval buffer")
+  "e" '(my-eval-defun :which-key "Eval expression")
+  "v" '(my-eval-region :which-key "Eval region")
+  "i" '(my-eval-expression :which-key "Eval interactive")
+  "u" '(sly-undefine-function :which-key "Undefine fynctions [sly]")
+  "m" '(macrostep-expand :which-key "Expand macro")
+  "c" '(sly-compile-and-load-file :which-key "Compile and load file"))
 
 
 (nvmap :prefix "SPC e C"
-       "" '(nil :which-key "COMPILE")
-       "e" '(sly-compile-defun :which-key "Compile defun")
-       "C" '(sly-compile-and-load-file :which-key "Compile and load file")
-       "v" '(sly-compile-region :which-key "Compile region")
-       "c" '(sly-compile-file :which-key "Compile but don't load")
-       "l" '(sly-load-file :which-key "Load file"))
+  "" '(nil :which-key "COMPILE")
+  "e" '(sly-compile-defun :which-key "Compile defun")
+  "C" '(sly-compile-and-load-file :which-key "Compile and load file")
+  "v" '(sly-compile-region :which-key "Compile region")
+  "c" '(sly-compile-file :which-key "Compile but don't load")
+  "l" '(sly-load-file :which-key "Load file"))
 
 (nvmap :prefix "SPC g"
-       "" '(nil :which-key "SLY goto")
-       "d" '(sly-edit-definition :which-key "Defenition")
-       "r" '(sly-edit-uses :which-key "References")
-       "c" '(sly-who-calls :which-key "Who calls")
-       "s" '(sly-who-sets :which-key "Who sets global variables"))
-
-(nvmap :prefix "SPC l"
-  "" '(nil :which-key "LSP")
-  "i" '(lsp-install-server :which-key "Install lsp server")
-  "X" '(lsp-disconnect :which-key "Disconnect")
-  "R" '(lsp-restart :which-key "Restart")
-  "r" '(lsp-rename :which-key "Rename SYMBOL")
-  "h" '(sly-documentation-lookup :which-key "Hyperspec lookup"))
-
-(nvmap
-  "M-f" '(my-format-buffer :which-key "Format buffer")
-  "M-F" '(my-format-region :which-key "Format region"))
+  "" '(nil :which-key "SLY goto")
+  "d" '(sly-edit-definition :which-key "Defenition")
+  "r" '(sly-edit-uses :which-key "References")
+  "c" '(sly-who-calls :which-key "Who calls")
+  "s" '(sly-who-sets :which-key "Who sets global variables"))
 
 (nvmap
   "Fd" '(lsp-find-definition :which-key "Find definition")
@@ -162,11 +149,22 @@
   "Fi" '(lsp-find-implementation :which-key "Find implementation")
   "Ft" '(lsp-find-type-definition :which-key "Find type definition")
   "Fr" '(lsp-find-references :which-key "Find references"))
-  
-  
-  
-  
 
-      
+(use-package typescript-mode)
 
+(use-package js2-refactor
+  :hook ((js2-mode rjsx-mode) . js2-refactor-mode))
 
+(nvmap :prefix "SPC r"
+  "" '(nil :which-key "REFACTOR")
+  "r" '(js2r-rename-var :which-key "rename")
+  "e" '(js2r-extract-function :which-key "extract function"))
+
+(use-package glsl-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
+  (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+  (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
+  (add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode)))
+
+(use-package cmake-mode)
