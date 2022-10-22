@@ -8,6 +8,7 @@
 (load "flycheck-setup")
 (load "programming-setup")
 (load "dashboard")
+(load "lookup")
 (load "keys")
 
 (winner-mode 1)
@@ -31,7 +32,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(cmake-mode glsl-mode typescript-mode js2-refactor google-this cape corfu-doc format-all web-mode tree-sitter-langs prescient sly-asdf lsp-ui lsp-mode helpful git-gutter-fringe hl-todo sly-macrostep tree-sitter parinfer-rust-mode consult orderless flycheck gcmh doom-modeline emojify all-the-icons general which-key use-package undo-fu-session evil-collection dracula-theme async)))
+   '(dumb-jump quickrun cmake-mode glsl-mode typescript-mode js2-refactor google-this cape corfu-doc format-all web-mode tree-sitter-langs prescient sly-asdf lsp-ui lsp-mode helpful git-gutter-fringe hl-todo sly-macrostep tree-sitter parinfer-rust-mode consult orderless flycheck gcmh doom-modeline emojify all-the-icons general which-key use-package undo-fu-session evil-collection dracula-theme async)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

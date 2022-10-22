@@ -43,9 +43,14 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook
   ((sh-mode . lsp)
-   (web-mod . lsp)
-   (js-mode . lsp))
+   (web-mode . lsp)
+   (js-mode . lsp)
+   (js2-mode . lsp)
+   (c-mode . lsp))
   :config
+  (setq lsp-completion-provider :capf)
+  (setq lsp-idle-delay 0.0)
+  (setq lsp-log-to nil)
   (lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
@@ -117,24 +122,19 @@
   (interactive)
   (lsp-format-buffer))
 
+(use-package quickrun)
+
 (nvmap :prefix "SPC e"
   "" '(nil :which-key "EVAL")
-  "b" '(my-eval-buffer :which-key "Eval buffer")
+  "b" '(quickrun :which-key "Eval buffer")
+  "B" '(quickrun-with-arg :which-key "Eval buffer with args")
+  "v" '(quickrun-region :which-key "Eval region")
+  "s" '(quickrun-shell :which-key "Eval buffer in shell")
+  "c" '(quickrun-compile-only :which-key "Compile")
   "e" '(my-eval-defun :which-key "Eval expression")
-  "v" '(my-eval-region :which-key "Eval region")
-  "i" '(my-eval-expression :which-key "Eval interactive")
   "u" '(sly-undefine-function :which-key "Undefine fynctions [sly]")
-  "m" '(macrostep-expand :which-key "Expand macro")
-  "c" '(sly-compile-and-load-file :which-key "Compile and load file"))
-
-
-(nvmap :prefix "SPC e C"
-  "" '(nil :which-key "COMPILE")
-  "e" '(sly-compile-defun :which-key "Compile defun")
-  "C" '(sly-compile-and-load-file :which-key "Compile and load file")
-  "v" '(sly-compile-region :which-key "Compile region")
-  "c" '(sly-compile-file :which-key "Compile but don't load")
-  "l" '(sly-load-file :which-key "Load file"))
+  "i" '(my-eval-expression :which-key "Eval interactive")
+  "m" '(macrostep-expand :which-key "Expand macro"))
 
 (nvmap :prefix "SPC g"
   "" '(nil :which-key "SLY goto")
