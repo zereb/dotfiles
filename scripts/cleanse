@@ -34,4 +34,7 @@ rm ~/.grip-oggenc
 rm ~/.lesshst
 rm ~/.viminfo
 rm ~/.wget-hsts
+rm ~/.sly-mrepl-history
+rm ~/.sbcl_history
+rm ~/.mysql_history
 
