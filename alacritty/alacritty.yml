@@ -79,7 +79,7 @@ font:
   # Normal (roman) font face
   normal:
     # Font family
-    #
+   #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux) monospace
@@ -117,6 +117,7 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
+  # use_thin_strokes: true
 
 
 

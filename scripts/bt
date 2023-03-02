@@ -4,8 +4,8 @@ echo ""
 headsets="$(bluetoothctl devices | grep RB-HX220B -c)"
 
 if [ "$headsets" -eq 0 ] || [ "$1" = "-f" ]; then
-    echo "force"
-    sudo systemctl restart bluetooth.service && bluetoothctl power on && bluetoothctl connect FC:58:FA:F8:C7:7F &
+    # sudo systemctl restart bluetooth.service && bluetoothctl power on &&
+    bluetoothctl connect FC:58:FA:F8:C7:7F &
 fi
 
 

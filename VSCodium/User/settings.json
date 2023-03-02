@@ -12,4 +12,5 @@
     },
     "editor.fontSize": 12,
     "workbench.iconTheme": "vscode-great-icons",
+    "window.zoomLevel": 2,
 }
