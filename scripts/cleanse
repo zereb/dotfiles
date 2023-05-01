@@ -27,6 +27,7 @@ rm -rf /home/oleg/Documents/Music
 rm -rf /home/oleg/Documents/Videos
 rm -rf /home/oleg/Documents/Pictures
 rm -rf /home/oleg/Documents/Downloads
+rm -rf /home/oleg/.gradle/caches/
 rm ~/.bash_history
 rm ~/.fcuid
 rm ~/.grip
@@ -35,3 +36,5 @@ rm ~/.lesshst
 rm ~/.viminfo
 rm ~/.wget-hsts
 
+alacritty -e yay -Sc
+alacritty -e fbrokendesctop | rm -f -
