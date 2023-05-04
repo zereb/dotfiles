@@ -103,8 +103,6 @@ super + F10
 super + F11
 		sleep 6h && shutdown
 
-super + p
-	pswd
 
 #poe related
 

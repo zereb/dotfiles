@@ -1,2 +1,2 @@
  #!/bin/sh
-/home/oleg/Programms/pswd2 --url | dmenu -l 30 | xargs /home/oleg/Programms/pswd2 --furl | xsel --clipboard
+/home/oleg/Programms/pswd2 --url | dmenu -l 30 | xargs echo | xargs -I {} /home/oleg/Programms/pswd2 --furl {} | xsel --clipboard
