@@ -91,8 +91,11 @@ super + p
 super + grave 
 	tdrop -ma -y 18 --wm "bspwm" alacritty 
 
-super + insert
+super + Print
     scrot ~/HDrive/Media/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && dunstify -u normal "scrot" "screenshot saved"
+
+Print
+    scrot ~/%Y-%m-%d-%T-screenshot.png -s && dunstify -u normal "scrot" "screenshot saved"
     
 super + F12
     scrot -s
