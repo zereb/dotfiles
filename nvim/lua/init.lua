@@ -207,7 +207,7 @@ wk.register({
 --end keymaps
 
 --TreeSitter
-require("user.treesitter")
+-- require("user.treesitter")
 
 require('nvim-ts-autotag').setup()
 require("toggleterm").setup{}

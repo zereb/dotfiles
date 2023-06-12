@@ -65,3 +65,6 @@ alias pacman-r-orphans "sudo pacman -Qtdq | sudo pacman -Rns -"
 alias pacman-r-aur "sudo pacman -Qm | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
 alias pacman-r "sudo pacman -Qe | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
 alias pacman-r-unneeded "pacman -Qqd | pacman -Rsu -" 
+
+alias merlin-main-tail "ssh o.plett@merlin.vintersaga.com  'tail -f /opt/vintersaga/apps/develop/platform-main/logs/application.log'"
+alias merlin-admin-tail "ssh o.plett@merlin.vintersaga.com  'tail -f /opt/vintersaga/apps/develop/platform-admin/logs/application.log'"
