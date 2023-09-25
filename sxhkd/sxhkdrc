@@ -112,4 +112,4 @@ super + F11
 F3
     poe_logout
 super + F3
-    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Sentinel
+    java -jar /home/oleg/Programms/cadiro.jar -l Hardcore//Ancestor
