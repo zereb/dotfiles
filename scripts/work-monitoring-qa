@@ -1,0 +1,6 @@
+#!/bin/sh
+alacritty -t 'main-qa' -e sshpass -p '7Eratbujsegboak5' ssh o.plett@qa.battlesmiths.com  'tail -f /opt/mg/apps/platform/qa/platform-main/logs/application.log' &
+alacritty -t 'admin-qa'  -e sshpass -p '7Eratbujsegboak5' ssh o.plett@qa.battlesmiths.com  'tail -f /opt/mg/apps/platform/qa/platform-admin/logs/application.log' &
+alacritty -t 'payment-qa'  -e sshpass -p '7Eratbujsegboak5' ssh o.plett@qa.battlesmiths.com  'tail -f /opt/mg/apps/platform/qa/payment-webhooks-service/logs/application.log' &
+alacritty -t 'quest-qa'  -e sshpass -p '7Eratbujsegboak5' ssh o.plett@qa.battlesmiths.com  'tail -f /opt/mg/apps/platform/qa/platform-quest-server/logs/application.log' &
+
