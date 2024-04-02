@@ -1,0 +1,28 @@
+mkdir ~/Downloads/dev_db/
+
+echo 'dumping platform.sql'
+/usr/bin/mariadb-dump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert -u game_mode --password=teGwuJ-nDQEBz7bcB-Xq --host=pifogor.int.mgdev.pro --port=3306 platform > ~/Downloads/dev_db/platform.sql
+
+echo 'dumping profile.sql'
+/usr/bin/mariadb-dump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert -u game_mode --password=teGwuJ-nDQEBz7bcB-Xq --host=pifogor.int.mgdev.pro --port=3306 profile > ~/Downloads/dev_db/profile.sql
+
+echo 'dumping mail-admin.sql'pifogor.int.mgdev.pro
+/usr/bin/mariadb-dump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert -u game_mode --password=teGwuJ-nDQEBz7bcB-Xq --host=pifogor.int.mgdev.pro --port=3306 mail_admin > ~/Downloads/dev_db/mail-admin.sql
+
+echo 'dumping ladder.sql'pifogor.int.mgdev.pro
+/usr/bin/mariadb-dump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert -u game_mode --password=teGwuJ-nDQEBz7bcB-Xq --host=pifogor.int.mgdev.pro --port=3306 ladder > ~/Downloads/dev_db/ladder.sql
+
+echo 'dumping endless.sql'pifogor.int.mgdev.pro
+/usr/bin/mariadb-dump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert -u game_mode --password=teGwuJ-nDQEBz7bcB-Xq --host=pifogor.int.mgdev.pro --port=3306 endless > ~/Downloads/dev_db/endless.sql
+
+sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_520_ci/g' ~/Downloads/dev_db/platform.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_520_ci/g' ~/Downloads/dev_db/profile.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_520_ci/g' ~/Downloads/dev_db/mail-admin.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_520_ci/g' ~/Downloads/dev_db/ladder.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_520_ci/g' ~/Downloads/dev_db/endless.sql
+
+mysql --password=85j_gw_foke5w -u game_mode platform < ~/Downloads/dev_db/platform.sql
+mysql --password=85j_gw_foke5w -u game_mode profile < ~/Downloads/dev_db/profile.sql
+mysql --password=85j_gw_foke5w -u game_mode mail_admin < ~/Downloads/dev_db/mail-admin.sql 
+mysql --password=85j_gw_foke5w -u game_mode endless < ~/Downloads/dev_db/ladder.sql
+mysql --password=85j_gw_foke5w -u game_mode endless < ~/Downloads/dev_db/endless.sql 

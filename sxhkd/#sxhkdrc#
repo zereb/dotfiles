@@ -44,21 +44,6 @@ super + {Left,Down,Up,Right}
 
 
 # GENERAL
-XF86AudioRaiseVolume
-	amixer set Master 5%+
-
-XF86AudioLowerVolume
-	amixer set Master 5%-
-
-XF86AudioMute
-	micro --toggle
-
-F1
-	micro --toggle
-
-XF86MonBrightnessUp
-	brightness -i
-	
 XF86MonBrightnessDown
 	brightness -d
 	

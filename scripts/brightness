@@ -6,7 +6,7 @@ if [ "$hostname" = "PC" ]; then
     exit 0
 fi
 
-brightness="$(cat /sys/class/backlight/amdgpu_bl0/brightness)"
+brightness="$(cat /sys/class/backlight/amdgpu_bl1/brightness)"
 
 if [ "$1" = "-b" ]; then
     echo " $brightness"
@@ -14,14 +14,14 @@ fi
 
 if [ "$brightness" -le 255 ] && [ "$1" == "-i" ]; then
     let new=$brightness+10
-    sudo sh -c "echo $new > /sys/class/backlight/amdgpu_bl0/brightness"
+    sudo sh -c "echo $new > /sys/class/backlight/amdgpu_bl1/brightness"
     echo " $brightness"
 fi
 
 
 if [ "$brightness" -ge 20 ] && [ "$1" == "-d" ]; then
     let new=$brightness-10
-    sudo sh -c "echo $new > /sys/class/backlight/amdgpu_bl0/brightness"
+    sudo sh -c "echo $new > /sys/class/backlight/amdgpu_bl1/brightness"
     echo " $brightness"
 fi
 

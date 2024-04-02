@@ -1,6 +1,8 @@
 #!/bin/sh
-alacritty -t 'main-prod' -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -f /opt/mg/apps/production/platform-main/logs/application.log' &
-alacritty -t 'admin-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -f /opt/mg/apps/production/platform-admin/logs/application.log' &
-alacritty -t 'payment-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -f /opt/mg/apps/production/payment-webhooks-service/logs/application.log' &
-alacritty -t 'quest-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -f opt/mg/apps/production/platform-quest-server/logs/application.log' &
+kitty -T 'main-prod' -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -n 40 -f /opt/mg/apps/production/platform-main/logs/application.log' &
+kitty -T 'admin-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -n 40 -f /opt/mg/apps/production/platform-admin/logs/application.log' &
+kitty -T 'payment-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -n 40 -f /opt/mg/apps/production/payment-webhooks-service/logs/application.log' &
+kitty -T 'quest-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -n 40 -f /opt/mg/apps/production/platform-quest-server/logs/application.log' &
+kitty -T 'quest-distributor-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com  'tail -n 40 -f /opt/mg/apps/production/quest-distributor-service/logs/application.log' &
+kitty -T 'messages-prod'  -e sshpass -p 'UkcyewOawdUrgot4' ssh o.plett@hel.battlesmiths.com 'tail -n 40  -f /opt/mg/apps/production/platform-messages/logs/application.log' &
 

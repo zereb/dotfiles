@@ -15,4 +15,8 @@
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
+    "window.zoomLevel": 1,
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
 }
