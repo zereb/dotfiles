@@ -1,0 +1,3 @@
+(defun save-all () (interactive) (save-some-buffers t))
+
+(use-package csv-mode)

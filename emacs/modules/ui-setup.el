@@ -22,9 +22,9 @@
 (defun my/linum-off ()
   (linum-mode -1))
 
-(add-hook 'helpful-mode-hook #'my/linum-off)
-(add-hook 'prog-mode-hook #'linum-mode)
-(setq linum-format "%4d ")
+;; (add-hook 'helpful-mode-hook #'my/linum-off)
+;; (add-hook 'prog-mode-hook #'linum-mode)
+;; (setq linum-format "%4d ")
 
 ;;;mouse scroll
 (setq scroll-conservatively 101) ;; value greater than 100 gets rid of half page jumping
@@ -182,3 +182,4 @@
   (consult-grep "" (current-word)))
 
 (use-package google-this)
+(use-package csv-mode)

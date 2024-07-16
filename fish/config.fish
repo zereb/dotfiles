@@ -62,18 +62,10 @@ alias mariastop "sudo systemctl stop mariadb.service"
 alias game_mode "xrandr --output HDMI-0 --mode 1280x720 && xinput --set-prop 11 'libinput Accel Speed' -0.5 && polybar_launch && killall compton && echo 'done'"
 alias normal_mode "xrandr --output HDMI-0 --auto && xinput --set-prop 11 'libinput Accel Speed' 0 && polybar_launch && compton &"
 alias pacman-r-orphans "sudo pacman -Qtdq | sudo pacman -Rns -"
-alias pacman-r-aur "sudo pacman -Qm | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
-alias pacman-r "sudo pacman -Qe | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
+alias pacman-r-aur "sudo pacman -Qmq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
+alias pacman-r "sudo pacman -Qeq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
 alias pacman-r-unneeded "pacman -Qqd | pacman -Rsu -" 
 
-alias merlin-main-tail "ssh o.plett@merlin.vintersaga.com  'tail -f /opt/vintersaga/apps/develop/platform-main/logs/application.log'"
-alias merlin-main-cat "ssh o.plett@merlin.vintersaga.com  'cat /opt/vintersaga/apps/develop/platform-main/logs/application.log'"
-
-alias merlin-admin-tail "ssh o.plett@merlin.vintersaga.com  'tail -f /opt/mg/apps/develop/platform-admin/logs/application.log'"
-alias qa-admin-tail "ssh o.plett@merlin.vintersaga.com  'tail -f /opt/vintersaga/apps/qa/platform-admin/logs/application.log'"
-
-alias qa-main-tail "ssh o.plett@merlin.vintersaga.com  'tail -f /opt/vintersaga/apps/qa/platform-main/logs/application.log'"
-alias hel-main-tail "ssh o.plett@hel.battlesmiths.com  'tail -f /opt/mg/apps/production/platform-admin/logs/application.log'"
-alias hel-admin-tail "ssh o.plett@hel.battlesmiths.com   'tail -f /opt/mg/apps/production/platform-admin/logs/application.log'"
+alias packages-info+rem "pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(sudo pacman -Rsn {})'"
 
 

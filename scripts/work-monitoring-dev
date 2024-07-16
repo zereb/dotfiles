@@ -1,5 +1,5 @@
 #!/bin/sh
-kitty -T 'main-dev' -e /usr/bin/sshpass -p'cowfEifcoictEgg7' /usr/bin/ssh o.plett@pifogor.mgdev.pro  'tail -n 40 -f /opt/mg/apps/platform/develop/platform-main/logs/application.log' &
+kitty -T 'main-dev' -e /usr/bin/sshpass -p 'cowfEifcoictEgg7' /usr/bin/ssh o.plett@pifogor.mgdev.pro  'tail -n 40 -f /opt/mg/apps/platform/develop/platform-main/logs/application.log' &
 kitty -T 'admin-dev'  -e sshpass -p 'cowfEifcoictEgg7' ssh o.plett@pifogor.mgdev.pro  'tail -n 40  -f /opt/mg/apps/platform/develop/platform-admin/logs/application.log' &
 kitty -T 'payment-dev'  -e sshpass -p 'cowfEifcoictEgg7' ssh o.plett@pifogor.mgdev.pro  'tail -n 40  -f /opt/mg/apps/platform/develop/payment-webhooks-service/logs/application.log' &
 kitty -T 'quest-service-dev'  -e sshpass -p 'cowfEifcoictEgg7' ssh o.plett@pifogor.mgdev.pro  'tail -n 40  -f /opt/mg/apps/platform/develop/platform-quest-server/logs/application.log' &

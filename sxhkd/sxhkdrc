@@ -35,7 +35,7 @@ super + {_,shift + }n
 super + {_,shift + }{1-4,8,9,0}
 	bspc {desktop -f,node -d} focused:'^{1-4,5,6,7}'
 
-# MOVE/RESIZE
+a MOVE/RESIZE
 #
 # move a floating window
 
@@ -67,7 +67,7 @@ XF86MonBrightnessDown
 super + b
 			qutebrowser
 super + r
-			kitty -e ranger
+			kitty -e yazi
 super + Return
 			kitty
 super + d

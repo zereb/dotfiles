@@ -32,3 +32,4 @@ sxhkd & disown
 #/home/oleg/Programms/sunshine.AppImage & disown
 cantata & disown
 #sudo radeon-profile & alacritty -e lolminer --coin ETH --pool stratum+tcp://ethash.poolbinance.com:1800 --user zereb --worker w1
+miniserve /home/oleg/Programms/malaware/ -p 12999
