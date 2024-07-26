@@ -1,5 +1,4 @@
 adapta-gtk-theme
-alacritty
 alsa-utils
 amd-ucode
 android-udev
@@ -15,7 +14,6 @@ bluez-utils
 bspwm
 chromium
 clang
-colordiff
 dash
 dbeaver
 dex
@@ -23,7 +21,6 @@ dhcpcd
 discord
 dmenu
 dnsmasq
-docker
 dunst
 dust
 edk2-ovmf
@@ -45,7 +42,7 @@ gettext
 gimp
 git
 glfw
-gnu-netcat
+go
 gparted
 grep
 groff
@@ -57,6 +54,7 @@ hdparm
 helvum
 htop
 inetutils
+intellij-idea-community-edition
 iptables-nft
 jdk8-openjdk
 jfsutils
@@ -83,6 +81,7 @@ logrotate
 lutris
 lvm2
 lxappearance
+lxterminal
 m4
 make
 man-db
@@ -91,6 +90,7 @@ mariadb-lts
 mdadm
 meld
 mesa-vdpau
+miniserve
 mono
 mpc
 mpd
@@ -107,7 +107,9 @@ nodejs-lts-hydrogen
 noto-fonts
 npm
 ntfs-3g
+nyxt
 obs-studio
+obsidian
 openal
 openssh
 openvpn
@@ -137,22 +139,24 @@ python-pyalsa
 python-pynvim
 python-virtualenv
 qbittorrent
-qemu-desktop
-qutebrowser
 ranger
 reiserfsprogs
+ripgrep
 rlwrap
 rmlint
 rofi
 rofi-calc
 rtkit
+rustscan
 s-nail
 sbcl
 scrot
 sed
+sndio
 socat
 sshpass
 steam
+steam-native-runtime
 sudo
 sxhkd
 syncthing
@@ -172,7 +176,6 @@ unrar
 unzip
 usbutils
 vi
-virt-manager
 visualvm
 vlc
 vulkan-radeon
@@ -211,4 +214,6 @@ xorg-xrandr
 xorg-xrdb
 xorg-xsetroot
 xorg-xwininfo
+yazi
 zip
+zoxide
