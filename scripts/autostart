@@ -5,24 +5,24 @@ hostname="$(hostname)"
 xsetroot -cursor_name left_ptr &
 
 if [ "$hostname" = "PC" ]; then
-    xrandr --output HDMI-A-0 --set TearFree on &
+    xrandr --output HDMI-A-0 --primary --mode 1920x1080 --scale 1 --rotate normal --set TearFree on --output DisplayPort-2 --mode 1280x1024 --rotate normal --left-of HDMI-A-0 --set TearFree on
     sudo modprobe k10temp force=1 &
     # sudo modprobe zenpowe &
 fi
 
 if [ "$hostname" = "ThinkPadT14" ]; then
     cbatticon & disown
+    bluetoothctl power on &
 fi
 
 pulseaudio --start
-bluetoothctl power on &
-transmission-daemon &
+# transmission-daemon &
 polybar_launch &
 wmname LG3D &
 ~/.fehbg &
 dunst &
 nm-applet &
-xautolock -locker "betterlockscreen -l dim" &
+xautolock -locker "betterlockscreen -l" &
 #compton &
 syncthing -no-browser &
 mpd &

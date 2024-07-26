@@ -5,3 +5,8 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 polybar default -r &
+
+second_monitor=$(xrandr --query | grep 'DisplayPort-2')
+if [[ $second_monitor = *connected* ]]; then
+    polybar second &
+fi

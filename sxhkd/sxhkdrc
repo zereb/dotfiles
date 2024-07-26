@@ -32,8 +32,8 @@ super + {_,shift + }n
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus or send to the given desktop
-super + {_,shift + }{1-4,8,9,0}
-	bspc {desktop -f,node -d} focused:'^{1-4,5,6,7}'
+super + {_,shift + }{1,2,3,4,8,9,0}
+	bspc {desktop -f,node -d} { , , , , , , }
 
 a MOVE/RESIZE
 #
@@ -50,8 +50,19 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer set Master 5%-
 
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioPrev
+	mpc prev
+
+XF86AudioNext
+	mpc next
+
 XF86AudioMute
 	micro --toggle
+
+super + XF86AudioPlay
 
 F1
 	micro --toggle
@@ -97,15 +108,6 @@ super + Print
 Print
     scrot ~/%Y-%m-%d-%T-screenshot.png -s && dunstify -u normal "scrot" "screenshot saved"
     
-super + F12
-    scrot -s
-
-super + F10
-		sudo radeon-profile
-
-super + F11
-		sleep 6h && shutdown
-
 
 #poe related
 

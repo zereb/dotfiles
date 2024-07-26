@@ -2,9 +2,19 @@
 #### AUTOSTART ####
 autostart &
 
-
 #### MONITORS ####
-bspc monitor --reset-desktops       
+# bspc monitor --reset-desktops       
+
+hostname="$(hostname)"
+if [ "$hostname" = "PC" ]; then
+    bspc monitor HDMI-A-0 -d     
+    bspc monitor DisplayPort-2 -d   
+    bspc wm -O HDMI-A-0 DisplayPort-2
+fi
+
+if [ "$hostname" = "ThinkPadT14" ]; then
+ bspc monitor --reset-desktops       
+fi
 
 ### DRACULA
 bspc config normal_border_color "#282a36"
@@ -35,15 +45,14 @@ bspc rule --add Emacs state=tiled
 
 bspc rule --add cantata desktop=^7 follow=off
 bspc rule --add LBRY desktop=^7 follow=off
-bspc rule --add mpv state=floating desktop=^7 follow=off
+# bspc rule --add mpv state=floating desktop=^7 follow=off
 
-bspc rule --add Steam --one-shot desktop=^6 follow=off
+bspc rule --add Steam desktop=^6 follow=on
 bspc rule --add Lutris desktop=^6 follow=off
 bspc rule --add retroarch desktop=^6 follow=off
 bspc rule --add Doomseeker desktop=^6 follow=off
 
-bspc rule --add steam_app_238960 desktop=^2 follow=off state=fullscrean #poe
-bspc rule --add "Dota 2" desktop=^2 follow=off state=fullscrean
+bspc rule --add steam_app_* desktop=^2 follow=off state=fullscrean #poe
 
 
 bspc rule --add firefox desktop=^1 follow=off
